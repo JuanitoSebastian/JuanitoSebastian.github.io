@@ -1,0 +1,15 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply bg-slate-50;
+}
+
+h1 {
+    @apply font-roc-grotesk;
+    @apply font-medium;
+    @apply text-4xl;
+    @apply uppercase;
+}
