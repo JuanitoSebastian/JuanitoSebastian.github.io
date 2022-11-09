@@ -7,7 +7,8 @@ module.exports = {
             'j-light-lilac': '#F0F0FC',
             'j-lilac': '#CB9CF2',
             'j-dark-lilac': '#540D6E',
-            'j-black': '#23201F'
+            'j-black': '#23201F',
+            'j-orange': '#FFA400'
           },
           fontFamily: {
             'roc-grotesk': ['roc-grotesk', 'sans-serif']

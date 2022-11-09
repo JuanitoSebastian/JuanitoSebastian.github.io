@@ -3,14 +3,36 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-    @apply font-roc-grotesk;
-    @apply font-medium;
-    @apply text-4xl;
-    @apply uppercase;
-}
+@layer base {
+    h1 {
+        @apply font-roc-grotesk;
+        @apply font-medium;
+        @apply text-4xl;
+        @apply uppercase;
+    }
 
-.hero {
-    background: rgb(218,202,224);
-    background: linear-gradient(150deg, rgba(218,202,224,1) 0%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 72%, rgba(240,240,252,1) 100%);
+    h2 {
+        @apply font-roc-grotesk;
+        @apply font-bold;
+        @apply text-5xl;
+    }
+
+    body {
+        @apply text-j-black;
+    }
+
+    .hero {
+        background: rgb(218,202,224);
+        background: linear-gradient(150deg, rgba(218,202,224,1) 0%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 72%, rgba(240,240,252,1) 100%);
+    }
+
+    .mywork {
+        background: rgb(218,202,224);
+        background: linear-gradient(150deg, rgba(218,202,224,1) 0%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 72%, rgba(240,240,252,1) 100%);
+    }
+
+    .about {
+        background: rgb(35,32,31);
+        background: linear-gradient(219deg, rgba(35,32,31,1) 72%, rgba(50,26,51,1) 100%);
+    }
 }
