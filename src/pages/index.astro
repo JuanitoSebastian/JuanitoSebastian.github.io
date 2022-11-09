@@ -4,8 +4,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Juan Covarrubias">
-    <main>
-        <div class="w-full bg-white bg-opacity-50">
+    <!-- HEADER -->
+    <div>
+        <div class="w-full bg-white bg-opacity-50 sticky top-0 backdrop-blur z-20">
             <header class="container mx-auto max-w-6xl py-4 px-2">
                 <div class="grid grid-cols-2">
                     <div class="flex flex-col gap items-start">
@@ -21,5 +22,10 @@ import Layout from "../layouts/Layout.astro";
                 </div>
             </header>
         </div>
-    </main>
+        <main class="w-full h-96 absolute top-0 hero">
+            <div class="container mx-auto max-w-6xl py-4 px-2 h-64">
+                <p>moi</p>
+            </div>
+        </main>
+    </div>
 </Layout>

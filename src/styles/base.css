@@ -3,13 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    @apply bg-slate-50;
-}
-
 h1 {
     @apply font-roc-grotesk;
     @apply font-medium;
     @apply text-4xl;
     @apply uppercase;
+}
+
+.hero {
+    background: rgb(218,202,224);
+    background: linear-gradient(150deg, rgba(218,202,224,1) 0%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 72%, rgba(240,240,252,1) 100%);
 }
