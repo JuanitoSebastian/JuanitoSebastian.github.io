@@ -5,20 +5,24 @@
 
 @layer base {
     h1 {
-        @apply font-roc-grotesk;
         @apply font-medium;
         @apply text-4xl;
         @apply uppercase;
     }
 
     h2 {
-        @apply font-roc-grotesk;
         @apply font-bold;
         @apply text-5xl;
     }
 
+    h3 {
+        @apply text-2xl;
+        @apply font-medium;
+    }
+
     body {
         @apply text-j-black;
+        @apply font-roc-grotesk;
     }
 
     .hero {

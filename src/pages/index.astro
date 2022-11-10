@@ -3,23 +3,15 @@ import "../styles/base.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import AboutMe from "../components/AboutMe.astro";
+import MyWork from "../components/MyWork.astro";
 ---
 
 <Layout title="Juan Covarrubias">
     <Header />
     <main>
         <Hero />
-        <!-- ABOUT ME -->
-        <div class="w-full about">
-            <div class="container mx-auto max-w-6xl py-4 px-2 h-[32rem]">
-
-            </div>
-        </div>
-        <!-- MY WORK -->
-        <div class="w-full mywork">
-            <div class="container mx-auto max-w-6xl py-4 px-2 h-[32rem]">
-
-            </div>
-        </div>
+        <AboutMe />
+        <MyWork />
     </main>
 </Layout>
