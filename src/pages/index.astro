@@ -1,54 +1,14 @@
 ---
 import "../styles/base.css";
 import Layout from "../layouts/Layout.astro";
-import huhe from "../images/huhe.png";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="Juan Covarrubias">
-    <!-- HEADER -->
-    <div class="w-full bg-white bg-opacity-50 sticky top-0 backdrop-blur z-20">
-        <header class="container mx-auto max-w-6xl py-4 px-2">
-            <div class="grid grid-cols-2">
-                <div class="flex flex-col gap items-start">
-                    <h1 class="">Juan</h1>
-                    <h1 class="">Sebastian</h1>
-                    <h1 class="">Covarrubias</h1>
-                </div>
-                <nav class="flex flex-row gap-8 items-center justify-end">
-                    <a class="font-light" href="#">about me</a>
-                    <a class="font-light" href="#">my work</a>
-                    <a class="font-light" href="#">contact</a>
-                </nav>
-            </div>
-        </header>
-    </div>
+    <Header />
     <main>
-        <!-- HERO -->
-        <div class="w-full hero">
-            <div class="container mx-auto max-w-6xl py-4 px-2 h-[32rem]">
-                <div class="grid grid-cols-2 gap-4 h-full">
-                    <div class="flex flex-col gap-2 justify-center">
-                        <h2>
-                            Software developer with a passion for <span
-                                class="text-j-orange">project management</span
-                            >
-                        </h2>
-                        <p>
-                            Hey, my name is Juan! I’m a positive team player and
-                            a creative problem solver. My strengths is comining
-                            technical knowledge to my social skills.
-                        </p>
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <img
-                            src={huhe}
-                            class="h-80 object-contain"
-                            alt="Memoji huhe"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Hero />
         <!-- ABOUT ME -->
         <div class="w-full about">
             <div class="container mx-auto max-w-6xl py-4 px-2 h-[32rem]">
