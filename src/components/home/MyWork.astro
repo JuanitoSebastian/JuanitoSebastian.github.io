@@ -1,11 +1,11 @@
 ---
 import PostCard from "./PostCard.astro";
-import type { Frontmatter, Post } from "../utils/Types";
-const posts = await Astro.glob<Frontmatter>('../pages/post/*.md');
+import type { Frontmatter, Post } from "../../utils/Types";
+const posts = await Astro.glob<Frontmatter>('../../pages/post/*.md');
 ---
 
 <div class="w-full mywork" id="my-work">
-    <div class="container mx-auto max-w-6xl py-16 px-2 h-[32rem]">
+    <div class="container mx-auto max-w-6xl py-24 px-2">
         <div class="flex flex-col gap-8 items-center w-full">
             <h2>My work</h2>
             <div class="flex flex-row gap-4 w-full justify-center">

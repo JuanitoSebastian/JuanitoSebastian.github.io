@@ -1,0 +1,24 @@
+---
+import MessageBubble from "./MessageBubble.astro";
+---
+
+<div class="w-full bg-white border-gray-200 border-t-2">
+    <div class="container mx-auto max-w-6xl py-8 px-2 h-56">
+        <div class="grid grid-cols-2 gap-4 h-full">
+            <div class="flex flex-col gap-2 items-start justify-start">
+                <a href="https://github.com/JuanitoSebastian" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/juan-sebastian-covarrubias-63a866137/" target="_blank">LinkedIn</a>
+                <a href="https://t.me/juan_fi" target="_blank">Telegram</a>
+            </div>
+            <div class="flex flex-col items-end justify-start gap-2">
+                <h3>Juan Sebastian Covarrubias</h3>
+                <MessageBubble>
+                    <p class="text-white">Leave me a message 👋</p>
+                </MessageBubble>
+                <MessageBubble>
+                    <a class="text-white" href="mailto: me@juan.fi" target="_blank">me@juan.fi</p>
+                </MessageBubble>
+            </div>
+        </div>
+    </div>
+</div>

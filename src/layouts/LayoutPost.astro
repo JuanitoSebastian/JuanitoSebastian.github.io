@@ -1,39 +1,46 @@
 ---
-import Header from '../components/Header.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/base.css";
-import type { MarkdownLayoutProps } from 'astro';
+import type { MarkdownLayoutProps } from "astro";
 
 type Props = MarkdownLayoutProps<{
-  // Define frontmatter props here
-  title: string;
-  author: string;
-  date: string;
+    // Define frontmatter props here
+    title: string;
+    author: string;
+    date: string;
 }>;
 
-// Now, `frontmatter`, `url`, and other Markdown layout properties
-// are accessible with type safety
-const { frontmatter, url } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="stylesheet" href="https://use.typekit.net/hdx6orh.css">
-		<meta name="generator" content={Astro.generator} />
-		<title>{frontmatter.title}</title>
-	</head>
-	<body>
-        <Header />
-		<div class="w-full mywork">
-            <div class="container mx-auto max-w-6xl py-16 px-2">
-                <div class="flex flex-col gap-8 items-start">
-                    <h2>{frontmatter.title}</h2>
-                    <slot />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="stylesheet" href="https://use.typekit.net/hdx6orh.css" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{frontmatter.title}</title>
+    </head>
+    <body>
+        <div class="flex flex-col h-screen">
+            <Header />
+            <main>
+                <div class="w-full mywork">
+                    <div class="container mx-auto max-w-6xl py-16 px-2">
+                        <div class="flex flex-col gap-8 items-start">
+                            <h2>{frontmatter.title}</h2>
+                            <slot />
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main>
+            <div class="flex-grow"></div>
+            <footer>
+                <Footer />
+            </footer>
         </div>
-	</body>
+    </body>
 </html>
