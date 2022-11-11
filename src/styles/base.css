@@ -39,4 +39,9 @@
         background: rgb(35,32,31);
         background: linear-gradient(219deg, rgba(35,32,31,1) 72%, rgba(50,26,51,1) 100%);
     }
+
+    .card_header {
+        background: rgb(84,13,110);
+        background: linear-gradient(219deg, rgba(84,13,110,1) 0%, rgba(255,165,0,1) 52%, rgba(84,13,110,1) 100%);
+    }
 }
