@@ -44,4 +44,9 @@
         background: rgb(84,13,110);
         background: linear-gradient(219deg, rgba(84,13,110,1) 0%, rgba(255,165,0,1) 52%, rgba(84,13,110,1) 100%);
     }
+
+    .post-header {
+        background: rgb(218,202,224);
+        background: linear-gradient(150deg, rgba(218,202,224,1) 0%, rgba(255,255,255,1) 34%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 72%, rgba(240,240,252,1) 100%);
+    }
 }

@@ -3,13 +3,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/base.css";
 import type { MarkdownLayoutProps } from "astro";
+import type { Frontmatter } from "../utils/Types";
+import TagLabel from "../components/posts/TagLabel.astro";
 
-type Props = MarkdownLayoutProps<{
-    // Define frontmatter props here
-    title: string;
-    author: string;
-    date: string;
-}>;
+type Props = MarkdownLayoutProps<Frontmatter>;
 
 const { frontmatter } = Astro.props;
 ---
@@ -28,12 +25,22 @@ const { frontmatter } = Astro.props;
         <div class="flex flex-col h-screen">
             <Header />
             <main>
-                <div class="w-full mywork">
-                    <div class="container mx-auto max-w-6xl py-16 px-2">
-                        <div class="flex flex-col gap-8 items-start">
+                <div class="w-full bg-j-light-lilac border-b-2">
+                    <div class="container mx-auto max-w-6xl py-8 md:py-24 px-4">
+                        <div class="flex flex-col gap-4 items-start mt-36">
+                            <a href="/" class="uppercase">My Work</a>
                             <h2>{frontmatter.title}</h2>
-                            <slot />
+                            <div class="flex flex-row gap-2 items-start">
+                                {frontmatter.tags.map((tag) => (
+                                    <TagLabel tag={tag} />
+                                ))}
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div class="w-full bg-white">
+                    <div class="container mx-auto max-w-6xl py-8 md:py-24 px-4">
+                        <slot />
                     </div>
                 </div>
             </main>

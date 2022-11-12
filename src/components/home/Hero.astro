@@ -3,8 +3,15 @@ import huhe from "../huhe.png";
 ---
 
 <div class="w-full hero">
-    <div class="container mx-auto max-w-6xl py-24 px-2">
-        <div class="grid grid-cols-2 gap-4">
+    <div class="container mx-auto max-w-6xl py-8 md:py-24 px-4">
+        <div class="grid md:grid-cols-2 gap-4 mt-36">
+            <div class="flex flex-col justify-center md:order-2">
+                <img
+                    src={huhe}
+                    class="h-80 object-contain"
+                    alt="Memoji huhe"
+                />
+            </div>
             <div class="flex flex-col gap-8 justify-center">
                 <h2>
                     Software developer with a passion for <span
@@ -16,13 +23,6 @@ import huhe from "../huhe.png";
                     a creative problem solver. My strength is combining
                     technical knowledge to my social skills.
                 </p>
-            </div>
-            <div class="flex flex-col justify-center">
-                <img
-                    src={huhe}
-                    class="h-80 object-contain"
-                    alt="Memoji huhe"
-                />
             </div>
         </div>
     </div>

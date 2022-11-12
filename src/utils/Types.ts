@@ -3,8 +3,8 @@ export interface Frontmatter {
     description: string;
     author: string;
     date: string;
-    url: string;
-  }
+    tags: [string];
+}
 
 export interface Post {
     url: string;
