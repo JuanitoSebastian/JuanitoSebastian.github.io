@@ -5,7 +5,6 @@ import "../styles/base.css";
 import type { MarkdownLayoutProps } from "astro";
 import type { Frontmatter } from "../utils/Types";
 import TagLabel from "../components/posts/TagLabel.astro";
-import back from "../back.svg";
 
 type Props = MarkdownLayoutProps<Frontmatter>;
 
@@ -32,7 +31,7 @@ const { frontmatter } = Astro.props;
                             <a href="/" class="uppercase">
                                 <div class="flex flex-row items-center gap-2">
                                     <img
-                                        src={back}
+                                        src="/back.svg"
                                         class="object-contain w-6 mb-1 stroke-gray-500"
                                     />
                                     Back
