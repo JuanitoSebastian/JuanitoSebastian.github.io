@@ -8,6 +8,5 @@ export default defineConfig({
   integrations: [tailwind({
     config: { applyBaseStyles: false }
   })],
-  site: 'https://JuanitoSebastian.github.io',
-  base: '/juan.fi'
+  site: 'https://JuanitoSebastian.github.io'
 });
