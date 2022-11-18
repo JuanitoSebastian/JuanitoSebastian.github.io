@@ -23,7 +23,7 @@ const Header = () => {
     const headerWrapperStyle = { height: `${headerHeight()}px` };
 
     return (
-        <div style={headerWrapperStyle} className='w-full bg-white bg-opacity-80 fixed top-0 backdrop-blur z-20 transition-all duration-500 items-center overflow-hidden'>
+        <div style={headerWrapperStyle} className='w-full bg-white bg-opacity-80 fixed top-0 backdrop-blur z-20 transition-all ease-out duration-500 items-center overflow-hidden'>
             <header className="container mx-auto max-w-6xl px-4 pt-4 h-full">
                 <div className="flex-row gap-8 items-center justify-end h-full flex transition-all duration-500">
                     <a href="/">

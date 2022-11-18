@@ -4,6 +4,7 @@ export interface Frontmatter {
     author: string;
     date: string;
     tags: [string];
+    draft?: boolean;
 }
 
 export interface Post {
