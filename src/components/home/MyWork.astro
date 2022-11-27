@@ -9,6 +9,7 @@ const postsToDisplay = posts.filter(post => !post.frontmatter.draft);
     <div class="container mx-auto max-w-6xl py-24 px-4">
         <div class="flex flex-col gap-8 items-center flex-wrap w-full">
             <h2>My work</h2>
+            <p>Personal projects and blog posts.</p>
             <div class="flex flex-row gap-4 w-full justify-center flex-wrap">
                 {postsToDisplay.map((post) => (
                     <PostCard frontmatter={post.frontmatter} url={post.url} />
@@ -16,4 +17,4 @@ const postsToDisplay = posts.filter(post => !post.frontmatter.draft);
             </div>
         </div>
     </div>
-</div
+</div>
