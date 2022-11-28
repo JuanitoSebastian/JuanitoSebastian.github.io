@@ -1,4 +1,4 @@
-I’m a third year Computer Science student at the University of Helsinki. My interests include networks, usability and agile development. I come from a multicultural background and speak Finnish and Spanish natively. I also speak English on a B2 level and Portuguese on a B1 level.
+I’m a third year Computer Science student at the University of Helsinki. My interests include networks, usability and agile development. I come from a multicultural background and speak Finnish and Spanish natively. I also speak English on a B2 level and Portuguese on a A2 level.
 
 Before transitioning to the field of IT, I did a 6-year career in technical event production, and I worked as the Chief Technical Producer for two companies. Over those years, I learned a lot about project management and leadership. Teams move fast in the event industry, during peak season we worked with multiple clients and had a tight schedule. To succeed, I had to learn to keep a cool head under pressure and to adapt to the circumstances given in each project. Although these skills were learned in the event industry, I'm sure they will be valuable in the field of IT as well.
 
