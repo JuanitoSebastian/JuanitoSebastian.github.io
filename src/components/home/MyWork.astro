@@ -5,7 +5,7 @@ const posts = await Astro.glob<Frontmatter>('../../pages/post/*.md');
 const postsToDisplay = posts.filter(post => !post.frontmatter.draft);
 ---
 
-<div class="w-full mywork" id="my-work">
+<div class="w-full mywork scroll-mt-16" id="my-work">
     <div class="container mx-auto max-w-6xl py-24 px-4">
         <div class="flex flex-col gap-8 items-center flex-wrap w-full">
             <h2>My work</h2>
