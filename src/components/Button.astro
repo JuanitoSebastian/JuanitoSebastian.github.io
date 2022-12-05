@@ -1,0 +1,19 @@
+---
+export interface Props {
+    label: string;
+    icon: string;
+    href: string;
+}
+
+const { label, icon, href } = Astro.props;
+---
+
+<a href={href} target="_blank">
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-row px-4 gap-2.5 justify-start">
+            <img class="align-middle w-6 aspect-square" src={icon} />
+            <p class="align-baseline mt-2 text-j-dark-lilac text-lg">{label}</p>
+        </div>
+        <div class="w-full border border-j-dark-lilac rounded"></div>
+    </div>
+</a>
