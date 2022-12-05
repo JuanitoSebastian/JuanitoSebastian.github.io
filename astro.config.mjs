@@ -7,11 +7,14 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 
 // https://astro.build/config
+import image from "@astrojs/image";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind({
     config: {
       applyBaseStyles: false
     }
-  }), react()],
+  }), react(), image()],
   site: 'https://JuanitoSebastian.github.io'
 });
