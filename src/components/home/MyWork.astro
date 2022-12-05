@@ -1,7 +1,7 @@
 ---
 import PostCard from "./PostCard.astro";
 import type { Frontmatter } from "../../utils/Types";
-const posts = await Astro.glob<Frontmatter>('../../pages/post/*.md');
+const posts = await Astro.glob<Frontmatter>('../../pages/post/*.mdx');
 const postsToDisplay = posts.filter(post => !post.frontmatter.draft);
 ---
 
