@@ -10,11 +10,14 @@ import react from "@astrojs/react";
 import image from "@astrojs/image";
 
 // https://astro.build/config
+import mdx from "@astrojs/mdx";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind({
     config: {
       applyBaseStyles: false
     }
-  }), react(), image()],
+  }), react(), image(), mdx()],
   site: 'https://JuanitoSebastian.github.io'
 });
