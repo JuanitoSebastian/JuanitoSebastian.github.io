@@ -4,7 +4,7 @@ title: "UDP Sockets & Digital Turntables"
 description: "What type of network traffic is broadcast in a Pro DJ Link network? Investigating the packets sent by Pioneer DJ equipment and creating a Swift application to parse it."
 author: "Juan Covarrubias"
 date: "09 Aug 2022"
-tags: ["Networks", "Music", "Swift", "SwiftNIO"]
+tags: ["Networks", "Music"]
 ---
 import { Image, Picture } from '@astrojs/image/components';
 
@@ -28,8 +28,9 @@ Wireshark was used for the network packet capture. To intercept all the traffic,
 </a>
 <figcaption class="text-sm w-full max-w-xl text-center bg-slate-50 p-2">Amount of UDP packets throughout the packet capture</figcaption>
 </figure>
-The performance of the deejay could clearly be seen in the network packet capture. The number of different UDP packets was clearly affected by what the deejay was currently doing. 
+The performance of the deejay could be seen in the network packet capture. The number of different UDP packets was clearly affected by what the deejay was currently doing. In the first graph, we can see that when there is no music playing, the number of UDP 50001 packets hovers around 3-4 packets per second (PPS). When player A starts a track, the number of UDP 50001 packets rises to 5-7 PPS. When player B also starts playing, the number of UDP 50001 packets rises to 7-10 PPS. The number of UDP 50002 packets also reflect the actions of the deejay. They tend to peak at the most intense parts of the DJ set, when a lot is happening. A sharp peak in UDP 50002 packets can be seen just before 195 seconds. That was the exact moment when the deejay switched between two songs. UDP 50000 packets seem to be only used for an initial handshake and a heartbeat signal.
 
+### The DJ set and packet capture side by side
 <div class="flex flex-row items-center justify-center w-full aspect-video">
 <iframe class="object-cover h-full w-full" width="560" height="315" src="https://www.youtube.com/embed/MCkAdgy9cAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
