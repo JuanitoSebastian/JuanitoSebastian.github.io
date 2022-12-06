@@ -1,6 +1,8 @@
 ---
 import SkillLabel from "./SkillLabel.astro";
-import {Content as AboutMeText} from './AboutMe.md';
+import { Content as AboutMeJuanText } from "./AboutMeJuan.md";
+import { Content as AboutMeAppsText } from "./AboutMeApps.md";
+import { Image } from "@astrojs/image/components";
 ---
 
 <div class="w-full about text-white scroll-mt-16" id="about-me">
@@ -14,11 +16,25 @@ import {Content as AboutMeText} from './AboutMe.md';
                     <SkillLabel text="iOS Development" />
                     <SkillLabel text="Full Stack Development" />
                     <SkillLabel text="Project Management" />
+                    <SkillLabel text="Scrum Principles" />
                     <SkillLabel text="Clear Communication" />
                     <SkillLabel text="Leadership" />
                 </div>
                 <div class="flex flex-col gap-2">
-                    <AboutMeText />
+                    <AboutMeJuanText />
+                </div>
+                <div class="flex flex-col items-center justify-center md:order-3">
+                    <Image
+                        src="/images/apps.png"
+                        width={800}
+                        aspectRatio={1.56}
+                        alt="Finnish Passphrases app running on a Mac and HKI Bike Buddy running on an iPhone"
+                        format="png"
+                        class="object-cover"
+                    />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <AboutMeAppsText />
                 </div>
             </div>
         </div>
