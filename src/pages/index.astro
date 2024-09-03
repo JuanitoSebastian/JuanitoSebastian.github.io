@@ -1,14 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/home/Hero.astro";
-import AboutMe from "../components/home/AboutMe.astro";
-import MyWork from "../components/home/MyWork.astro";
+import Html from '../layouts/Html.astro';
+import Layout from '../layouts/Layout.astro';
+
+const htmlProps = {
+  title: 'Juan Sebastian Covarrubias',
+  meta: {
+    description:
+      'Juan is a software engineer and web developer based in Helsinki.',
+    keywords:
+      'react, javascript, typescript, software engineer, web developer, front-end developer, full-stack developer',
+  },
+};
 ---
 
-<Layout title="Juan Sebastian Covarrubias">
-    <main>
-        <Hero />
-        <AboutMe />
-        <MyWork />
-    </main>
-</Layout>
+<Html {...htmlProps}>
+  <Layout />
+</Html>

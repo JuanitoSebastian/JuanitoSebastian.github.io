@@ -1,0 +1,38 @@
+@mixin fonts {
+  --roboto: 'Roboto', sans-serif;
+  --roboto-condensed: 'Roboto Condensed', sans-serif;
+}
+
+@mixin measurements {
+  --main-width: 848px;
+}
+
+@mixin light-colors {
+  --bg-color: #fff;
+  --text-color: #222;
+  --blue-color: #07169e;
+}
+
+@mixin dark-colors {
+  --bg-color: #222;
+  --text-color: #fff;
+  --blue-color: #07169e;
+}
+
+html {
+  @include fonts;
+  @include light-colors;
+  @include measurements;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: var(--roboto);
+  color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    @include dark-colors;
+  }
+}

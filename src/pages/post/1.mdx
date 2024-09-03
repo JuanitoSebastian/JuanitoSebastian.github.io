@@ -6,7 +6,7 @@ author: "Juan Covarrubias"
 date: "09 Aug 2022"
 tags: ["Networks", "Music", "Swift", "SwiftNIO"]
 ---
-import { Image, Picture } from '@astrojs/image/components';
+import { Image, Picture } from 'astro:assets';
 
 The nightclub scene is not that different from other industries: it too has seen a massive change from old analog solutions to new digital equipment. There are still some disc jockeys who carry a bag full of vinyls from venue to venue, but the majority of deejays have opted for a much more convenient solution: digital music players. Most nightclubs and music venues have DJ equipment in-house, and the standard setup you will find in nightclubs worldwide is Pioneer CDJ players and a Pioneer DJM mixer. The CDJ is a digital music player capable of playing audio files off from CDs, USB flash drives and SD cards. A deejay typically carries a USB stick with their music library on it. When it's their time to perform, the deejay can just plug the USB flash drive to the CDJ and start playing. Besides the convenience of not having to carry heavy bags full of records, the CDJs offer some fascinating features when connected to a LAN network. CDJ players can share audio files between each other and send useful information like the current BPM (beats per minute) of the current track. The DJM mixer can listen to this information that is broadcast on the network and use it to synchronize audio effects. In a more advanced setup this information can be fed to the lighting and video operators who can use it to synchronize the light show and video effects to match exactly the rhythm of the music that is currently playing. The owner of the Pioneer DJ brand AlphaTheta Corporation calls this technology Pro DJ Link, and they have not released any public documentation on the protocol. 
 
@@ -24,7 +24,7 @@ Wireshark was used for the network packet capture. To intercept all the traffic,
 ### Results
 <figure class="flex flex-col items-center justify-center w-full gap-2">
 <a href="/images/io_graph1.png" target="_blank">
-<Image src="/images/io_graph1.png" width={600} aspectRatio={1.41} alt="Graph showing amount of UDP packets during the capture" format="png" class="w-full max-w-xl" />
+<Image src="/images/io_graph1.png" width={600} alt="Graph showing amount of UDP packets during the capture" format="png" class="w-full max-w-xl" />
 </a>
 <figcaption class="text-sm w-full max-w-xl text-center bg-slate-50 p-2">Amount of UDP packets throughout the packet capture</figcaption>
 </figure>
