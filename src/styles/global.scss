@@ -1,27 +1,51 @@
 @mixin fonts {
   --roboto: 'Roboto', sans-serif;
   --roboto-condensed: 'Roboto Condensed', sans-serif;
+  --roboto-mono: 'Roboto Mono', monospace;
 }
 
 @mixin measurements {
   --main-width: 848px;
+  --xxl-spacing: 128px;
+  --xl-spacing: 64px;
+  --bigger-spacing: 32px;
+  --default-spacing: 16px;
+  --smaller-spacing: 8px;
 }
 
 @mixin light-colors {
   --bg-color: #fff;
   --text-color: #222;
+  --secondary-text-color: #666;
   --blue-color: #07169e;
+  --light-blue-color: #3947c5;
+  --gray-color: #e1e2ec;
+  --light-gray-color: #fcfcfc;
 }
 
 @mixin dark-colors {
   --bg-color: #222;
   --text-color: #fff;
-  --blue-color: #07169e;
+  --secondary-text-color: #ccc;
+  --blue-color: #3445dd;
+  --light-blue-color: #3947c5;
+  --gray-color: #3b3b42;
+  --light-gray-color: #2b2b2b;
+}
+
+@mixin global-colors {
+  --clear: transparent;
+  --section-background-gradient: linear-gradient(to bottom,
+      var(--clear),
+      var(--bg-color) var(--bigger-spacing),
+      var(--bg-color) calc(100% - var(--bigger-spacing)),
+      var(--clear));
 }
 
 html {
   @include fonts;
   @include light-colors;
+  @include global-colors;
   @include measurements;
 }
 
@@ -29,6 +53,16 @@ body {
   background-color: var(--bg-color);
   font-family: var(--roboto);
   color: var(--text-color);
+
+  p {
+    line-height: 1.4;
+  }
+
+  .accent-color {
+    background: linear-gradient(to left, var(--light-blue-color), var(--blue-color), var(--light-blue-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

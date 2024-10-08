@@ -1,0 +1,111 @@
+---
+import { Content as AboutMeText } from '../../mds/AboutMe.md';
+---
+
+<style>
+  article {
+    backdrop-filter: blur(1px);
+    max-width: var(--main-width);
+    padding: var(--xl-spacing) 0;
+    margin: 0 auto var(--xxl-spacing);
+    background: var(--section-background-gradient);
+  }
+
+  .title {
+    font-family: var(--roboto-condensed);
+    font-size: 42px;
+    line-height: 1.1;
+    margin: 0 0 var(--default-spacing);
+    width: 500px;
+  }
+
+  /* Updated CSS for animation */
+  .ml13 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+</style>
+
+<!-- Client-side script with anime.js -->
+<script>
+  import anime from 'animejs/lib/anime.es.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const titles = [
+      ['Juan is a ', 'Front-end', ' technology enthusiast'],
+      ['Juan is a developer with ', 'project management', ' skills'],
+      ['Juan pays attention to the ', 'visual details', ''],
+    ];
+
+    const element = document.querySelector('article .title');
+
+    if (element) {
+      let index = 0;
+
+      // Modified wrapLetters function to accept an extra class
+      const wrapLetters = (text, extraClass = '') => {
+        return text.replace(
+          /([^\s])/g,
+          `<span class="letter ${extraClass}">$&</span>`,
+        );
+      };
+
+      const updateHeadline = () => {
+        const [firstPart, emphasisPart, lastPart] = titles[index];
+
+        // Wrap each character and apply 'accent-color' to emphasisPart
+        const firstPartWrapped = wrapLetters(firstPart);
+        const emphasisPartWrapped = wrapLetters(emphasisPart, 'accent-color');
+        const lastPartWrapped = wrapLetters(lastPart);
+
+        // Set the innerHTML of the element without wrapping emphasisPart in an extra span
+        element.innerHTML = `
+        ${firstPartWrapped}
+        ${emphasisPartWrapped}
+        ${lastPartWrapped}
+      `;
+
+        // Add 'ml13' class to the element for targeting
+        element.classList.add('ml13');
+
+        // Create the anime.js timeline
+        anime
+          .timeline({
+            loop: false,
+            complete: () => {
+              index = (index + 1) % titles.length;
+              // Delay before showing the next headline
+              setTimeout(updateHeadline, 1000);
+            },
+          })
+          .add({
+            targets: '.ml13 .letter',
+            translateY: [100, 0],
+            opacity: [0, 1],
+            easing: 'easeOutExpo',
+            duration: 800,
+            delay: (el, i) => 30 * i,
+          })
+          .add({
+            targets: '.ml13 .letter',
+            translateY: [0, -100],
+            opacity: [1, 0],
+            easing: 'easeInExpo',
+            duration: 600,
+            delay: (el, i) => 30 * i,
+          });
+      };
+
+      // Start the animation loop
+      updateHeadline();
+    }
+  });
+</script>
+
+<article>
+  <h2 class="title">
+    Juan is a developer with <span class="accent-color">project management</span
+    > skills
+  </h2>
+  <AboutMeText />
+</article>

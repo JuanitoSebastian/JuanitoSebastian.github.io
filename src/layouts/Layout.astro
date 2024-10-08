@@ -1,4 +1,5 @@
 ---
+import BgLine from '../components/BgLine.astro';
 import Header from '../components/Header.astro';
 ---
 
@@ -11,12 +12,14 @@ import Header from '../components/Header.astro';
     justify-content: center;
 
     .main-content {
+      width: 100%;
       max-width: var(--main-width);
     }
   }
 </style>
 
 <div class="layout">
+  <BgLine />
   <Header />
   <main class="main-content">
     <slot />
