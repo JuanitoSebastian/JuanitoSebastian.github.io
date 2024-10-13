@@ -1,5 +1,4 @@
 ---
-import BgLine from '../components/BgLine.astro';
 import Header from '../components/Header.astro';
 ---
 
@@ -10,6 +9,7 @@ import Header from '../components/Header.astro';
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 var(--default-spacing);
 
     .main-content {
       width: 100%;
@@ -19,7 +19,6 @@ import Header from '../components/Header.astro';
 </style>
 
 <div class="layout">
-  <BgLine />
   <Header />
   <main class="main-content">
     <slot />

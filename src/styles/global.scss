@@ -49,24 +49,45 @@ html {
   @include measurements;
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    @include dark-colors;
+  }
+}
+
 body {
   background-color: var(--bg-color);
   font-family: var(--roboto);
   color: var(--text-color);
-
+  height: 100vh;
+  margin: 0;
+  overflow: auto;
+  background: linear-gradient(90deg,
+    var(--bg-color),
+    var(--bg-color) calc(50% - 4px),
+    var(--clear) 8px calc(50% - 4px),
+    var(--clear) 16px calc(50% + 4px),
+    var(--bg-color) calc(50% + 4px),
+    var(--bg-color)
+  ), 
+  linear-gradient(
+    var(--bg-color),
+    var(--gray-color)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  
   p {
     line-height: 1.4;
   }
 
   .accent-color {
     background: linear-gradient(to left, var(--light-blue-color), var(--blue-color), var(--light-blue-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-clip: text;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    @include dark-colors;
-  }
+.title > * {
+  display: inline-block;
 }

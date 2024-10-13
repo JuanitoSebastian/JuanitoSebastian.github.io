@@ -18,11 +18,15 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
     margin: 0 0 var(--default-spacing);
     width: 500px;
   }
-
-  /* Updated CSS for animation */
-  .ml13 .letter {
+</style>
+<style is:global>
+  .about-me .letter {
     display: inline-block;
     line-height: 1em;
+  }
+
+  .about-me .accent-color .letter {
+    display: inline;
   }
 </style>
 
@@ -44,10 +48,13 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
 
       // Modified wrapLetters function to accept an extra class
       const wrapLetters = (text, extraClass = '') => {
-        return text.replace(
-          /([^\s])/g,
-          `<span class="letter ${extraClass}">$&</span>`,
-        );
+        return text
+          .split(' ')
+          .map((word) => {
+            const letters = word.replace(/./g, `<span class="${extraClass === '' ? 'letter' : ''}">$&</span>`);
+            return `<span class="word ${extraClass}">${letters}</span>`;
+          })
+          .join(' ');
       };
 
       const updateHeadline = () => {
@@ -65,9 +72,6 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
         ${lastPartWrapped}
       `;
 
-        // Add 'ml13' class to the element for targeting
-        element.classList.add('ml13');
-
         // Create the anime.js timeline
         anime
           .timeline({
@@ -75,20 +79,34 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
             complete: () => {
               index = (index + 1) % titles.length;
               // Delay before showing the next headline
-              setTimeout(updateHeadline, 1000);
+              updateHeadline();
             },
           })
           .add({
-            targets: '.ml13 .letter',
-            translateY: [100, 0],
+            targets: '.accent-color',
+            opacity: [0, 1],
+            easing: 'easeInOutQuad',
+            duration: 100,
+          })
+          .add({
+            targets: '.letter',
+            translateY: [10, 0],
             opacity: [0, 1],
             easing: 'easeOutExpo',
             duration: 800,
             delay: (el, i) => 30 * i,
           })
           .add({
-            targets: '.ml13 .letter',
-            translateY: [0, -100],
+            targets: '.letter',
+            translateY: [0, 0],
+            opacity: [1, 1],
+            easing: 'linear',
+            duration: 1000,
+            delay: (el, i) => 30 * i,
+          })
+          .add({
+            targets: '.letter',
+            translateY: [0, -10],
             opacity: [1, 0],
             easing: 'easeInExpo',
             duration: 600,
@@ -102,10 +120,10 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
   });
 </script>
 
-<article>
+<article class="about-me">
   <h2 class="title">
     Juan is a developer with <span class="accent-color">project management</span
-    > skills
+    > experience
   </h2>
   <AboutMeText />
 </article>

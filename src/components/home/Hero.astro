@@ -4,25 +4,39 @@
 
 <style>
   .hero {
-    height: 500px;
+    height: clamp(200px, calc(100svh - (144px + 32px)), 600px);
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
     justify-content: flex-end;
     margin: 0 0 var(--xxl-spacing);
-
+    
     .title {
       margin: 0;
+      padding: 0 0 var(--default-spacing);
       text-align: right;
       color: var(--secondary-text-color);
       font-family: var(--roboto-condensed);
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1.2;
 
       .main {
         color: var(--text-color);
         font-size: 32px;
+      }
+
+      > * {
+        /* background-color: var(--bg-color); */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0px 0px 10px var(--bg-color);
+      }
+    }
+
+    @media (min-width: 400px) {
+      .title {
+        font-size: 24px;
       }
     }
   }
@@ -31,7 +45,7 @@
 <section class="hero">
   <p class="title">
     <strong class="main">Web Developer</strong><br />
-    Bachelor of Computer Science<br />
-    Former Technical Event Production Pro
+    <span>Bachelor of Computer Science</span><br />
+    <span>Former Technical Event Production Pro</span>
   </p>
 </section>
