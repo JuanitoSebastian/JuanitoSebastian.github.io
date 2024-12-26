@@ -11,6 +11,8 @@
   --bigger-spacing: 32px;
   --default-spacing: 16px;
   --smaller-spacing: 8px;
+
+  --default-text-size: 17px;
 }
 
 @mixin light-colors {
@@ -79,6 +81,7 @@ body {
   
   p {
     line-height: 1.4;
+    font-size: var(--default-text-size);
   }
 
   .accent-color {
