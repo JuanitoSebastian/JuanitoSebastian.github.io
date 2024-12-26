@@ -13,10 +13,22 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
 
   .title {
     font-family: var(--roboto-condensed);
-    font-size: 42px;
+    font-size: 30px;
     line-height: 1.1;
     margin: 0 0 var(--default-spacing);
-    width: 500px;
+    width: clamp(340px, 100%, 600px);
+  }
+
+  @media (min-width: 400px) {
+    .title {
+      font-size: 36px;
+    }
+  }
+
+  @media (min-width: 480px) {
+    .title {
+      font-size: 42px;
+    }
   }
 </style>
 <style is:global>
@@ -36,9 +48,9 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
 
   document.addEventListener('DOMContentLoaded', () => {
     const titles = [
-      ['Juan is a ', 'Front-end', ' technology enthusiast'],
-      ['Juan is a developer with ', 'project management', ' skills'],
-      ['Juan pays attention to the ', 'visual details', ''],
+      ['Juan is a', 'Front-end', 'technology enthusiast'],
+      ['Juan is a developer with', 'project management', 'skills'],
+      ['Juan pays attention to the', 'visual details', ''],
     ];
 
     const element = document.querySelector('article .title');
@@ -51,7 +63,10 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
         return text
           .split(' ')
           .map((word) => {
-            const letters = word.replace(/./g, `<span class="${extraClass === '' ? 'letter' : ''}">$&</span>`);
+            const letters = word.replace(
+              /./g,
+              `<span class="${extraClass === '' ? 'letter' : ''}">$&</span>`,
+            );
             return `<span class="word ${extraClass}">${letters}</span>`;
           })
           .join(' ');
@@ -73,7 +88,7 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
       `;
 
         // Create the anime.js timeline
-        anime
+        const animeObj = anime
           .timeline({
             loop: false,
             complete: () => {
@@ -112,18 +127,18 @@ import { Content as AboutMeText } from '../../mds/AboutMe.md';
             duration: 600,
             delay: (el, i) => 30 * i,
           });
+        console.log('animeObj', animeObj);
       };
 
       // Start the animation loop
-      updateHeadline();
+      // updateHeadline();
     }
   });
 </script>
 
 <article class="about-me">
   <h2 class="title">
-    Juan is a developer with <span class="accent-color">project management</span
-    > experience
+    Juan is a developer with <span class="accent-color">project management</span> experience
   </h2>
   <AboutMeText />
 </article>
