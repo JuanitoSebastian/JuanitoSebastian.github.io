@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.mdx": "markdown"
+    },
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file"
+        }
+    ]
+}
