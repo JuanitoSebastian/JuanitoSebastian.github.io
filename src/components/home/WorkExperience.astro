@@ -1,0 +1,22 @@
+---
+import type { WorkExperience } from '../../utils/Types';
+import WorkExperiencePosition from './WorkExperiencePosition.astro';
+
+const workExperiences: WorkExperience[] = Object.values(import.meta.glob('/src/mds/WorkExperience/*.md', { eager: true }));
+---
+<style>
+  .work-experience {
+    backdrop-filter: blur(1px);
+    max-width: var(--main-width);
+    padding: var(--xl-spacing) 0;
+    margin: 0 auto var(--xxl-spacing);
+    background: var(--section-background-gradient);
+  }
+</style>
+
+<section class="work-experience">
+  <h2 class="sr-only">Work Experience</h2>
+  <div class="work-experience-container">
+    {workExperiences.map((workExperienceItem) => (<WorkExperiencePosition workExperience={workExperienceItem} />))}
+  </div>
+</section>
