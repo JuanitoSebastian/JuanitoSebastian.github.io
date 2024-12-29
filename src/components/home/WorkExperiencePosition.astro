@@ -6,7 +6,10 @@ export interface Props {
 }
 
 const { workExperience } = Astro.props;
-const { frontmatter: { title, company, time }, Content } = workExperience;
+const {
+  frontmatter: { title, company, time },
+  Content,
+} = workExperience;
 ---
 
 <details class="work-experience-item">

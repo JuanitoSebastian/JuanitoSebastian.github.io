@@ -1,39 +1,87 @@
 ---
 layout: ../../layouts/LayoutPost.astro
-title: "UDP Sockets & Digital Turntables"
-description: "What type of network traffic is broadcast in a Pro DJ Link network? Investigating the packets sent by Pioneer DJ equipment and creating a Swift application to parse it."
-author: "Juan Covarrubias"
-date: "09 Aug 2022"
-tags: ["Networks", "Music", "Swift", "SwiftNIO"]
+title: 'UDP Sockets & Digital Turntables'
+description: 'What type of network traffic is broadcast in a Pro DJ Link network? Investigating the packets sent by Pioneer DJ equipment and creating a Swift application to parse it.'
+author: 'Juan Covarrubias'
+date: '09 Aug 2022'
+tags: ['Networks', 'Music', 'Swift', 'SwiftNIO']
 ---
+
 import { Image, Picture } from 'astro:assets';
 
-The nightclub scene is not that different from other industries: it too has seen a massive change from old analog solutions to new digital equipment. There are still some disc jockeys who carry a bag full of vinyls from venue to venue, but the majority of deejays have opted for a much more convenient solution: digital music players. Most nightclubs and music venues have DJ equipment in-house, and the standard setup you will find in nightclubs worldwide is Pioneer CDJ players and a Pioneer DJM mixer. The CDJ is a digital music player capable of playing audio files off from CDs, USB flash drives and SD cards. A deejay typically carries a USB stick with their music library on it. When it's their time to perform, the deejay can just plug the USB flash drive to the CDJ and start playing. Besides the convenience of not having to carry heavy bags full of records, the CDJs offer some fascinating features when connected to a LAN network. CDJ players can share audio files between each other and send useful information like the current BPM (beats per minute) of the current track. The DJM mixer can listen to this information that is broadcast on the network and use it to synchronize audio effects. In a more advanced setup this information can be fed to the lighting and video operators who can use it to synchronize the light show and video effects to match exactly the rhythm of the music that is currently playing. The owner of the Pioneer DJ brand AlphaTheta Corporation calls this technology Pro DJ Link, and they have not released any public documentation on the protocol. 
+The nightclub scene is not that different from other industries: it too has seen a massive change from old analog solutions to new digital equipment. There are still some disc jockeys who carry a bag full of vinyls from venue to venue, but the majority of deejays have opted for a much more convenient solution: digital music players. Most nightclubs and music venues have DJ equipment in-house, and the standard setup you will find in nightclubs worldwide is Pioneer CDJ players and a Pioneer DJM mixer. The CDJ is a digital music player capable of playing audio files off from CDs, USB flash drives and SD cards. A deejay typically carries a USB stick with their music library on it. When it's their time to perform, the deejay can just plug the USB flash drive to the CDJ and start playing. Besides the convenience of not having to carry heavy bags full of records, the CDJs offer some fascinating features when connected to a LAN network. CDJ players can share audio files between each other and send useful information like the current BPM (beats per minute) of the current track. The DJM mixer can listen to this information that is broadcast on the network and use it to synchronize audio effects. In a more advanced setup this information can be fed to the lighting and video operators who can use it to synchronize the light show and video effects to match exactly the rhythm of the music that is currently playing. The owner of the Pioneer DJ brand AlphaTheta Corporation calls this technology Pro DJ Link, and they have not released any public documentation on the protocol.
 
-I chose to investigate this topic as part of the university course Data Communication Project. The idea of the course was to do some research about a topic related to computer networks and the write a report of your findings. The aim of my research was to make a packet capture of the network traffic sent by Pioneer DJ equipment and analyze it to see if the mixing done by the DJ was visible in the data. This post is a summary of the [original report](https://drive.google.com/file/d/16tZl3c49iO1IoY9bwgNaKzjF9iTNqisA/view?usp=share_link) I wrote (which is in Finnish). 
+I chose to investigate this topic as part of the university course Data Communication Project. The idea of the course was to do some research about a topic related to computer networks and the write a report of your findings. The aim of my research was to make a packet capture of the network traffic sent by Pioneer DJ equipment and analyze it to see if the mixing done by the DJ was visible in the data. This post is a summary of the [original report](https://drive.google.com/file/d/16tZl3c49iO1IoY9bwgNaKzjF9iTNqisA/view?usp=share_link) I wrote (which is in Finnish).
 
 The DJ community has done research into the inner workings of the protocol and how the equipment uses it to communicate. [The Deep Symmetry project](https://djl-analysis.deepsymmetry.org/djl-analysis/packets.html) has put together documentation of the different packets the protocol uses to communicate. This resource has been a great help when investigating the topic.
 
 ### Packet capture
+
 <figure class="flex flex-col items-center justify-center w-full gap-2">
-<Image src="/images/cdj_setup.png" width={600} aspectRatio="16:9" alt="A top down view of the packet capture setup" format="png" class="w-full max-w-xl" />
-<figcaption class="text-sm w-full max-w-xl text-center bg-slate-50 p-2">Packet capture setup. Two CDJ-2000NXS2 players, a DJM-900NXS2 mixer, a network switch and a laptop.</figcaption>
+  <Image
+    src="/images/cdj_setup.png"
+    width={600}
+    aspectRatio="16:9"
+    alt="A top down view of the packet capture setup"
+    format="png"
+    class="w-full max-w-xl"
+  />
+  <figcaption class="text-sm w-full max-w-xl text-center bg-slate-50 p-2">
+    Packet capture setup. Two CDJ-2000NXS2 players, a DJM-900NXS2 mixer, a
+    network switch and a laptop.
+  </figcaption>
 </figure>
-Wireshark was used for the network packet capture. To intercept all the traffic, the DJ equipment was transmitting, I used a network switch with mirroring functionality. All traffic from ports 1-3 was mirrored to port 5 where my laptop was connected. This way I could see all the transmitted packets, even the ones that were not addressed to the laptop. I played a short three track DJ set, during the packet capture. This was to simulate normal DJ equipment usage.
+Wireshark was used for the network packet capture. To intercept all the traffic,
+the DJ equipment was transmitting, I used a network switch with mirroring
+functionality. All traffic from ports 1-3 was mirrored to port 5 where my laptop
+was connected. This way I could see all the transmitted packets, even the ones
+that were not addressed to the laptop. I played a short three track DJ set,
+during the packet capture. This was to simulate normal DJ equipment usage.
 
 ### Results
+
 <figure class="flex flex-col items-center justify-center w-full gap-2">
-<a href="/images/io_graph1.png" target="_blank">
-<Image src="/images/io_graph1.png" width={600} alt="Graph showing amount of UDP packets during the capture" format="png" class="w-full max-w-xl" />
-</a>
-<figcaption class="text-sm w-full max-w-xl text-center bg-slate-50 p-2">Amount of UDP packets throughout the packet capture</figcaption>
+  <a href="/images/io_graph1.png" target="_blank">
+    <Image
+      src="/images/io_graph1.png"
+      width={600}
+      alt="Graph showing amount of UDP packets during the capture"
+      format="png"
+      class="w-full max-w-xl"
+    />
+  </a>
+  <figcaption class="text-sm w-full max-w-xl text-center bg-slate-50 p-2">
+    Amount of UDP packets throughout the packet capture
+  </figcaption>
 </figure>
-The performance of the deejay could be seen in the network packet capture. The number of different UDP packets was clearly affected by what the deejay was currently doing. In the first graph, we can see that when there is no music playing, the number of UDP 50001 packets hovers around 3-4 packets per second (PPS). When player A starts a track, the number of UDP 50001 packets rises to 5-7 PPS. When player B also starts playing, the number of UDP 50001 packets rises to 7-10 PPS. The number of UDP 50002 packets also reflect the actions of the deejay. They tend to peak at the most intense parts of the DJ set, when a lot is happening. A sharp peak in UDP 50002 packets can be seen just before 195 seconds. That was the exact moment when the deejay switched between two songs. UDP 50000 packets seem to be only used for an initial handshake and a heartbeat signal.
+The performance of the deejay could be seen in the network packet capture. The
+number of different UDP packets was clearly affected by what the deejay was
+currently doing. In the first graph, we can see that when there is no music
+playing, the number of UDP 50001 packets hovers around 3-4 packets per second
+(PPS). When player A starts a track, the number of UDP 50001 packets rises to
+5-7 PPS. When player B also starts playing, the number of UDP 50001 packets
+rises to 7-10 PPS. The number of UDP 50002 packets also reflect the actions of
+the deejay. They tend to peak at the most intense parts of the DJ set, when a
+lot is happening. A sharp peak in UDP 50002 packets can be seen just before 195
+seconds. That was the exact moment when the deejay switched between two songs.
+UDP 50000 packets seem to be only used for an initial handshake and a heartbeat
+signal.
 
 ### Future work
+
 I started working on a [Swift package](https://github.com/JuanitoSebastian/Pro-Dj-Link) for communicating with Pioneer DJ equipment using the Pro DJ Link protocol (PDL). The package can be used to send and receive PDL packets. It's a work-in-progress, and currently it can receive three types of packets: KeepAlive, DeviceAnouncement and Beat. The package uses the SwiftNIO framework to encode and decode the PDL data to and from UDP packets.
 
 ### The DJ set and packet capture side by side
+
 <div class="flex flex-row items-center justify-center w-full aspect-video">
-<iframe class="object-cover h-full w-full" width="560" height="315" src="https://www.youtube.com/embed/MCkAdgy9cAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe
+    class="object-cover h-full w-full"
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/MCkAdgy9cAU"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 </div>

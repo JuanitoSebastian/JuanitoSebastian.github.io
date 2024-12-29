@@ -20,5 +20,5 @@ export type WorkExperience = {
     title: string;
     company: string;
     time: string;
-  }
-}
+  };
+};

@@ -2,8 +2,11 @@
 import type { WorkExperience } from '../../utils/Types';
 import WorkExperiencePosition from './WorkExperiencePosition.astro';
 
-const workExperiences: WorkExperience[] = Object.values(import.meta.glob('/src/mds/WorkExperience/*.md', { eager: true }));
+const workExperiences: WorkExperience[] = Object.values(
+  import.meta.glob('/src/mds/WorkExperience/*.md', { eager: true }),
+);
 ---
+
 <style>
   .work-experience {
     backdrop-filter: blur(1px);
@@ -17,6 +20,10 @@ const workExperiences: WorkExperience[] = Object.values(import.meta.glob('/src/m
 <section class="work-experience">
   <h2 class="sr-only">Work Experience</h2>
   <div class="work-experience-container">
-    {workExperiences.map((workExperienceItem) => (<WorkExperiencePosition workExperience={workExperienceItem} />))}
+    {
+      workExperiences.map((workExperienceItem) => (
+        <WorkExperiencePosition workExperience={workExperienceItem} />
+      ))
+    }
   </div>
 </section>

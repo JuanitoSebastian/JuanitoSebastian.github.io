@@ -12,11 +12,8 @@ export default [
   ...eslintPluginAstro.configs.recommended,
   {
     rules: {
-      'quotes': [2, 'single', { 'avoidEscape': true }],
-      'indent': [
-        2,
-        2
-      ]
-    }
-  }
+      quotes: [2, 'single', { avoidEscape: true }],
+      indent: [2, 2],
+    },
+  },
 ];

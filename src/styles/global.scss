@@ -37,11 +37,13 @@
 
 @mixin global-colors {
   --clear: transparent;
-  --section-background-gradient: linear-gradient(to bottom,
-      var(--clear),
-      var(--bg-color) var(--bigger-spacing),
-      var(--bg-color) calc(100% - var(--bigger-spacing)),
-      var(--clear));
+  --section-background-gradient: linear-gradient(
+    to bottom,
+    var(--clear),
+    var(--bg-color) var(--bigger-spacing),
+    var(--bg-color) calc(100% - var(--bigger-spacing)),
+    var(--clear)
+  );
 }
 
 html {
@@ -64,28 +66,31 @@ body {
   height: 100vh;
   margin: 0;
   overflow: auto;
-  background: linear-gradient(90deg,
-    var(--bg-color),
-    var(--bg-color) calc(50% - 4px),
-    var(--clear) 8px calc(50% - 4px),
-    var(--clear) 16px calc(50% + 4px),
-    var(--bg-color) calc(50% + 4px),
-    var(--bg-color)
-  ), 
-  linear-gradient(
-    var(--bg-color),
-    var(--gray-color)
-  );
+  background: linear-gradient(
+      90deg,
+      var(--bg-color),
+      var(--bg-color) calc(50% - 4px),
+      var(--clear) 8px calc(50% - 4px),
+      var(--clear) 16px calc(50% + 4px),
+      var(--bg-color) calc(50% + 4px),
+      var(--bg-color)
+    ),
+    linear-gradient(var(--bg-color), var(--gray-color));
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  
+  background-attachment: fixed;
+
   p {
     line-height: 1.4;
     font-size: var(--default-text-size);
   }
 
   .accent-color {
-    background: linear-gradient(to left, var(--light-blue-color), var(--blue-color), var(--light-blue-color));
+    background: linear-gradient(
+      to left,
+      var(--light-blue-color),
+      var(--blue-color),
+      var(--light-blue-color)
+    );
     color: transparent;
     background-clip: text;
   }
