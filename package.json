@@ -10,7 +10,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "eslint": "eslint",
-    "eslint:fix": "eslint --fix"
+    "eslint:fix": "eslint --fix",
+    "prettier": "prettier --check '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
+    "prettify": "prettier --write '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.5",
