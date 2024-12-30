@@ -1,4 +1,5 @@
 ---
+index: 1
 title: 'Web Developer'
 company: 'Alma Media'
 time: 'May 2023 - Present'

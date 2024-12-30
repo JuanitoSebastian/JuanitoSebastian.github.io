@@ -1,0 +1,91 @@
+---
+import type { WorkExperience } from '../../../utils/Types';
+
+export interface Props {
+  workExperience: WorkExperience;
+}
+
+const { workExperience } = Astro.props;
+const {
+  frontmatter: { title, company, time },
+  Content,
+} = workExperience;
+---
+
+<style>
+  .work-experience-item {
+    width: 100%;
+
+    &[open] {
+      .work-experience-item-summary {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+      }
+    }
+  }
+
+  .work-experience-item-summary {
+    list-style: none;
+    border-radius: var(--border-radius);
+    background-color: var(--light-gray-color);
+    display: flex;
+    flex-flow: row nowrap;
+    border: 2px solid var(--gray-color);
+    cursor: pointer;
+
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  .work-experience-item-content {
+    padding: var(--default-spacing);
+    background-color: var(--light-gray-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    border: 2px solid var(--gray-color);
+    border-top: none;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .work-experience-item-description {
+    padding: var(--default-spacing);
+  }
+
+  .work-experience-item-title {
+    font-size: 40px;
+    font-family: var(--roboto-condensed);
+    margin: 0;
+  }
+
+  .work-experience-item-company,
+  .work-experience-item-time {
+    font-family: var(--roboto-mono);
+    font-size: 13px;
+    padding: 4px 6px;
+    background-color: var(--gray-color);
+    border-radius: var(--border-radius);
+    margin: 0;
+    margin-top: 4px;
+    display: inline-block;
+  }
+</style>
+
+<details class="work-experience-item">
+  <summary class="work-experience-item-summary">
+    <div class="work-experience-item-description">
+      <h3 class="work-experience-item-title">{title}</h3>
+      <p class="work-experience-item-company">@ {company}</p>
+      <p class="work-experience-item-time">{time}</p>
+    </div>
+  </summary>
+  <div class="work-experience-item-content">
+    <Content />
+  </div>
+</details>

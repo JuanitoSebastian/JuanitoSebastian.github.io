@@ -17,6 +17,7 @@ export interface Post {
 export type WorkExperience = {
   Content: AstroComponentFactory;
   frontmatter: {
+    index: number;
     title: string;
     company: string;
     time: string;
