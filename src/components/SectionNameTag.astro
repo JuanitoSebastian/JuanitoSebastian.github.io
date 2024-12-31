@@ -1,9 +1,10 @@
 ---
 export interface Props {
   name: string;
+  isH2?: boolean;
 }
 
-const { name } = Astro.props;
+const { name, isH2 } = Astro.props;
 ---
 
 <style>
@@ -25,8 +26,15 @@ const { name } = Astro.props;
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 1;
+    margin: 0;
   }
 </style>
 <div class="section-name-tag">
-  <div class="section-name-tag-text">{name}</div>
+  {
+    isH2 ? (
+      <h2 class="section-name-tag-text">{name}</h2>
+    ) : (
+      <div class="section-name-tag-text">{name}</div>
+    )
+  }
 </div>
