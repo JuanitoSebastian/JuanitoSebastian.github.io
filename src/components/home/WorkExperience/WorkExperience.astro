@@ -31,8 +31,11 @@ const workExperiences = workExperiencesRaw.sort((a, b) => {
   <h2 class="sr-only">Work Experience</h2>
   <div class="work-experience-container">
     {
-      workExperiences.map((workExperienceItem) => (
-        <WorkExperiencePosition workExperience={workExperienceItem} />
+      workExperiences.map((workExperienceItem, index) => (
+        <WorkExperiencePosition
+          workExperience={workExperienceItem}
+          isOpen={index === 0}
+        />
       ))
     }
   </div>
