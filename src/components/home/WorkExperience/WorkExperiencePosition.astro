@@ -90,7 +90,7 @@ const {
   }
 
   .work-experience-item-title {
-    font-size: 40px;
+    font-size: 30px;
     font-family: var(--roboto-condensed);
     margin: 0;
   }
@@ -98,13 +98,30 @@ const {
   .work-experience-item-company,
   .work-experience-item-time {
     font-family: var(--roboto-mono);
-    font-size: 13px;
+    font-size: 12px;
     padding: 4px 6px;
     background-color: var(--gray-color);
     border-radius: var(--border-radius);
     margin: 0;
     margin-top: 4px;
     display: inline-block;
+  }
+
+  @media (min-width: 430px) {
+    .work-experience-item-title {
+      font-size: 36px;
+    }
+
+    .work-experience-item-company,
+    .work-experience-item-time {
+      font-size: 13px;
+    }
+  }
+
+  @media (min-width: 480px) {
+    .work-experience-item-title {
+      font-size: 40px;
+    }
   }
 </style>
 
