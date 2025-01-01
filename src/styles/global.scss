@@ -86,6 +86,11 @@ body {
     font-size: var(--default-text-size);
   }
 
+  a {
+    color: var(--blue-color);
+    transition: color 0.3s;
+  }
+
   .accent-color {
     background: linear-gradient(
       to left,
