@@ -1,0 +1,53 @@
+---
+type Props = {
+  to: string;
+  iconUrl: string;
+  alt: string;
+};
+
+const { to, iconUrl, alt } = Astro.props;
+const cssVars = {
+  'social-media-link-icon': `url(${iconUrl})`,
+};
+---
+
+<style define:vars={cssVars}>
+  .social-media-link {
+    --transition: background-color 0.1s;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: var(--smaller-spacing);
+    transition: var(--transition);
+    z-index: 1;
+  }
+
+  .social-media-link:hover {
+    background-color: var(--gray-color);
+  }
+
+  .social-media-link:hover .social-media-link-icon {
+    background-color: var(--light-gray-color);
+  }
+
+  .social-media-link-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--dark-gray-color);
+    mask-image: var(--social-media-link-icon);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transition: var(--transition);
+  }
+</style>
+
+<a
+  class="social-media-link"
+  href={to}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="social-media-link-icon" aria-label={alt} role="img"></div>
+</a>

@@ -1,0 +1,87 @@
+---
+import SocialMediaLink from '../SocialMediaLink.astro';
+
+const socialMediaLinkObjects = [
+  {
+    to: 'https://www.linkedin.com/in/juanito-sebastian/',
+    iconUrl: '/linkedin_icon.svg',
+    alt: 'LinkedIn',
+  },
+  {
+    to: 'https://github.com/JuanitoSebastian',
+    iconUrl: '/github_icon.svg',
+    alt: 'GitHub',
+  },
+  {
+    to: 'https://www.instagram.com/juanito.wav/',
+    iconUrl: '/instagram_icon.svg',
+    alt: 'Instagram',
+  },
+];
+---
+
+<style>
+  .socials {
+    backdrop-filter: blur(1px);
+    max-width: var(--main-width);
+    padding: var(--xl-spacing) 0;
+    margin: 0 auto var(--xl-spacing);
+    background: var(--section-background-gradient);
+  }
+
+  .socials-container {
+    margin: 0 auto;
+    position: relative;
+    list-style: none;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: var(--light-gray-color);
+    border: 2px solid var(--gray-color);
+    gap: var(--default-spacing);
+    /* min-width: 500px;
+    min-height: 50px; */
+    width: fit-content;
+    padding: var(--smaller-spacing);
+  }
+
+  .socials-container-pattern {
+    --radial-gradient: radial-gradient(
+      var(--gray-color) 12.8%,
+      transparent 12.8%
+    );
+    --mask: linear-gradient(to right, transparent, transparent 70%, black);
+
+    display: none;
+
+    @supports (mask-image: var(--mask)) {
+      display: block;
+      background-image: var(--radial-gradient), var(--radial-gradient);
+      background-position:
+        0px 0px,
+        6px 6px;
+      background-size: 12px 12px;
+      background-color: var(--light-gray-color);
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      z-index: 0;
+      -webkit-mask-image: var(--mask);
+      mask-image: var(--mask);
+    }
+  }
+</style>
+
+<section class="socials">
+  <div class="socials-container">
+    <div class="socials-container-pattern"> </div>
+    {
+      socialMediaLinkObjects.map((socialMediaLinkObject) => (
+        <SocialMediaLink {...socialMediaLinkObject} />
+      ))
+    }
+  </div>
+</section>

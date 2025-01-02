@@ -25,16 +25,18 @@
   --light-blue-color: #3947c5;
   --gray-color: #e1e2ec;
   --light-gray-color: #fcfcfc;
+  --dark-gray-color: #aeb1d4;
 }
 
 @mixin dark-colors {
   --bg-color: #222;
   --text-color: #fff;
   --secondary-text-color: #ccc;
-  --blue-color: #3445dd;
+  --blue-color: #384bf5;
   --light-blue-color: #3947c5;
   --gray-color: #3b3b42;
   --light-gray-color: #2b2b2b;
+  --dark-gray-color: #aaabba;
 }
 
 @mixin global-colors {

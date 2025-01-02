@@ -5,6 +5,7 @@ import Hero from '../components/home/Hero.astro';
 import AboutMe from '../components/home/AboutMe.astro';
 import SectionNameTag from '../components/SectionNameTag.astro';
 import WorkExperience from '../components/home/WorkExperience/WorkExperience.astro';
+import Socials from '../components/home/Socials.astro';
 
 const htmlProps = {
   title: 'Juan Sebastian Covarrubias',
@@ -24,6 +25,7 @@ const htmlProps = {
     <AboutMe />
     <SectionNameTag name="Work experience" isH2={true} />
     <WorkExperience />
-    <SectionNameTag name="Socials" />
+    <SectionNameTag name="Socials" isH2={true} />
+    <Socials />
   </Layout>
 </Html>
