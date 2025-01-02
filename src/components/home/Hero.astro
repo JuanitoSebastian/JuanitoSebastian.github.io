@@ -1,5 +1,5 @@
 ---
-
+import juanitoImage from '../../images/juanito.png';
 ---
 
 <style>
@@ -8,9 +8,16 @@
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    align-items: flex-end;
     justify-content: flex-end;
     margin: 0 0 var(--xxl-spacing);
+    overflow-y: hidden;
+
+    .hero-image {
+      background: var(--section-background-gradient);
+      padding: var(--xl-spacing) 0;
+      backdrop-filter: blur(1px);
+      align-self: center;
+    }
 
     .title {
       margin: 0;
@@ -20,6 +27,7 @@
       font-family: var(--roboto-condensed);
       font-size: 20px;
       line-height: 1.2;
+      align-self: flex-end;
 
       .main {
         color: var(--text-color);
@@ -27,7 +35,6 @@
       }
 
       > * {
-        /* background-color: var(--bg-color); */
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         box-shadow: 0px 0px 10px var(--bg-color);
@@ -37,12 +44,19 @@
     @media (min-width: 400px) {
       .title {
         font-size: 24px;
-      }
+      
     }
   }
 </style>
 
 <section class="hero">
+  <img
+    class="hero-image"
+    src={juanitoImage.src}
+    alt="Juanito"
+    width="300"
+    height="300"
+  />
   <p class="title">
     <strong class="main">Web Developer</strong><br />
     <span>Bachelor of Computer Science</span><br />
