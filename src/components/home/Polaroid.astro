@@ -1,0 +1,88 @@
+---
+import juanitoImage from '../../images/juanito_polaroid.jpg';
+
+const alt = 'Polaroid image of Juan';
+---
+
+<style>
+  .polaroid {
+    position: relative;
+    align-self: center;
+    background-color: var(--light-gray-color);
+    border: 1px solid var(--gray-color);
+    display: flex;
+    justify-content: center;
+    padding: var(--default-spacing);
+    height: 380px;
+    width: 338px;
+    max-width: 400px;
+    box-sizing: border-box;
+    transform: rotate(3deg) scale(0.9);
+  }
+
+  .polaroid-img {
+    display: block;
+    width: calc(100% - var(--default-spacing));
+    height: calc(90% - var(--default-spacing));
+    background-color: black;
+    filter: var(--polaroid-img-filter);
+  }
+
+  .polaroid-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      150deg,
+      transparent 0%,
+      transparent 12%,
+      var(--polaroid-shine) 15%,
+      var(--polaroid-shine) 20%,
+      transparent 30%
+    );
+    pointer-events: none;
+  }
+
+  .polaroid-pattern {
+    --radial-gradient: radial-gradient(
+      var(--polaroid-pattern) 40.8%,
+      transparent 44.8%
+    );
+
+    display: block;
+    background-image: var(--radial-gradient), var(--radial-gradient);
+    background-position:
+      0px 0px,
+      6px 6px;
+    background-size: 12px 12px;
+    background-color: transparent;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    z-index: 0;
+  }
+
+  @media (min-width: 400px) {
+    .polaroid {
+      height: 400px;
+      width: 355px;
+    }
+  }
+
+  @media (min-width: 480px) {
+    .polaroid {
+      height: 450px;
+      width: 400px;
+    }
+  }
+</style>
+
+<div class="polaroid" role="img" aria-label={alt}>
+  <img class="polaroid-img" src={juanitoImage.src} alt="" />
+  <div class="polaroid-pattern"></div>
+  <div class="polaroid-shine"></div>
+</div>

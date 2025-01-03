@@ -1,10 +1,9 @@
 ---
-import juanitoImage from '../../images/juanito.png';
+import Polaroid from './Polaroid.astro';
 ---
 
 <style>
   .hero {
-    height: clamp(200px, calc(100svh - (144px + 32px)), 600px);
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -12,15 +11,8 @@ import juanitoImage from '../../images/juanito.png';
     margin: 0 0 var(--xxl-spacing);
     overflow-y: hidden;
 
-    .hero-image {
-      background: var(--section-background-gradient);
-      padding: var(--xl-spacing) 0;
-      backdrop-filter: blur(1px);
-      align-self: center;
-    }
-
     .title {
-      margin: 0;
+      margin: var(--default-spacing) 0 0;
       padding: 0 0 var(--default-spacing);
       text-align: right;
       color: var(--secondary-text-color);
@@ -50,13 +42,7 @@ import juanitoImage from '../../images/juanito.png';
 </style>
 
 <section class="hero">
-  <img
-    class="hero-image"
-    src={juanitoImage.src}
-    alt="Juanito"
-    width="300"
-    height="300"
-  />
+  <Polaroid />
   <p class="title">
     <strong class="main">Web Developer</strong><br />
     <span>Bachelor of Computer Science</span><br />
