@@ -7,6 +7,8 @@ import SectionNameTag from '../components/SectionNameTag.astro';
 import WorkExperience from '../components/home/WorkExperience/WorkExperience.astro';
 import Socials from '../components/home/Socials.astro';
 
+import juanitoImage from '../images/juanito_polaroid.jpg';
+
 const htmlProps = {
   title: 'Juan Sebastian Covarrubias',
   meta: {
@@ -15,6 +17,7 @@ const htmlProps = {
     keywords:
       'react, javascript, typescript, software engineer, web developer, front-end developer, full-stack developer',
   },
+  preload: [juanitoImage.src],
 };
 ---
 
