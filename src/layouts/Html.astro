@@ -6,11 +6,19 @@ export interface Props {
   meta?: {
     description?: string;
     keywords?: string;
+    imageUrl?: string;
   };
   preload?: string[];
 }
 
-const { title, preload, meta: { description, keywords } = {} } = Astro.props;
+const {
+  title,
+  preload,
+  meta: { description, keywords, imageUrl } = {},
+} = Astro.props;
+
+const lightThemeColor = '#fff';
+const darkThemeColor = '#141417';
 ---
 
 <!doctype html>
@@ -23,8 +31,25 @@ const { title, preload, meta: { description, keywords } = {} } = Astro.props;
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content={lightThemeColor}
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content={darkThemeColor}
+    />
     {description && <meta name="description" content={description} />}
     {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="og:title" content={title} />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content={Astro.url} />
+    {imageUrl && <meta name="og:image" content={imageUrl} />}
+    <meta name="twitter:card" content="summary" />
+    {description && <meta name="twitter:description" content={description} />}
+    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
