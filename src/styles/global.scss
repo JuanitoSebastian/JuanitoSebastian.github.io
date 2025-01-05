@@ -34,16 +34,16 @@
 }
 
 @mixin dark-colors {
-  --bg-color: #222;
+  --bg-color: #141417;
   --text-color: #fff;
   --secondary-text-color: #ccc;
   --blue-color: #384bf5;
   --light-blue-color: #3947c5;
-  --gray-color: #3b3b42;
-  --light-gray-color: #2b2b2b;
-  --dark-gray-color: #aaabba;
+  --gray-color: #474751;
+  --light-gray-color: #222;
+  --dark-gray-color: #898993;
 
-  --polaroid-bg: #0f0f11;
+  --polaroid-bg: #222;
   --polaroid-shine: rgba(255, 255, 255, 0.1);
   --polaroid-pattern: rgba(255, 255, 255, 0.02);
   --polaroid-img-filter: brightness(0.95);
