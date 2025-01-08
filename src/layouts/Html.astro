@@ -5,7 +5,7 @@ export interface Props {
   title: string;
   meta?: {
     description?: string;
-    keywords?: string;
+    keywords?: string[];
     imageUrl?: string;
   };
   preload?: string[];
@@ -43,7 +43,7 @@ const darkThemeColor = '#141417';
       content={darkThemeColor}
     />
     {description && <meta name="description" content={description} />}
-    {keywords && <meta name="keywords" content={keywords} />}
+    {keywords && <meta name="keywords" content={keywords.join(', ')} />}
     <meta name="og:title" content={title} />
     <meta name="og:type" content="website" />
     <meta name="og:url" content={ogUrl} />

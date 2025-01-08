@@ -1,0 +1,55 @@
+---
+import Html from '../layouts/Html.astro';
+import Layout from './Layout.astro';
+import BlogPostArticle from '../components/BlogPostArticle.astro';
+import SectionNameTag from '../components/SectionNameTag.astro';
+import Socials from '../components/home/Socials.astro';
+
+type Props = {
+  frontmatter: {
+    title: string;
+    author: string;
+    date: string;
+    description?: string;
+    keywords: string[];
+    imageUrl?: string;
+    preload?: string[];
+  };
+};
+
+const {
+  frontmatter: {
+    title,
+    author,
+    preload,
+    description,
+    keywords,
+    imageUrl,
+    date,
+  },
+} = Astro.props;
+const htmlProps = {
+  title,
+  meta: {
+    description,
+    keywords,
+    imageUrl,
+  },
+  preload,
+};
+---
+
+<Html {...htmlProps}>
+  <Layout>
+    <BlogPostArticle
+      title={title}
+      author={author}
+      date={date}
+      keywords={keywords}
+    >
+      <slot />
+    </BlogPostArticle>
+    <SectionNameTag name="Socials" isH2={true} />
+    <Socials />
+  </Layout>
+</Html>

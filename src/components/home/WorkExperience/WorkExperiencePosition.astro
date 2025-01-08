@@ -1,5 +1,6 @@
 ---
 import type { WorkExperience } from '../../../utils/Types';
+import Tag from '../../Tag.astro';
 
 export interface Props {
   workExperience: WorkExperience;
@@ -101,27 +102,8 @@ const {
     margin: 0;
   }
 
-  .work-experience-item-company,
-  .work-experience-item-time {
-    font-family: var(--roboto-mono);
-    font-size: 12px;
-    padding: 4px 6px;
-    background-color: var(--gray-color);
-    border-radius: var(--border-radius);
-    margin: 0;
+  .work-experience-item-tag {
     margin-top: 4px;
-    display: inline-block;
-  }
-
-  @media (min-width: 430px) {
-    .work-experience-item-title {
-      font-size: 36px;
-    }
-
-    .work-experience-item-company,
-    .work-experience-item-time {
-      font-size: 13px;
-    }
   }
 
   @media (min-width: 480px) {
@@ -136,8 +118,8 @@ const {
     <div class="work-experience-item-summary-pattern"></div>
     <div class="work-experience-item-description">
       <h3 class="work-experience-item-title">{title}</h3>
-      <p class="work-experience-item-company">@ {company}</p>
-      <p class="work-experience-item-time">{time}</p>
+      <Tag text={`@ ${company}`} class="work-experience-item-tag" />
+      <Tag text={time} class="work-experience-item-tag" />
     </div>
   </summary>
   <div class="work-experience-item-content">

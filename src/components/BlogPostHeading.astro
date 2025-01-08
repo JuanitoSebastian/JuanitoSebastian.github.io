@@ -1,0 +1,35 @@
+---
+type Props = {
+  text: string;
+};
+
+const { text } = Astro.props;
+---
+
+<style>
+  .blog-post-heading {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--default-spacing);
+    margin: var(--bigger-spacing) 0;
+  }
+
+  .blog-post-heading-divider {
+    --gradient: linear-gradient(to right, var(--gray-color), transparent);
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--gradient);
+  }
+
+  .blog-post-heading-title {
+    margin: 0;
+    font-size: 24px;
+  }
+</style>
+<div class="blog-post-heading">
+  <h3 class="blog-post-heading-title">{text}</h3>
+  <div class="blog-post-heading-divider"></div>
+</div>

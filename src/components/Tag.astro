@@ -1,0 +1,28 @@
+---
+type Props = {
+  text: string;
+  class?: string;
+};
+const { text, class: classNameProp, ...rest } = Astro.props;
+
+const className = classNameProp ? `tag ${classNameProp}` : 'tag';
+---
+
+<style>
+  .tag {
+    font-family: var(--roboto-mono);
+    font-size: 12px;
+    padding: 4px 6px;
+    background-color: var(--gray-color);
+    border-radius: var(--border-radius);
+    margin: 0;
+    display: inline-block;
+  }
+
+  @media (min-width: 430px) {
+    .tag {
+      font-size: 13px;
+    }
+  }
+</style>
+<p class={className} {...rest}>{text}</p>
