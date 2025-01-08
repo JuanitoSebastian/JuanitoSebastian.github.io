@@ -1,5 +1,5 @@
 ---
-import Tag from '../components/Tag.astro';
+import Tag from '../../components/Tag.astro';
 
 type Props = {
   title: string;
@@ -62,7 +62,7 @@ const dateString = dateObject.toLocaleDateString('en-US', {
       <time datetime={rawDate}><Tag text={dateString} /></time>
       {
         keywords.map((keyword) => {
-          return <Tag text={keyword} />;
+          return <Tag text={`#${keyword}`} />;
         })
       }
     </div>

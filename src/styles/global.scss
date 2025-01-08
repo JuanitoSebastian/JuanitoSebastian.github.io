@@ -30,7 +30,7 @@
   --polaroid-bg: #fcfcfc;
   --polaroid-shine: rgba(255, 255, 255, 0.75);
   --polaroid-pattern: rgba(0, 0, 0, 0.01);
-  --polaroid-img-filter: none;
+  --img-filter: none;
 }
 
 @mixin dark-colors {
@@ -46,7 +46,7 @@
   --polaroid-bg: #222;
   --polaroid-shine: rgba(255, 255, 255, 0.1);
   --polaroid-pattern: rgba(255, 255, 255, 0.02);
-  --polaroid-img-filter: brightness(0.95);
+  --img-filter: brightness(0.9);
 }
 
 @mixin global-colors {

@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+type Props = {
+  image: ImageMetadata;
+  alt: string;
+  width?: number;
+  caption?: string;
+};
+
+const { image, alt, caption, width = 848 } = Astro.props;
+---
+
+<style>
+  .blog-post-image {
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-post-image-caption {
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+    font-style: italic;
+  }
+
+  .blog-post-image-element {
+    filter: var(--img-filter);
+  }
+</style>
+
+<figure class="blog-post-image">
+  <Image src={image} alt={alt} class="blog-post-image-element" width={width} />
+  {
+    caption && (
+      <figcaption class="blog-post-image-caption">{caption}</figcaption>
+    )
+  }
+</figure>
