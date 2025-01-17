@@ -18,44 +18,49 @@ const href = `/blog/${id}`;
 
 <style>
   .blog-post-card {
-    border-radius: var(--border-radius);
+    border-radius: 6px;
+    padding: var(--default-spacing);
     background-color: var(--light-gray-color);
-    display: flex;
-    flex-flow: row nowrap;
     border: 2px solid var(--gray-color);
     cursor: pointer;
     color: var(--text-color);
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    min-height: 200px;
-  }
+    height: 200px;
 
-  .blog-post-card-details {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: var(--smaller-spacing);
-    padding: var(--smaller-spacing);
-    z-index: 2;
-    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: var(--smaller-spacing) var(--default-spacing);
   }
 
   .blog-post-card-title {
     margin: 0;
     text-decoration: none;
     font-size: 30px;
+    grid-row: 1;
+    grid-column: 2;
   }
 
   .blog-post-card-decsription {
     margin: 0;
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .blog-post-card-image-container {
+    border-radius: var(--border-radius);
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    border: 2px solid var(--gray-color);
+    overflow: hidden;
   }
 
   .blog-post-card-image {
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    position: absolute;
-    z-index: 0;
-    right: 0;
-    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .blur {
@@ -71,16 +76,15 @@ const href = `/blog/${id}`;
 </style>
 
 <a class="blog-post-card" href={href}>
-  <div class="blog-post-card-details">
-    <h3 class="blog-post-card-title">{title}</h3>
-    <p class="blog-post-card-decsription">{description}</p>
+  <h3 class="blog-post-card-title">{title}</h3>
+  <p class="blog-post-card-decsription">{description}</p>
+  <div class="blog-post-card-image-container">
+    <Image
+      class="blog-post-card-image"
+      src={mainImage}
+      alt=""
+      width={406}
+      alt={mainImageAlt}
+    />
   </div>
-  <Image
-    class="blog-post-card-image"
-    src={mainImage}
-    alt=""
-    width={422}
-    alt={mainImageAlt}
-  />
-  <div class="blur"></div>
 </a>

@@ -2,9 +2,13 @@
 export interface Props {
   name: string;
   isH2?: boolean;
+  class?: string;
 }
 
-const { name, isH2 } = Astro.props;
+const { name, isH2, class: classNameProp, ...rest } = Astro.props;
+const className = classNameProp
+  ? `section-name-tag ${classNameProp}`
+  : 'section-name-tag';
 ---
 
 <style>
@@ -29,7 +33,7 @@ const { name, isH2 } = Astro.props;
     margin: 0;
   }
 </style>
-<div class="section-name-tag">
+<div class={className} {...rest}>
   {
     isH2 ? (
       <h2 class="section-name-tag-text">{name}</h2>
