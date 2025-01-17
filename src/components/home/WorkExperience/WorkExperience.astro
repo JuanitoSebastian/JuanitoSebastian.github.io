@@ -1,12 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
 import type { WorkExperience } from '../../../utils/Types';
 import WorkExperiencePosition from './WorkExperiencePosition.astro';
 
-const workExperiencesRaw: WorkExperience[] = Object.values(
-  import.meta.glob('/src/mds/WorkExperience/*.md', { eager: true }),
-);
+const workExperiencesRaw: WorkExperience[] =
+  await getCollection('workExperience');
+
 const workExperiences = workExperiencesRaw.sort((a, b) => {
-  return a.frontmatter.index - b.frontmatter.index;
+  return a.data.index - b.data.index;
 });
 ---
 

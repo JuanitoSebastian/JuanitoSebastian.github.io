@@ -1,4 +1,5 @@
 ---
+import { render } from 'astro:content';
 import type { WorkExperience } from '../../../utils/Types';
 import Tag from '../../Tag.astro';
 
@@ -9,9 +10,10 @@ export interface Props {
 
 const { workExperience, isOpen } = Astro.props;
 const {
-  frontmatter: { title, company, time },
-  Content,
+  data: { title, company, time },
 } = workExperience;
+
+const { Content } = await render(workExperience);
 ---
 
 <style>

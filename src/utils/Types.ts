@@ -1,4 +1,4 @@
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import type { RenderedContent } from 'astro:content';
 import type { ImageMetadata } from 'astro';
 
 export interface Frontmatter {
@@ -16,11 +16,15 @@ export interface BlogPost {
 }
 
 export type WorkExperience = {
-  Content: AstroComponentFactory;
-  frontmatter: {
+  id: string;
+  body?: string;
+  collection: 'workExperience';
+  data: {
     index: number;
+    time: string;
     title: string;
     company: string;
-    time: string;
   };
+  rendered?: RenderedContent;
+  filePath?: string;
 };
