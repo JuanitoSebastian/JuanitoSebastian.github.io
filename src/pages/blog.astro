@@ -1,0 +1,33 @@
+---
+import Html from '../layouts/Html.astro';
+import Layout from '../layouts/Layout.astro';
+import BlogPostsList from '../components/blog/BlogPostsList.astro';
+
+import junitoOgImage from '../images/juanito_og_image.webp';
+import SectionNameTag from '../components/SectionNameTag.astro';
+
+const htmlProps = {
+  title: 'Juan Sebastian Covarrubias',
+  meta: {
+    description:
+      'Juan is a web developer and a former technical event production pro.',
+    keywords: [
+      'react',
+      'javascript',
+      'typescript',
+      'software engineer',
+      'web developer',
+      'front-end developer',
+      'full-stack developer',
+    ],
+    imageUrl: junitoOgImage.src,
+  },
+};
+---
+
+<Html {...htmlProps}>
+  <Layout>
+    <SectionNameTag name="Blog posts" isH2={true} />
+    <BlogPostsList />
+  </Layout>
+</Html>

@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import type { BlogPost } from '../../utils/Types';
+import BlogPostCard from './BlogPostCard.astro';
+
+const blogPosts: BlogPost[] = await getCollection('blog');
+---
+
+<style>
+  .blog-posts {
+    backdrop-filter: blur(1px);
+    max-width: var(--main-width);
+    padding: var(--xl-spacing) 0;
+    margin: 0 auto var(--xl-spacing);
+    background: var(--section-background-gradient);
+  }
+</style>
+
+<section class="blog-posts">
+  {blogPosts.map((post) => <BlogPostCard post={post} />)}
+</section>

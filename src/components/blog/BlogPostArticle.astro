@@ -1,21 +1,5 @@
 ---
-import Tag from '../../components/Tag.astro';
 
-type Props = {
-  title: string;
-  author: string;
-  date: string;
-  keywords: string[];
-};
-
-const { title, date: rawDate, keywords } = Astro.props;
-const dateObject = new Date(rawDate);
-
-const dateString = dateObject.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
 ---
 
 <style>
@@ -25,19 +9,6 @@ const dateString = dateObject.toLocaleDateString('en-US', {
     padding: var(--xl-spacing) 0;
     margin: 0 auto var(--xl-spacing);
     background: var(--section-background-gradient);
-  }
-
-  .blog-post-article-title {
-    font-size: 42px;
-    font-family: var(--roboto-condensed);
-    margin: var(--default-spacing) 0 var(--smaller-spacing);
-  }
-
-  .blog-post-article-tags {
-    display: flex;
-    flex-flow: row wrap;
-    gap: var(--smaller-spacing);
-    margin: var(--default-spacing) 0;
   }
 </style>
 
@@ -56,16 +27,5 @@ const dateString = dateObject.toLocaleDateString('en-US', {
 </style>
 
 <article class="blog-post-article">
-  <section class="blog-post-article-header">
-    <h2 class="blog-post-article-title">{title}</h2>
-    <div class="blog-post-article-tags">
-      <time datetime={rawDate}><Tag text={dateString} /></time>
-      {
-        keywords.map((keyword) => {
-          return <Tag text={`#${keyword}`} />;
-        })
-      }
-    </div>
-  </section>
   <slot />
 </article>

@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import type { BlogPost } from '../../utils/Types';
+
+type Props = {
+  post: BlogPost;
+};
+
+const {
+  post: {
+    data: { title, description, date, mainImage, mainImageAlt },
+    id,
+  },
+} = Astro.props;
+
+const href = `/blog/${id}`;
+---
+
+<style>
+  .blog-post-card {
+    border-radius: var(--border-radius);
+    background-color: var(--light-gray-color);
+    display: flex;
+    flex-flow: row nowrap;
+    border: 2px solid var(--gray-color);
+    cursor: pointer;
+    color: var(--text-color);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+  }
+
+  .blog-post-card-details {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--smaller-spacing);
+    padding: var(--smaller-spacing);
+    z-index: 2;
+    width: 60%;
+  }
+
+  .blog-post-card-title {
+    margin: 0;
+    text-decoration: none;
+    font-size: 30px;
+  }
+
+  .blog-post-card-decsription {
+    margin: 0;
+  }
+
+  .blog-post-card-image {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    opacity: 0.6;
+  }
+
+  .blur {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, transparent, var(--light-gray-color));
+    backdrop-filter: blur(20px);
+    mask: linear-gradient(to left, transparent, black);
+  }
+</style>
+
+<a class="blog-post-card" href={href}>
+  <div class="blog-post-card-details">
+    <h3 class="blog-post-card-title">{title}</h3>
+    <p class="blog-post-card-decsription">{description}</p>
+  </div>
+  <Image
+    class="blog-post-card-image"
+    src={mainImage}
+    alt=""
+    width={422}
+    alt={mainImageAlt}
+  />
+  <div class="blur"></div>
+</a>

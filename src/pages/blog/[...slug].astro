@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import Html from '../../layouts/Html.astro';
+import Layout from '../../layouts/Layout.astro';
+import BlogPostArticle from '../../components/blog/BlogPostArticle.astro';
+import SectionNameTag from '../../components/SectionNameTag.astro';
+import Socials from '../../components/home/Socials.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const {
+  data: { title, date, keywords, description },
+} = post;
+
+const htmlProps = {
+  title,
+  meta: {
+    description,
+    keywords,
+    imageUrl: '',
+  },
+};
+---
+
+<Html {...htmlProps}>
+  <Layout>
+    <BlogPostArticle title={title} date={date} keywords={keywords}>
+      <Content />
+    </BlogPostArticle>
+    <SectionNameTag name="Socials" isH2={true} />
+    <Socials />
+  </Layout>
+</Html>
