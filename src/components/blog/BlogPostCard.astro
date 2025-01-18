@@ -8,59 +8,83 @@ type Props = {
 
 const {
   post: {
-    data: { title, description, date, mainImage, mainImageAlt },
+    data: { title, description, date: rawDate, mainImage, mainImageAlt },
     id,
   },
 } = Astro.props;
 
+const date = rawDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const datetime = rawDate.toISOString();
 const href = `/blog/${id}`;
 ---
 
 <style>
   .blog-post-card {
-    border-radius: 6px;
-    padding: var(--default-spacing);
-    background-color: var(--light-gray-color);
-    border: 2px solid var(--gray-color);
     cursor: pointer;
     color: var(--text-color);
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    height: 200px;
+    min-height: 200px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px auto auto 1fr;
     gap: var(--smaller-spacing) var(--default-spacing);
+    overflow: visible;
+
+    &:hover {
+      .blog-post-card-image-container {
+        border-color: var(--dark-gray-color);
+      }
+
+      .blog-post-card-image {
+        filter: brightness(1);
+      }
+    }
   }
 
   .blog-post-card-title {
     margin: 0;
     text-decoration: none;
-    font-size: 30px;
-    grid-row: 1;
-    grid-column: 2;
+    font-size: 24px;
+    grid-row: 3;
   }
 
-  .blog-post-card-decsription {
+  .blog-post-card-date {
+    font-family: var(--roboto-mono);
+    color: var(--secondary-text-color);
+    font-size: 14px;
     margin: 0;
     grid-row: 2;
-    grid-column: 2;
+  }
+
+  .blog-post-card-description {
+    margin: 0;
+    grid-row: 4;
   }
 
   .blog-post-card-image-container {
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     grid-column: 1;
-    grid-row: 1 / span 2;
-    border: 2px solid var(--gray-color);
+    grid-row: 1;
+    border: 4px solid var(--gray-color);
     overflow: hidden;
+    transition: border 0.1s;
   }
 
   .blog-post-card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(0.9);
+    transition: filter 0.1s;
+    border-radius: 12px;
+    aspect-ratio: 16 / 9;
   }
 
   .blur {
@@ -73,17 +97,51 @@ const href = `/blog/${id}`;
     backdrop-filter: blur(20px);
     mask: linear-gradient(to left, transparent, black);
   }
+
+  @media (min-width: 480px) {
+    .blog-post-card-title {
+      font-size: 30px;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .blog-post-card {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .blog-post-card-date {
+      grid-row: 1;
+      grid-column: 2;
+    }
+
+    .blog-post-card-title {
+      grid-row: 2;
+      grid-column: 2;
+    }
+
+    .blog-post-card-description {
+      grid-row: 3;
+      grid-column: 2;
+    }
+
+    .blog-post-card-image-container {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+    }
+  }
 </style>
 
 <a class="blog-post-card" href={href}>
   <h3 class="blog-post-card-title">{title}</h3>
-  <p class="blog-post-card-decsription">{description}</p>
+  <time class="blog-post-card-date" datetime={datetime}>{date}</time>
+  <p class="blog-post-card-description">{description}</p>
   <div class="blog-post-card-image-container">
     <Image
       class="blog-post-card-image"
       src={mainImage}
       alt=""
-      width={406}
+      width={700}
       alt={mainImageAlt}
     />
   </div>

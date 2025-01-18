@@ -5,7 +5,7 @@ import BlogPostImage from './BlogPostImage.astro';
 
 type Props = {
   title: string;
-  date: string;
+  date: Date;
   keywords: string[];
   mainImage: ImageMetadata;
   mainImageAlt: string;
@@ -40,7 +40,7 @@ const dateString = dateObject.toLocaleDateString('en-US', {
   <BlogPostImage image={mainImage} alt={mainImageAlt} />
   <h2 class="blog-post-article-title">{title}</h2>
   <div class="blog-post-article-tags">
-    <time datetime={rawDate}><Tag text={dateString} /></time>
+    <time datetime={rawDate.toString()}><Tag text={dateString} /></time>
     {
       keywords.map((keyword) => {
         return <Tag text={`#${keyword}`} />;
