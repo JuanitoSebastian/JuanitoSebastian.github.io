@@ -10,12 +10,19 @@ type Props = {
 };
 
 const { image, alt, caption, width = 848 } = Astro.props;
+const height = Math.round((width * 9) / 16);
 ---
 
 <style>
   .blog-post-image {
     margin: 0;
     padding: 0;
+  }
+
+  .blog-post-image-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
   }
 
   .blog-post-image-caption {
@@ -26,14 +33,26 @@ const { image, alt, caption, width = 848 } = Astro.props;
   }
 
   .blog-post-image-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     filter: var(--img-filter);
-    max-width: 100%;
     object-fit: cover;
   }
 </style>
 
 <figure class="blog-post-image">
-  <Image src={image} alt={alt} class="blog-post-image-element" width={width} />
+  <div class="blog-post-image-wrapper">
+    <Image
+      src={image}
+      alt={alt}
+      class="blog-post-image-element"
+      width={width}
+      height={height}
+    />
+  </div>
   {
     caption && (
       <figcaption class="blog-post-image-caption">{caption}</figcaption>
