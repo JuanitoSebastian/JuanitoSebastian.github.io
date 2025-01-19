@@ -1,9 +1,10 @@
 /** @type {import("prettier").Config} */
 export default {
-  htmlWhitespaceSensitivity: 'strict',
   tabWidth: 2,
   singleQuote: true,
   trailingComma: 'all',
+  htmlWhitespaceSensitivity: 'ignore',
+  bracketSameLine: true,
   plugins: ['prettier-plugin-astro'],
   overrides: [
     {

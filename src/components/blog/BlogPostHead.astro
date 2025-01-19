@@ -25,7 +25,7 @@ const dateString = dateObject.toLocaleDateString('en-US', {
   .blog-post-article-title {
     font-size: 42px;
     font-family: var(--roboto-condensed);
-    margin: var(--default-spacing) 0 var(--smaller-spacing);
+    margin: var(--smaller-spacing) 0 var(--smaller-spacing);
   }
 
   .blog-post-article-tags {
@@ -34,13 +34,23 @@ const dateString = dateObject.toLocaleDateString('en-US', {
     gap: var(--smaller-spacing);
     margin: var(--smaller-spacing) 0 var(--bigger-spacing);
   }
+
+  .blog-post-article-date {
+    display: block;
+    font-family: var(--roboto-mono);
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    margin: var(--smaller-spacing) 0 0;
+  }
 </style>
 
 <section class="blog-post-article-header">
   <BlogPostImage image={mainImage} alt={mainImageAlt} />
+  <time datetime={rawDate.toString()} class="blog-post-article-date">
+    {dateString}
+  </time>
   <h2 class="blog-post-article-title">{title}</h2>
   <div class="blog-post-article-tags">
-    <time datetime={rawDate.toString()}><Tag text={dateString} /></time>
     {
       keywords.map((keyword) => {
         return <Tag text={`#${keyword}`} />;

@@ -42,15 +42,28 @@ const darkThemeColor = '#141417';
       media="(prefers-color-scheme: dark)"
       content={darkThemeColor}
     />
-    {description && <meta name="description" content={description} />}
-    {keywords && <meta name="keywords" content={keywords.join(', ')} />}
     <meta name="og:title" content={title} />
     <meta name="og:type" content="website" />
     <meta name="og:url" content={ogUrl} />
-    {imageUrl && <meta name="og:image" content={imageUrl} />}
     <meta name="twitter:card" content="summary" />
-    {description && <meta name="twitter:description" content={description} />}
-    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+    {
+      description && (
+        <>
+          <meta name="description" content={description} />
+          <meta name="og:description" content={description} />
+          <meta name="twitter:description" content={description} />
+        </>
+      )
+    }
+    {keywords && <meta name="keywords" content={keywords.join(', ')} />}
+    {
+      imageUrl && (
+        <>
+          <meta name="og:image" content={imageUrl} />
+          <meta name="twitter:image" content={imageUrl} />
+        </>
+      )
+    }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

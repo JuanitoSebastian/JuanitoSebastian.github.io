@@ -63,7 +63,12 @@ const currentPage = Astro.url.pathname;
     right: 0;
     bottom: 0;
     backdrop-filter: blur(4px);
-    background: linear-gradient(to bottom, transparent 0%, transparent calc(100% - 300px), var(--bg-color) calc(100% - 100px));
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent calc(100% - 300px),
+      var(--bg-color) calc(100% - 100px)
+    );
     z-index: 1;
     pointer-events: none;
     transition: opacity 0.3s;
@@ -109,7 +114,7 @@ const currentPage = Astro.url.pathname;
     list-style: none;
     padding: 0;
     width: 100%;
-    height: 100%;;
+    height: 100%;
     margin: 0;
   }
 
@@ -124,20 +129,16 @@ const currentPage = Astro.url.pathname;
     color: var(--dark-gray-color);
     font-size: 24px;
     font-family: var(--roboto-condensed);
-    padding: var(--default-spacing) 0 ;
+    padding: var(--default-spacing) 0;
     text-decoration: none;
     font-weight: bold;
     width: 100%;
     display: block;
     text-align: center;
-    
+
     &:hover {
       color: var(--bg-color);
       background-color: var(--dark-gray-color);
-    }
-
-    &.active {
-      // TODO: Add active styles
     }
   }
 
@@ -183,11 +184,14 @@ const currentPage = Astro.url.pathname;
     }
   });
 
-  document.addEventListener('focusin', (event) => { 
-    console.log(event.target);    
+  document.addEventListener('focusin', (event) => {
+    console.log(event.target);
     if (menu.contains(event.target) && !menu.classList.contains('open')) {
       appendOpenClass();
-    } else if (!menu.contains(event.target) && menu.classList.contains('open')) {
+    } else if (
+      !menu.contains(event.target) &&
+      menu.classList.contains('open')
+    ) {
       removeOpenClass();
     }
   });
