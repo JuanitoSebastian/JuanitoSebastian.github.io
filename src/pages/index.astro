@@ -5,7 +5,7 @@ import Hero from '../components/home/Hero.astro';
 import AboutMe from '../components/home/AboutMe.astro';
 import SectionNameTag from '../components/SectionNameTag.astro';
 import WorkExperience from '../components/home/WorkExperience/WorkExperience.astro';
-import Socials from '../components/home/Socials.astro';
+import Menu from '../components/home/Menu.astro';
 
 import juanitoImage from '../images/juanito_polaroid.webp';
 import junitoOgImage from '../images/juanito_og_image.webp';
@@ -37,7 +37,6 @@ const htmlProps = {
     <AboutMe />
     <SectionNameTag name="Work experience" isH2={true} />
     <WorkExperience />
-    <SectionNameTag name="Socials" isH2={true} />
-    <Socials />
   </Layout>
+  <Menu />
 </Html>

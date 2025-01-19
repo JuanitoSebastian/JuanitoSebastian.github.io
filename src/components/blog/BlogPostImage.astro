@@ -27,6 +27,8 @@ const { image, alt, caption, width = 848 } = Astro.props;
 
   .blog-post-image-element {
     filter: var(--img-filter);
+    max-width: 100%;
+    object-fit: cover;
   }
 </style>
 

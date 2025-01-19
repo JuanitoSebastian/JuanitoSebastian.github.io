@@ -2,6 +2,7 @@
 import Html from '../layouts/Html.astro';
 import Layout from '../layouts/Layout.astro';
 import BlogPostsList from '../components/blog/BlogPostsList.astro';
+import Menu from '../components/home/Menu.astro';
 
 import junitoOgImage from '../images/juanito_og_image.webp';
 import SectionNameTag from '../components/SectionNameTag.astro';
@@ -36,4 +37,5 @@ const htmlProps = {
     <SectionNameTag name="Blog posts" isH2={true} />
     <BlogPostsList />
   </Layout>
+  <Menu />
 </Html>

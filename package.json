@@ -12,7 +12,8 @@
     "eslint": "eslint",
     "eslint:fix": "eslint --fix",
     "prettier": "prettier --check '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
-    "prettify": "prettier --write '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'"
+    "prettify": "prettier --write '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
+    "astro:disable-toolbar": "astro preferences disable devToolbar"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.5",

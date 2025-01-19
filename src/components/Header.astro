@@ -1,6 +1,5 @@
 ---
-const navigationLinks = [{ href: '/blog', text: 'Blog' }];
-const currentPage = Astro.url.pathname;
+
 ---
 
 <style>
@@ -30,19 +29,6 @@ const currentPage = Astro.url.pathname;
       }
     }
 
-    .navigation-list {
-      list-style: none;
-    }
-
-    .navigation-list-item-link {
-      color: var(--text-color);
-      font-size: 18px;
-
-      &.active {
-        font-weight: bold;
-      }
-    }
-
     @media (min-width: 400px) {
       .title {
         font-size: 52px;
@@ -58,23 +44,4 @@ const currentPage = Astro.url.pathname;
       Covarrubias
     </a>
   </h1>
-  <nav class="navigation">
-    <ul class="navigation-list">
-      {
-        navigationLinks.map((link) => (
-          <li class="navigation-list-item">
-            <a
-              class:list={[
-                'navigation-list-item-link',
-                { active: currentPage.includes(link.href) },
-              ]}
-              href={link.href}
-            >
-              {link.text}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
 </header>

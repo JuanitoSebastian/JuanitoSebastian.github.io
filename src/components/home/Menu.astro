@@ -1,0 +1,228 @@
+---
+import SocialMediaLink from '../SocialMediaLink.astro';
+
+const socialMediaLinkObjects = [
+  {
+    to: 'https://www.linkedin.com/in/juanito-sebastian/',
+    iconUrl: '/linkedin_icon.svg',
+    alt: 'LinkedIn',
+  },
+  {
+    to: 'https://github.com/JuanitoSebastian',
+    iconUrl: '/github_icon.svg',
+    alt: 'GitHub',
+  },
+  {
+    to: 'https://www.instagram.com/juanito.wav/',
+    iconUrl: '/instagram_icon.svg',
+    alt: 'Instagram',
+  },
+  {
+    to: 'https://bsky.app/profile/juan.fi',
+    iconUrl: '/bsky_icon.svg',
+    alt: 'Bluesky',
+  },
+];
+
+const navigationLinks = [{ href: '/blog', text: 'Blog' }];
+const currentPage = Astro.url.pathname;
+---
+
+<style>
+  .menu {
+    position: fixed;
+    margin: 0 auto;
+    bottom: -170px;
+    transition: bottom 0.3s;
+    z-index: 2;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: end;
+
+    &:hover,
+    &.open {
+      bottom: 0;
+
+      .menu-backdrop-blur {
+        opacity: 1;
+      }
+
+      .menu-container {
+        filter: drop-shadow(0 0 40px var(--bg-color));
+      }
+    }
+  }
+
+  .menu-backdrop-blur {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(to bottom, transparent 0%, transparent calc(100% - 300px), var(--bg-color) calc(100% - 100px));
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .menu-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--smaller-spacing);
+    margin: 0 auto var(--bigger-spacing);
+    position: relative;
+    border-radius: var(--border-radius);
+    background-color: var(--light-gray-color);
+    border: 2px solid var(--gray-color);
+    width: fit-content;
+    padding: var(--smaller-spacing);
+    z-index: 2;
+    transition: filter 0.3s;
+    filter: drop-shadow(0 -10px 40px var(--bg-color));
+  }
+
+  .social-media-links {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--default-spacing);
+    justify-content: center;
+    padding-top: var(--smaller-spacing);
+    border-top: 2px solid var(--gray-color);
+  }
+
+  .menu-heading {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    margin: 0;
+    font-family: var(--roboto-mono);
+    text-transform: lowercase;
+  }
+
+  .navigation-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;;
+    margin: 0;
+  }
+
+  .navigation-list-item {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .navigation-list-item-link {
+    border-radius: var(--border-radius);
+    color: var(--dark-gray-color);
+    font-size: 24px;
+    font-family: var(--roboto-condensed);
+    padding: var(--default-spacing) 0 ;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    text-align: center;
+    
+    &:hover {
+      color: var(--bg-color);
+      background-color: var(--dark-gray-color);
+    }
+
+    &.active {
+      // TODO: Add active styles
+    }
+  }
+
+  .menu-puller-tab {
+    position: absolute;
+    background-color: var(--dark-gray-color);
+    height: 4px;
+    width: 40px;
+    top: calc(-1 * (4px + var(--smaller-spacing)));
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+  }
+</style>
+
+<script type="module">
+  console.log('hello form javascript');
+
+  const menu = document.querySelector('.menu');
+
+  const appendOpenClass = () => {
+    menu.classList.add('open');
+  };
+
+  const removeOpenClass = () => {
+    menu.classList.remove('open');
+  };
+
+  menu.addEventListener('click', (event) => {
+    if (menu.childNodes.contain(event.target)) {
+      return;
+    }
+
+    if (!menu.classList.contains('open')) {
+      event.preventDefault();
+      appendOpenClass();
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target)) {
+      removeOpenClass();
+    }
+  });
+
+  document.addEventListener('focusin', (event) => { 
+    console.log(event.target);    
+    if (menu.contains(event.target) && !menu.classList.contains('open')) {
+      appendOpenClass();
+    } else if (!menu.contains(event.target) && menu.classList.contains('open')) {
+      removeOpenClass();
+    }
+  });
+</script>
+
+<section class="menu">
+  <div class="menu-backdrop-blur"></div>
+  <div class="menu-container">
+    <div class="menu-puller-tab"></div>
+    <nav class="navigation">
+      <ul class="navigation-list">
+        {
+          navigationLinks.map((link) => (
+            <li class="navigation-list-item">
+              <a
+                tabindex="0"
+                class:list={[
+                  'navigation-list-item-link',
+                  { active: currentPage.includes(link.href) },
+                ]}
+                href={link.href}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="social-media-links">
+      {
+        socialMediaLinkObjects.map((socialMediaLinkObject) => (
+          <SocialMediaLink {...socialMediaLinkObject} />
+        ))
+      }
+    </div>
+  </div>
+</section>
