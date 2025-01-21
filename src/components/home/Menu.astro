@@ -132,7 +132,7 @@ const currentPage = Astro.url.pathname;
     font-family: var(--roboto-condensed);
     padding: var(--default-spacing) 0;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 400;
     width: 100%;
     display: block;
     text-align: center;
@@ -213,8 +213,7 @@ const currentPage = Astro.url.pathname;
                   'navigation-list-item-link',
                   { active: currentPage.includes(link.href) },
                 ]}
-                href={link.href}
-              >
+                href={link.href}>
                 {link.text}
               </a>
             </li>
