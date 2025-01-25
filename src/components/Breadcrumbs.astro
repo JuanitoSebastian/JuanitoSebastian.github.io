@@ -1,0 +1,67 @@
+---
+import { path } from 'animejs';
+
+type Props = {
+  crumbs: { name: string; url: string }[];
+  showHome?: boolean;
+};
+
+const { crumbs: crumbsProp, showHome } = Astro.props;
+let crumbs = crumbsProp;
+
+if (showHome) {
+  crumbs = [{ name: 'Home', url: '/' }, ...crumbs];
+}
+
+const currentPathname = Astro.url.pathname;
+---
+
+<style>
+  .breadcrumbs-list {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    gap: var(--default-spacing);
+    margin: 0 0 var(--default-spacing);
+    font-family: var(--roboto-mono);
+    padding: 0;
+  }
+
+  .breadcrumbs-list-item {
+    list-style: none;
+  }
+
+  .breadcrumbs-list-item-link {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+
+    &.active {
+      color: var(--text-color);
+    }
+  }
+
+  .breadcrumbs-list-item:not(:last-child)::after {
+    content: '>';
+    margin: auto var(--smaller-spacing);
+    font-size: 14px;
+  }
+</style>
+<nav class="breadcrumbs">
+  <ol class="breadcrumbs-list">
+    {
+      crumbs.map((crumb, index) => {
+        const active = index === crumbs.length - 1;
+        return (
+          <li class:list={['breadcrumbs-list-item']}>
+            <a
+              class:list={['breadcrumbs-list-item-link', { active }]}
+              href={crumb.url}>
+              {crumb.name}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>
