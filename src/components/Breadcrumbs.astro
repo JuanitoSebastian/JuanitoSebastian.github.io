@@ -1,6 +1,4 @@
 ---
-import { path } from 'animejs';
-
 type Props = {
   crumbs: { name: string; url: string }[];
   showHome?: boolean;
@@ -12,8 +10,6 @@ let crumbs = crumbsProp;
 if (showHome) {
   crumbs = [{ name: 'Home', url: '/' }, ...crumbs];
 }
-
-const currentPathname = Astro.url.pathname;
 ---
 
 <style>
@@ -21,7 +17,6 @@ const currentPathname = Astro.url.pathname;
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-    gap: var(--default-spacing);
     margin: 0 0 var(--default-spacing);
     font-family: var(--roboto-mono);
     padding: 0;
@@ -32,19 +27,34 @@ const currentPathname = Astro.url.pathname;
   }
 
   .breadcrumbs-list-item-link {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--secondary-text-color);
     text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     &.active {
       color: var(--text-color);
     }
   }
 
-  .breadcrumbs-list-item:not(:last-child)::after {
-    content: '>';
-    margin: auto var(--smaller-spacing);
-    font-size: 14px;
+  .breadcrumbs-list-item:not(:last-child) {
+    &::after {
+      color: var(--secondary-text-color);
+      content: '/';
+      font-size: 14px;
+      margin-right: var(--smaller-spacing);
+    }
+  }
+
+  @media (min-width: 420px) {
+    .breadcrumbs-list-item-link {
+      font-size: 14px;
+    }
+
+    .breadcrumbs-list-item {
+      max-width: 260px;
+    }
   }
 </style>
 <nav class="breadcrumbs">
