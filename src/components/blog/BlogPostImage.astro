@@ -6,14 +6,30 @@ type Props = {
   image: ImageMetadata;
   alt: string;
   width?: number;
+  height?: number;
   caption?: string;
 };
 
-const { image, alt, caption, width = 848 } = Astro.props;
-const height = Math.round((width * 9) / 16);
+const {
+  image,
+  alt,
+  caption,
+  width: widthProp = 848,
+  height: heightProp,
+} = Astro.props;
+
+const height = heightProp;
+const width = widthProp ? widthProp : image.width;
+
+let paddingBottom: string;
+if (heightProp && widthProp) {
+  paddingBottom = `${(heightProp / widthProp) * 100}%`;
+} else {
+  paddingBottom = `${(image.height / image.width) * 100}%`;
+}
 ---
 
-<style>
+<style define:vars={{ 'padding-bottom': paddingBottom }}>
   .blog-post-image {
     margin: 0;
     padding: 0;
@@ -21,7 +37,7 @@ const height = Math.round((width * 9) / 16);
 
   .blog-post-image-wrapper {
     position: relative;
-    padding-top: 56.25%;
+    padding-bottom: var(--padding-bottom);
     width: 100%;
   }
 
@@ -43,7 +59,7 @@ const height = Math.round((width * 9) / 16);
   }
 </style>
 
-<figure class="blog-post-image">
+<figure class="blog-post-image" style="">
   <div class="blog-post-image-wrapper">
     <Image
       src={image}
