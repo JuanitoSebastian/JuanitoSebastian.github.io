@@ -8,20 +8,10 @@ keywords: ['Networks', 'Music', 'Swift', 'SwiftNIO']
 ---
 
 import { Image } from 'astro:assets';
-import BlogPostHead from '../../src/components/blog/BlogPostHead.astro';
 import BlogPostHeading from '../../src/components/blog/BlogPostHeading.astro';
 import BlogPostImage from '../../src/components/blog/BlogPostImage.astro';
 import cdjSetupImage from './imgs/cdj_setup.png';
 import ioGraphImage from './imgs/io_graph1.png';
-import mainImage from './imgs/udp_turntables.webp';
-
-<BlogPostHead
-  title="UDP Sockets & Digital Turntables"
-  date="2022-08-09"
-  keywords={['Networks', 'Music', 'Swift', 'SwiftNIO']}
-  mainImage={mainImage}
-  mainImageAlt="Close-up of a deejay operating digital turntables"
-/>
 
 The nightclub scene is not that different from other industries: it too has seen a massive change from old analog solutions to new digital equipment. There are still some disc jockeys who carry a bag full of vinyls from venue to venue, but the majority of deejays have opted for a much more convenient solution: digital music players. Most nightclubs and music venues have DJ equipment in-house, and the standard setup you will find in nightclubs worldwide is Pioneer CDJ players and a Pioneer DJM mixer. The CDJ is a digital music player capable of playing audio files off from CDs, USB flash drives and SD cards. A deejay typically carries a USB stick with their music library on it. When it's their time to perform, the deejay can just plug the USB flash drive to the CDJ and start playing. Besides the convenience of not having to carry heavy bags full of records, the CDJs offer some fascinating features when connected to a LAN network. CDJ players can share audio files between each other and send useful information like the current BPM (beats per minute) of the current track. The DJM mixer can listen to this information that is broadcast on the network and use it to synchronize audio effects. In a more advanced setup this information can be fed to the lighting and video operators who can use it to synchronize the light show and video effects to match exactly the rhythm of the music that is currently playing. The owner of the Pioneer DJ brand AlphaTheta Corporation calls this technology Pro DJ Link, and they have not released any public documentation on the protocol.
 

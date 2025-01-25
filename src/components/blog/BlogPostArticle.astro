@@ -1,5 +1,13 @@
 ---
+import type { InferEntrySchema } from 'astro:content';
+import BlogPostHead from './BlogPostHead.astro';
 
+type Props = {
+  post: InferEntrySchema<'blog'>;
+};
+
+const { post } = Astro.props;
+const { title, date, keywords, mainImage, mainImageAlt } = post;
 ---
 
 <style>
@@ -27,5 +35,12 @@
 </style>
 
 <article class="blog-post-article">
+  <BlogPostHead
+    title={title}
+    date={date}
+    keywords={keywords}
+    mainImage={mainImage}
+    mainImageAlt={mainImageAlt}
+  />
   <slot />
 </article>
