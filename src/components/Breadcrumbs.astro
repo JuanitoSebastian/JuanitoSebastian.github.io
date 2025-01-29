@@ -28,20 +28,16 @@ if (showHome) {
 
   .breadcrumbs-list-item-link {
     font-size: 13px;
-    color: var(--secondary-text-color);
     text-decoration: none;
     white-space: nowrap;
     text-overflow: ellipsis;
-
-    &.active {
-      color: var(--text-color);
-    }
+    color: var(--text-color);
   }
 
   .breadcrumbs-list-item:not(:last-child) {
     &::after {
-      color: var(--secondary-text-color);
-      content: '/';
+      color: var(--text-color);
+      content: '→';
       font-size: 14px;
       margin-right: var(--smaller-spacing);
     }
