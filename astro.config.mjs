@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx(), sitemap()],
-  site: 'https://juan.fi',
+  site: 'https://www.juan.fi',
   markdown: {
     remarkPlugins: [externalAnchorPlugin],
   },
