@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Structure Guide
+
+This is an Astro-based personal website/portfolio project. Here's how the project is organized:
+
+## Core Configuration
+- [astro.config.mjs](mdc:astro.config.mjs) - Main Astro configuration
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript configuration
+- [package.json](mdc:package.json) - Project dependencies and scripts
+
+## Source Code Organization
+The main source code is in the `src` directory:
+- `src/pages/` - Astro pages and routes
+- `src/components/` - Reusable UI components
+- `src/layouts/` - Page layouts and templates
+- `src/styles/` - Global styles and CSS
+- `src/utils/` - Utility functions and helpers
+- `src/images/` - Image assets
+- [src/content.config.ts](mdc:src/content.config.ts) - Content collection configuration
+
+## Content
+Content is organized in two main directories:
+- `content/blog/` - Blog posts and articles
+- `content/work-experience/` - Work experience entries
+
+## Public Assets
+Static assets are stored in the `public/` directory and are served directly.

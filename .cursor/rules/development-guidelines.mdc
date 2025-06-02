@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Guidelines
+
+## Code Style
+The project uses ESLint and Prettier for code formatting:
+- [.prettierrc.mjs](mdc:.prettierrc.mjs) - Prettier configuration
+- [eslint.config.js](mdc:eslint.config.js) - ESLint rules
+
+## TypeScript
+- All new code should be written in TypeScript
+- Type definitions for Astro are included in [src/env.d.ts](mdc:src/env.d.ts)
+
+## Content Management
+- Blog posts and work experience entries should be added to their respective directories in `content/`
+- Content is typed and validated according to the schema in [src/content.config.ts](mdc:src/content.config.ts)
+
+## Node Version
+The project uses a specific Node.js version as defined in [.nvmrc](mdc:.nvmrc)
