@@ -2,6 +2,7 @@
   --roboto: 'Roboto', sans-serif;
   --roboto-condensed: 'Roboto Condensed Variable', sans-serif;
   --roboto-mono: 'Roboto Mono', monospace;
+  --cormorant: 'Cormorant Variable', serif;
 }
 
 @mixin measurements {
@@ -31,6 +32,7 @@
   --polaroid-shine: rgba(255, 255, 255, 0.75);
   --polaroid-pattern: rgba(0, 0, 0, 0.01);
   --img-filter: none;
+  --mesh-filter: none;
 }
 
 @mixin dark-colors {
@@ -47,6 +49,7 @@
   --polaroid-shine: rgba(255, 255, 255, 0.1);
   --polaroid-pattern: rgba(255, 255, 255, 0.02);
   --img-filter: brightness(0.9);
+  --mesh-filter: invert(1);
 }
 
 @mixin global-colors {
@@ -80,18 +83,18 @@ body {
   height: 100vh;
   margin: 0;
   overflow: auto;
-  background: linear-gradient(
-      90deg,
-      var(--bg-color),
-      var(--bg-color) calc(50% - 4px),
-      var(--clear) 8px calc(50% - 4px),
-      var(--clear) 16px calc(50% + 4px),
-      var(--bg-color) calc(50% + 4px),
-      var(--bg-color)
-    ),
-    linear-gradient(var(--bg-color), var(--gray-color));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  // background: linear-gradient(
+  //     90deg,
+  //     var(--bg-color),
+  //     var(--bg-color) calc(50% - 4px),
+  //     var(--clear) 8px calc(50% - 4px),
+  //     var(--clear) 16px calc(50% + 4px),
+  //     var(--bg-color) calc(50% + 4px),
+  //     var(--bg-color)
+  //   ),
+  //   linear-gradient(var(--bg-color), var(--gray-color));
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
 
   p {
     line-height: 1.4;

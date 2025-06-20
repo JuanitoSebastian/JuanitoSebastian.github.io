@@ -1,53 +1,78 @@
 ---
-import Polaroid from './Polaroid.astro';
+import { Image } from 'astro:assets';
+import img4121 from '../../images/IMG_4121.webp';
 ---
 
 <style>
-  .hero {
+  .hero-content {
     width: 100%;
+    max-width: var(--main-width);
+    padding: 0 0 var(--xl-spacing);
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-end;
-    margin: 0 0 var(--xxl-spacing);
-    overflow-y: hidden;
-
-    .title {
-      margin: var(--default-spacing) 0 0;
-      padding: 0 0 var(--default-spacing);
-      text-align: right;
-      color: var(--secondary-text-color);
-      font-family: var(--roboto-condensed);
-      font-size: 20px;
-      line-height: 1.2;
-      align-self: flex-end;
-
-      .main {
-        color: var(--text-color);
-        font-size: 32px;
-      }
-
-      > * {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        box-shadow: 0px 0px 10px var(--bg-color);
-      }
-    }
+    align-items: center;
+    justify-content: center;
   }
 
-  @media (min-width: 400px) {
-    .hero {
-      .title {
-        font-size: 24px;
-      }
+  .title-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--bigger-spacing);
+  }
+
+  .profile-image {
+    max-width: 300px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: var(--default-spacing);
+  }
+
+  .title {
+    font-family: var(--cormorant);
+    font-size: 68px;
+    font-weight: 400;
+    line-height: 0.9;
+  }
+
+  .blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+    z-index: 1;
+    mask: radial-gradient(circle, transparent 20%, black 80%);
+    -webkit-mask: radial-gradient(circle, transparent 20%, black 80%);
+    animation: blur-animation 2s ease-in-out infinite;
+  }
+
+  @keyframes blur-animation {
+    0% {
+      backdrop-filter: blur(5px);
+    }
+    50% {
+      backdrop-filter: blur(7px);
+    }
+    100% {
+      backdrop-filter: blur(5px);
     }
   }
 </style>
 
-<section class="hero">
-  <Polaroid />
-  <p class="title">
-    <strong class="main">Web Developer</strong><br />
-    <span>Bachelor of Computer Science</span><br />
-    <span>Former Technical Event Production Pro</span>
-  </p>
-</section>
+<main class="hero-content">
+  <Image src={img4121} alt="Profile Image" class="profile-image" />
+  <div class="title-container">
+    <h1 class="title">
+      Juan<br />
+      Sebastian<br />
+      Covarrubias
+    </h1>
+    <div class="blur-overlay"></div>
+  </div>
+</main>
