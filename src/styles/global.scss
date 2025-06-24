@@ -1,8 +1,23 @@
+@font-face {
+  font-family: 'Neue Regrade';
+  src: url('/fonts/Neue Regrade Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  src: url('/fonts/Neue Regrade Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
 @mixin fonts {
   --roboto: 'Roboto', sans-serif;
   --roboto-condensed: 'Roboto Condensed Variable', sans-serif;
   --roboto-mono: 'Roboto Mono', monospace;
   --cormorant: 'Cormorant Variable', serif;
+  --neue-regrade: 'Neue Regrade', sans-serif;
 }
 
 @mixin measurements {
@@ -19,7 +34,7 @@
 }
 
 @mixin light-colors {
-  --bg-color: #fff;
+  --bg-color: #fffdf9;
   --text-color: #222;
   --secondary-text-color: #666;
   --blue-color: #07169e;
@@ -78,7 +93,7 @@ html {
 
 body {
   background-color: var(--bg-color);
-  font-family: var(--roboto);
+  font-family: var(--cormorant);
   color: var(--text-color);
   height: 100vh;
   margin: 0;
@@ -95,11 +110,6 @@ body {
   //   linear-gradient(var(--bg-color), var(--gray-color));
   // background-repeat: no-repeat;
   // background-attachment: fixed;
-
-  p {
-    line-height: 1.4;
-    font-size: var(--default-text-size);
-  }
 
   ul {
     font-size: var(--default-text-size);

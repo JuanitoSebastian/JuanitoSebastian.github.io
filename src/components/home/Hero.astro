@@ -1,41 +1,49 @@
 ---
 import { Image } from 'astro:assets';
-import img4121 from '../../images/IMG_4121.webp';
+import img4121 from '../../images/JSC_6449.webp';
 ---
 
 <style>
-  .hero-content {
+  .hero {
     width: 100%;
-    max-width: var(--main-width);
-    padding: 0 0 var(--xl-spacing);
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .title-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--bigger-spacing);
   }
 
   .profile-image {
-    max-width: 300px;
-    max-height: 400px;
+    max-width: 400px;
     width: auto;
     height: auto;
     object-fit: cover;
-    margin-bottom: var(--default-spacing);
+    mask: linear-gradient(to bottom left, black 80%, transparent 95%);
+    -webkit-mask: linear-gradient(to bottom left, black 80%, transparent 95%);
+    z-index: 0;
+  }
+
+  .title-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: var(--default-spacing);
+    backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, transparent, var(--bg-color) 80%);
   }
 
   .title {
-    font-family: var(--cormorant);
-    font-size: 68px;
-    font-weight: 400;
+    font-family: var(--neue-regrade);
+    font-size: 58px;
+    font-weight: 700;
     line-height: 0.9;
+    margin: 0;
   }
 
   .blur-overlay {
@@ -47,25 +55,13 @@ import img4121 from '../../images/IMG_4121.webp';
     backdrop-filter: blur(5px);
     pointer-events: none;
     z-index: 1;
-    mask: radial-gradient(circle, transparent 20%, black 80%);
-    -webkit-mask: radial-gradient(circle, transparent 20%, black 80%);
+    mask: linear-gradient(to top right, transparent, black);
+    -webkit-mask: linear-gradient(to top right, transparent, black);
     animation: blur-animation 2s ease-in-out infinite;
-  }
-
-  @keyframes blur-animation {
-    0% {
-      backdrop-filter: blur(5px);
-    }
-    50% {
-      backdrop-filter: blur(7px);
-    }
-    100% {
-      backdrop-filter: blur(5px);
-    }
   }
 </style>
 
-<main class="hero-content">
+<section class="hero">
   <Image src={img4121} alt="Profile Image" class="profile-image" />
   <div class="title-container">
     <h1 class="title">
@@ -73,6 +69,6 @@ import img4121 from '../../images/IMG_4121.webp';
       Sebastian<br />
       Covarrubias
     </h1>
-    <div class="blur-overlay"></div>
+    <!-- <div class="blur-overlay"></div> -->
   </div>
-</main>
+</section>
