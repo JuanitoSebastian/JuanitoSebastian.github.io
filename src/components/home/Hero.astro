@@ -1,16 +1,22 @@
 ---
 import { Image } from 'astro:assets';
 import img4121 from '../../images/JSC_6449.webp';
+
+const descriptions = [
+  'Web Developer',
+  'Bachelor of Computer Science',
+  'Former Technical Event Production Pro',
+];
 ---
 
 <style>
   .hero {
     width: 100%;
-    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    gap: var(--bigger-spacing);
+    margin: var(--xl-spacing) 0 calc(var(--xl-spacing) * -1);
   }
 
   .profile-image {
@@ -18,57 +24,47 @@ import img4121 from '../../images/JSC_6449.webp';
     width: auto;
     height: auto;
     object-fit: cover;
-    mask: linear-gradient(to bottom left, black 80%, transparent 95%);
-    -webkit-mask: linear-gradient(to bottom left, black 80%, transparent 95%);
     z-index: 0;
+    flex-shrink: 0;
   }
 
-  .title-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    padding: var(--default-spacing);
-    backdrop-filter: blur(10px);
-    background: linear-gradient(to bottom, transparent, var(--bg-color) 80%);
-  }
-
-  .title {
-    font-family: var(--neue-regrade);
-    font-size: 58px;
-    font-weight: 700;
-    line-height: 0.9;
+  .descriptions {
+    list-style: none;
+    padding: 0;
     margin: 0;
+    max-width: 350px;
   }
 
-  .blur-overlay {
+  .descriptions li {
+    position: relative;
+    padding-left: var(--bigger-spacing);
+    margin-bottom: var(--smaller-spacing);
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .descriptions li::before {
+    content: '→';
     position: absolute;
-    top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    backdrop-filter: blur(5px);
-    pointer-events: none;
-    z-index: 1;
-    mask: linear-gradient(to top right, transparent, black);
-    -webkit-mask: linear-gradient(to top right, transparent, black);
-    animation: blur-animation 2s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      gap: var(--md-spacing);
+    }
+
+    .profile-image {
+      max-width: 300px;
+    }
   }
 </style>
 
-<section class="hero">
-  <Image src={img4121} alt="Profile Image" class="profile-image" />
-  <div class="title-container">
-    <h1 class="title">
-      Juan<br />
-      Sebastian<br />
-      Covarrubias
-    </h1>
-    <!-- <div class="blur-overlay"></div> -->
-  </div>
+<section class="hero" id="hero">
+  <Image src={img4121} alt="" class="profile-image" />
+  <ul class="descriptions">
+    {descriptions.map((description) => <li>{description}</li>)}
+  </ul>
 </section>

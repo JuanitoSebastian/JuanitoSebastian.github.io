@@ -1,41 +1,56 @@
+---
+import { Content } from '../../mds/AboutMe.md';
+---
+
 <style>
   .about-me {
-    width: 100%;
-    padding: var(--xl-spacing) 0;
+    padding: var(--smaller-spacing) var(--default-spacing);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    backdrop-filter: blur(10px);
+    max-width: var(--main-width);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, transparent 50%, var(--bg-color)),
+      var(--bg-color) 100px
+    );
   }
 
-  .about-me-content {
-    max-width: 800px;
+  .body {
     line-height: 1.6;
-    font-size: 20px;
+    font-size: 22px;
     color: var(--text-color);
   }
 
-  .about-me-content p {
-    margin: 0;
+  .header {
   }
 
-  .about-me-content strong {
+  .body p {
+    margin: var(--bigger-spacing) 0;
+  }
+
+  .body strong {
     font-weight: 600;
     color: var(--accent-color);
   }
+
+  .title {
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 0.9;
+    margin: 0;
+  }
 </style>
 
-<section class="about-me">
-  <div class="about-me-content">
-    <p>
-      Hi! I'm Juan, a front-end developer crafting web experiences at Iltalehti,
-      Finland's largest digital media outlet. My previous career in technical
-      event production equipped me with a unique blend of skills I bring to
-      software development: proven <strong>project management</strong> expertise
-      and a track record of <strong>delivering under pressure</strong>.
-      Currently expanding into full-stack development while pursuing my Master's
-      in Computer Science at the University of Helsinki, I combine technical
-      expertise with strong collaborative skills to build robust, scalable web
-      solutions.
-    </p>
+<article class="about-me">
+  <section class="header">
+    <h1 class="title">
+      Juan<br />
+      Sebastian<br />
+      Covarrubias
+    </h1>
+  </section>
+  <div class="body">
+    <Content />
   </div>
-</section>
+</article>

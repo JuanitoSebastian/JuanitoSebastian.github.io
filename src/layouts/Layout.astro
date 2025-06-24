@@ -25,19 +25,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 var(--default-spacing);
-  }
-
-  .main-content {
-    margin: var(--xl-spacing) 0;
-    max-width: var(--main-width);
-    width: var(--main-width);
   }
 </style>
 
 <div class="mesh-overlay"></div>
 <div class="layout">
-  <main class="main-content">
-    <slot />
-  </main>
+  <slot />
 </div>

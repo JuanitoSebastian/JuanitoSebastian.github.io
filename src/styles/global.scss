@@ -21,7 +21,7 @@
 }
 
 @mixin measurements {
-  --main-width: 848px;
+  --main-width: 960px;
   --xxl-spacing: 128px;
   --xl-spacing: 64px;
   --bigger-spacing: 32px;
@@ -98,18 +98,6 @@ body {
   height: 100vh;
   margin: 0;
   overflow: auto;
-  // background: linear-gradient(
-  //     90deg,
-  //     var(--bg-color),
-  //     var(--bg-color) calc(50% - 4px),
-  //     var(--clear) 8px calc(50% - 4px),
-  //     var(--clear) 16px calc(50% + 4px),
-  //     var(--bg-color) calc(50% + 4px),
-  //     var(--bg-color)
-  //   ),
-  //   linear-gradient(var(--bg-color), var(--gray-color));
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
 
   ul {
     font-size: var(--default-text-size);
@@ -126,7 +114,7 @@ body {
   h4,
   h5,
   h6 {
-    font-family: var(--roboto-condensed);
+    font-family: var(--neue-regrade);
   }
 
   :focus-visible {
