@@ -5,33 +5,37 @@ import { Content } from '../../mds/AboutMe.md';
 <style>
   .about-me {
     padding: var(--smaller-spacing) var(--default-spacing);
-    display: flex;
-    flex-direction: column;
     backdrop-filter: blur(10px);
-    max-width: var(--main-width);
     background: linear-gradient(
       to bottom,
-      color-mix(in srgb, transparent 50%, var(--bg-color)),
+      color-mix(in srgb, var(--clear-color) 50%, var(--bg-color)),
       var(--bg-color) 100px
     );
+    z-index: 100;
+    width: 100%;
+    border-top: 1px solid;
+    border-image: linear-gradient(
+        to right,
+        var(--clear-color) 0%,
+        var(--clear-color) calc(50% - var(--main-width) / 2 - 50px),
+        var(--secondary-text-color) calc(50% - var(--main-width) / 2),
+        var(--secondary-text-color) calc(50% + var(--main-width) / 2),
+        var(--clear-color) calc(50% + var(--main-width) / 2 + 50px),
+        var(--clear-color) 100%
+      )
+      1;
+  }
+
+  .content {
+    max-width: var(--main-width);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
   }
 
   .body {
     line-height: 1.6;
     font-size: 22px;
-    color: var(--text-color);
-  }
-
-  .header {
-  }
-
-  .body p {
-    margin: var(--bigger-spacing) 0;
-  }
-
-  .body strong {
-    font-weight: 600;
-    color: var(--accent-color);
   }
 
   .title {
@@ -43,14 +47,16 @@ import { Content } from '../../mds/AboutMe.md';
 </style>
 
 <article class="about-me">
-  <section class="header">
-    <h1 class="title">
-      Juan<br />
-      Sebastian<br />
-      Covarrubias
-    </h1>
-  </section>
-  <div class="body">
-    <Content />
+  <div class="content">
+    <section class="header">
+      <h1 class="title">
+        Juan<br />
+        Sebastian<br />
+        Covarrubias
+      </h1>
+    </section>
+    <div class="body">
+      <Content />
+    </div>
   </div>
 </article>

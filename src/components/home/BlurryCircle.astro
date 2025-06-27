@@ -1,0 +1,55 @@
+---
+type Props = {
+  size: 'small' | 'medium' | 'large';
+  color: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  opacity?: number;
+};
+const {
+  size = 'medium',
+  color = 'var(--bg-color)',
+  top,
+  left,
+  right,
+  bottom,
+  opacity = 1,
+} = Astro.props;
+
+const sizeMap = {
+  small: '100px',
+  medium: '200px',
+  large: '300px',
+};
+
+const cssVars = {
+  'blurry-circle-size': sizeMap[size],
+  'blurry-circle-color': color,
+  'blurry-circle-top': top || 'auto',
+  'blurry-circle-left': left || 'auto',
+  'blurry-circle-right': right || 'auto',
+  'blurry-circle-bottom': bottom || 'auto',
+  'blurry-circle-opacity': opacity.toString(),
+};
+---
+
+<style define:vars={cssVars}>
+  .blurry-circle {
+    position: absolute;
+    top: var(--blurry-circle-top);
+    left: var(--blurry-circle-left);
+    right: var(--blurry-circle-right);
+    bottom: var(--blurry-circle-bottom);
+    width: var(--blurry-circle-size);
+    height: var(--blurry-circle-size);
+    background-color: var(--blurry-circle-color);
+    opacity: var(--blurry-circle-opacity);
+    z-index: 5;
+    filter: blur(50px);
+    border-radius: 50%;
+  }
+</style>
+
+<div class="blurry-circle"></div>

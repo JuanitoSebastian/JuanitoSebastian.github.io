@@ -1,70 +1,58 @@
 ---
 import { Image } from 'astro:assets';
-import img4121 from '../../images/JSC_6449.webp';
-
-const descriptions = [
-  'Web Developer',
-  'Bachelor of Computer Science',
-  'Former Technical Event Production Pro',
-];
+import bgSrc from '../../images/hero/juan_bg.webp';
+import juanSrc from '../../images/hero/juan.webp';
+import BlurryCircle from './BlurryCircle.astro';
 ---
 
 <style>
   .hero {
     width: 100%;
+    position: relative;
+    margin: var(--xl-spacing) 0 calc(var(--xxl-spacing) * -1);
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: var(--bigger-spacing);
-    margin: var(--xl-spacing) 0 calc(var(--xl-spacing) * -1);
+    overflow: hidden;
   }
 
-  .profile-image {
-    max-width: 400px;
-    width: auto;
+  .hero-content {
+    position: relative;
+    width: 100%;
+    max-width: var(--main-width);
+  }
+
+  .hero-image {
+    width: 100%;
     height: auto;
     object-fit: cover;
-    z-index: 0;
-    flex-shrink: 0;
+    display: block;
   }
 
-  .descriptions {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: 350px;
-  }
-
-  .descriptions li {
+  .bg {
     position: relative;
-    padding-left: var(--bigger-spacing);
-    margin-bottom: var(--smaller-spacing);
-    font-size: 26px;
-    font-style: italic;
-    line-height: 1.6;
+    z-index: var(--z-index-hero-bg);
+    filter: var(--img-filter);
   }
 
-  .descriptions li::before {
-    content: '→';
+  .juan {
     position: absolute;
+    top: 0;
     left: 0;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      flex-direction: column;
-      gap: var(--md-spacing);
-    }
-
-    .profile-image {
-      max-width: 300px;
-    }
+    z-index: var(--z-index-hero-juan);
+    pointer-events: none;
   }
 </style>
 
 <section class="hero" id="hero">
-  <Image src={img4121} alt="" class="profile-image" />
-  <ul class="descriptions">
-    {descriptions.map((description) => <li>{description}</li>)}
-  </ul>
+  <div class="hero-content">
+    <Image src={bgSrc} alt="" class="hero-image bg" />
+    <Image src={juanSrc} alt="" class="hero-image juan" />
+    <BlurryCircle
+      size="medium"
+      color="#DCE4ED"
+      bottom="10px"
+      left="-50px"
+      opacity={1}
+    />
+  </div>
 </section>
