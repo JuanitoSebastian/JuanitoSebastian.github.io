@@ -1,0 +1,27 @@
+@mixin light-colors {
+  --bg-color: #fffdf9;
+  --text-color: #222;
+  --secondary-text-color: #666;
+
+  --blurry-circle-blue: #dce4ed;
+  --blurry-circle-green: #d5f1d5;
+
+  --img-filter: none;
+  --mesh-filter: none;
+}
+
+@mixin dark-colors {
+  --bg-color: #141417;
+  --text-color: #fff;
+  --secondary-text-color: #ccc;
+
+  --blurry-circle-blue: #465c89;
+  --blurry-circle-green: #3e684e;
+
+  --img-filter: brightness(0.7);
+  --mesh-filter: invert(1);
+}
+
+@mixin global-colors {
+  --clear-color: transparent;
+}

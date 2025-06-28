@@ -5,11 +5,14 @@ import juanSrc from '../../images/hero/juan.webp';
 import BlurryCircle from './BlurryCircle.astro';
 ---
 
-<style>
+<style lang="scss">
+  @import '../../styles/variables';
+
   .hero {
     width: 100%;
+    height: clamp(500px, 79.75vh, 638px);
     position: relative;
-    margin: var(--xl-spacing) 0 calc(var(--xxl-spacing) * -1);
+    margin: 0 0 calc(var(--xxl-spacing) * -1);
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -18,12 +21,13 @@ import BlurryCircle from './BlurryCircle.astro';
   .hero-content {
     position: relative;
     width: 100%;
+    height: 100%;
     max-width: var(--main-width);
   }
 
   .hero-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
@@ -41,6 +45,12 @@ import BlurryCircle from './BlurryCircle.astro';
     z-index: var(--z-index-hero-juan);
     pointer-events: none;
   }
+
+  @media (min-width: #{$breakpoint-sm}) {
+    .hero {
+      margin: var(--bigger-spacing) 0 calc(var(--xxl-spacing) * -1);
+    }
+  }
 </style>
 
 <section class="hero" id="hero">
@@ -49,10 +59,17 @@ import BlurryCircle from './BlurryCircle.astro';
     <Image src={juanSrc} alt="" class="hero-image juan" />
     <BlurryCircle
       size="medium"
-      color="#DCE4ED"
+      color="var(--blurry-circle-blue)"
       bottom="10px"
       left="-50px"
       opacity={1}
+    />
+    <BlurryCircle
+      size="large"
+      color="var(--blurry-circle-green)"
+      bottom="50px"
+      right="-100px"
+      opacity={0.7}
     />
   </div>
 </section>

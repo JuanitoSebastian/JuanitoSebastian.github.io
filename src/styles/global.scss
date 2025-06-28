@@ -1,3 +1,6 @@
+@import 'colors';
+@import 'variables';
+
 @font-face {
   font-family: 'Neue Regrade';
   src: url('/fonts/Neue Regrade Variable.ttf') format('truetype');
@@ -10,72 +13,6 @@
   src: url('/fonts/Neue Regrade Variable.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
-}
-
-@mixin fonts {
-  --roboto: 'Roboto', sans-serif;
-  --roboto-condensed: 'Roboto Condensed Variable', sans-serif;
-  --roboto-mono: 'Roboto Mono', monospace;
-  --cormorant: 'Cormorant Variable', serif;
-  --neue-regrade: 'Neue Regrade', sans-serif;
-}
-
-@mixin measurements {
-  --main-width: 960px;
-  --xxl-spacing: 128px;
-  --xl-spacing: 64px;
-  --bigger-spacing: 32px;
-  --default-spacing: 16px;
-  --smaller-spacing: 8px;
-
-  --default-text-size: 17px;
-
-  --border-radius: 6px;
-}
-
-@mixin z-index {
-  --z-index-base: 0;
-  --z-index-hero-bg: 1;
-  --z-index-hero-juan: 10;
-  --z-index-content: 100;
-}
-
-@mixin light-colors {
-  --bg-color: #fffdf9;
-  --text-color: #222;
-  --secondary-text-color: #666;
-  --blue-color: #07169e;
-  --light-blue-color: #3947c5;
-  --gray-color: #e1e2ec;
-  --light-gray-color: #fcfcfc;
-  --dark-gray-color: #aeb1d4;
-
-  --polaroid-bg: #fcfcfc;
-  --polaroid-shine: rgba(255, 255, 255, 0.75);
-  --polaroid-pattern: rgba(0, 0, 0, 0.01);
-  --img-filter: none;
-  --mesh-filter: none;
-}
-
-@mixin dark-colors {
-  --bg-color: #141417;
-  --text-color: #fff;
-  --secondary-text-color: #ccc;
-  --blue-color: #384bf5;
-  --light-blue-color: #3947c5;
-  --gray-color: #474751;
-  --light-gray-color: #222;
-  --dark-gray-color: #898993;
-
-  --polaroid-bg: #222;
-  --polaroid-shine: rgba(255, 255, 255, 0.1);
-  --polaroid-pattern: rgba(255, 255, 255, 0.02);
-  --img-filter: brightness(0.7);
-  --mesh-filter: invert(1);
-}
-
-@mixin global-colors {
-  --clear-color: transparent;
 }
 
 html {
@@ -94,20 +31,13 @@ html {
 
 body {
   background-color: var(--bg-color);
-  font-family: var(--cormorant);
+  font-family: var(--merriweather);
   color: var(--text-color);
   height: 100vh;
   margin: 0;
   overflow: auto;
-
-  ul {
-    font-size: var(--default-text-size);
-  }
-
-  a {
-    color: var(--blue-color);
-    transition: color 0.3s;
-  }
+  font-size: var(--default-text-size);
+  font-weight: 300;
 
   h1,
   h2,
@@ -123,14 +53,7 @@ body {
     box-shadow: 0 0 0 3px var(--text-color);
   }
 
-  .accent-color {
-    background: linear-gradient(
-      to left,
-      var(--light-blue-color),
-      var(--blue-color),
-      var(--light-blue-color)
-    );
-    color: transparent;
-    background-clip: text;
+  strong {
+    font-weight: 800;
   }
 }

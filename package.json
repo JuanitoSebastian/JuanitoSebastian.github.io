@@ -18,10 +18,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/sitemap": "^3.4.0",
-    "@fontsource-variable/cormorant": "^5.2.6",
-    "@fontsource-variable/roboto-condensed": "^5.1.1",
-    "@fontsource-variable/roboto-mono": "^5.1.1",
-    "@fontsource/roboto": "^5.1.1",
+    "@fontsource-variable/merriweather": "^5.2.4",
     "animejs": "^3.2.2",
     "astro": "^5.8.1"
   },

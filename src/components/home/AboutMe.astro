@@ -4,7 +4,7 @@ import { Content } from '../../mds/AboutMe.md';
 
 <style>
   .about-me {
-    padding: var(--smaller-spacing) var(--default-spacing);
+    padding: var(--default-spacing) 0 0;
     backdrop-filter: blur(10px);
     background: linear-gradient(
       to bottom,
@@ -31,15 +31,15 @@ import { Content } from '../../mds/AboutMe.md';
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    padding: 0 var(--default-spacing);
   }
 
   .body {
     line-height: 1.6;
-    font-size: 22px;
   }
 
   .title {
-    font-size: 58px;
+    font-size: 4rem;
     font-weight: 700;
     line-height: 0.9;
     margin: 0;
