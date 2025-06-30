@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import bgSrc from '../../images/hero/juan_bg.webp';
 import juanSrc from '../../images/hero/juan.webp';
 import BlurryCircle from './BlurryCircle.astro';
+import TitleTags from './TitleTags.astro';
 ---
 
 <style lang="scss">
@@ -12,7 +13,7 @@ import BlurryCircle from './BlurryCircle.astro';
     width: 100%;
     height: clamp(500px, 79.75vh, 638px);
     position: relative;
-    margin: 0 0 calc(var(--xxl-spacing) * -1);
+    margin-bottom: calc(var(--spacing-xxlg) * -1);
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -26,10 +27,11 @@ import BlurryCircle from './BlurryCircle.astro';
   }
 
   .hero-image {
-    width: 100%;
+    width: calc(100% + clamp(0px, calc((960px - 100vw) * 0.7), 300px));
     height: 100%;
     object-fit: cover;
     display: block;
+    transform: translateX(clamp(-300px, calc((100vw - 960px) * 0.5), 0px));
   }
 
   .bg {
@@ -46,9 +48,9 @@ import BlurryCircle from './BlurryCircle.astro';
     pointer-events: none;
   }
 
-  @media (min-width: #{$breakpoint-sm}) {
+  @media (min-width: #{$breakpoint-lg}) {
     .hero {
-      margin: var(--bigger-spacing) 0 calc(var(--xxl-spacing) * -1);
+      margin-top: var(--spacing-lg);
     }
   }
 </style>
@@ -71,5 +73,6 @@ import BlurryCircle from './BlurryCircle.astro';
       right="-100px"
       opacity={0.7}
     />
+    <TitleTags />
   </div>
 </section>

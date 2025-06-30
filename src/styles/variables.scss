@@ -1,3 +1,6 @@
+$breakpoint-sm: 576px;
+$breakpoint-lg: 960px;
+
 @mixin fonts {
   --merriweather: 'Merriweather Variable', serif;
   --neue-regrade: 'Neue Regrade', sans-serif;
@@ -8,15 +11,19 @@
 
   --spacing-unit: 8px;
 
-  --xxl-spacing: calc(var(--spacing-unit) * 16);
-  --xl-spacing: calc(var(--spacing-unit) * 8);
-  --bigger-spacing: calc(var(--spacing-unit) * 4);
-  --default-spacing: calc(var(--spacing-unit) * 2);
-  --smaller-spacing: var(--spacing-unit);
+  --spacing-xxlg: calc(var(--spacing-unit) * 16);
+  --spacing-xlg: calc(var(--spacing-unit) * 8);
+  --spacing-lg: calc(var(--spacing-unit) * 4);
+  --spacing-md: calc(var(--spacing-unit) * 2);
+  --spacing-sm: var(--spacing-unit);
 
-  --default-text-size: 18px;
+  --font-size-md: 18px;
+  --font-size-sm: 17px;
+  --font-size-xsm: 16px;
 
-  --border-radius: 2px;
+  --border-radius-xsm: 2px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
 }
 
 @mixin z-index {
@@ -25,5 +32,3 @@
   --z-index-hero-juan: 10;
   --z-index-content: 100;
 }
-
-$breakpoint-sm: 576px;

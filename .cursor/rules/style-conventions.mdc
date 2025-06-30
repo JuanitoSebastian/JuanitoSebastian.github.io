@@ -12,11 +12,11 @@ This rule applies to all `.astro` files in the project.
 - **Always use SCSS** for styling in `<style>` blocks within Astro components
 - **Reference CSS custom properties from [global.scss](mdc:src/styles/global.scss)** for consistent theming:
   - Use `var(--main-width)` for max-width constraints
-  - Use spacing variables: `var(--xxl-spacing)`, `var(--xl-spacing)`, `var(--bigger-spacing)`, `var(--default-spacing)`, `var(--smaller-spacing)`
+  - Use spacing variables: `var(--spacing-xxlg)`, `var(--spacing-xlg)`, `var(--spacing-lg)`, `var(--spacing-md)`, `var(--spacing-sm)`
   - Use color variables: `var(--bg-color)`, `var(--text-color)`, `var(--secondary-text-color)`, `var(--blue-color)`, `var(--gray-color)`, etc.
   - Use font variables: `var(--roboto)`, `var(--roboto-condensed)`, `var(--roboto-mono)`
-  - Use `var(--default-text-size)` for consistent text sizing
-  - Use `var(--border-radius)` for consistent border radius
+  - Use `var(--font-size-md)` for consistent text sizing
+  - Use `var(--border-radius-xsm)` for consistent border radius
 
 ## Class Naming Conventions
 
@@ -41,12 +41,12 @@ This rule applies to all `.astro` files in the project.
   .component-name {
     // Base styles using CSS custom properties
     max-width: var(--main-width);
-    padding: var(--default-spacing);
+    padding: var(--spacing-md);
     color: var(--text-color);
     
     .child-element {
       font-family: var(--roboto-condensed);
-      font-size: var(--default-text-size);
+      font-size: var(--font-size-md);
     }
     
     // Responsive styles

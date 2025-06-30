@@ -36,7 +36,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow: auto;
-  font-size: var(--default-text-size);
+  font-size: var(--font-size-xsm);
   font-weight: 300;
 
   h1,
@@ -55,5 +55,13 @@ body {
 
   strong {
     font-weight: 800;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: var(--font-size-sm);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    font-size: var(--font-size-md);
   }
 }

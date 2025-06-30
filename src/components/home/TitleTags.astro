@@ -1,0 +1,37 @@
+---
+const titles = [
+  'Web Developer',
+  'Bachelor of Computer Science',
+  'Former Technical Event Production Pro',
+];
+---
+
+<style lang="scss">
+  .title-tags {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    position: absolute;
+    bottom: calc(var(--spacing-xxlg) + var(--spacing-md));
+    right: var(--spacing-md);
+    z-index: var(--z-index-hero-juan);
+    align-items: flex-end;
+    list-style: none;
+
+    .title-tag-item {
+      padding: var(--spacing-sm);
+      font-weight: 600;
+      background-color: var(--bg-color);
+      font-size: 0.9rem;
+      border-radius: var(--border-radius-xsm);
+      border: 1px solid var(--secondary-text-color);
+      font-weight: 400;
+      font-style: italic;
+      margin: 0;
+    }
+  }
+</style>
+
+<ul class="title-tags">
+  {titles.map((title) => <li class="title-tag-item">{title}</li>)}
+</ul>
