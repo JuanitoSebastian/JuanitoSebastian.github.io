@@ -3,6 +3,7 @@ import Html from '../layouts/Html.astro';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
 import AboutMe from '../components/home/AboutMe.astro';
+import ContentContainer from '../components/home/ContentContainer.astro';
 
 import juanitoImage from '../images/juanito_polaroid.webp';
 import junitoOgImage from '../images/juanito_og_image.webp';
@@ -30,6 +31,8 @@ const htmlProps = {
 <Html {...htmlProps}>
   <Layout>
     <Hero />
-    <AboutMe />
+    <ContentContainer>
+      <AboutMe />
+    </ContentContainer>
   </Layout>
 </Html>

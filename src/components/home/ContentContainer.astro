@@ -1,0 +1,36 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<style>
+  .content-container {
+    padding: var(--spacing-md) 0 0;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--clear-color) 50%, var(--bg-color)),
+      var(--bg-color) 100px
+    );
+    z-index: 100;
+    width: 100%;
+    border-top: 1px solid;
+    border-image: linear-gradient(
+        to right,
+        var(--clear-color) 0%,
+        var(--clear-color) calc(50% - var(--main-width) / 2 - 50px),
+        var(--secondary-text-color) calc(50% - var(--main-width) / 2),
+        var(--secondary-text-color) calc(50% + var(--main-width) / 2),
+        var(--clear-color) calc(50% + var(--main-width) / 2 + 50px),
+        var(--clear-color) 100%
+      )
+      1;
+  }
+</style>
+
+<div class={`content-container ${className}`}>
+  <slot />
+</div>
