@@ -1,0 +1,33 @@
+{
+  "$ref": "#/definitions/workExperience",
+  "definitions": {
+    "workExperience": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "index",
+        "title",
+        "company",
+        "time"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

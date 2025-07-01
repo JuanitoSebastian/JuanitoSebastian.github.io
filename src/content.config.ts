@@ -16,14 +16,13 @@ const blog = defineCollection({
 
 const workExperience = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './content/work-experience' }),
-  schema: () => {
+  schema: () =>
     z.object({
       index: z.number(),
       title: z.string(),
       company: z.string(),
       time: z.string(),
-    });
-  },
+    }),
 });
 
 export const collections = { blog, workExperience };
