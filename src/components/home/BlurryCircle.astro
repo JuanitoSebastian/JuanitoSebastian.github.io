@@ -38,10 +38,7 @@ const cssVars = {
 <style define:vars={cssVars}>
   .blurry-circle {
     position: absolute;
-    top: var(--blurry-circle-top);
-    left: var(--blurry-circle-left);
-    right: var(--blurry-circle-right);
-    bottom: var(--blurry-circle-bottom);
+    inset: var(--blurry-circle-top) var(--blurry-circle-right) var(--blurry-circle-bottom) var(--blurry-circle-left);
     width: var(--blurry-circle-size);
     height: var(--blurry-circle-size);
     background-color: var(--blurry-circle-color);

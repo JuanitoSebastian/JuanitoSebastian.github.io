@@ -11,6 +11,8 @@
     "astro": "astro",
     "eslint": "eslint",
     "eslint:fix": "eslint --fix",
+    "stylelint": "stylelint \"**/*.{css,scss,astro}\"",
+    "stylelint:fix": "stylelint \"**/*.{css,scss,astro}\" --fix",
     "prettier": "prettier --check '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
     "prettify": "prettier --write '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
     "astro:disable-toolbar": "astro preferences disable devToolbar"
@@ -32,6 +34,10 @@
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "sass-embedded": "^1.77.8",
+    "stylelint": "^16.21.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-prettier": "^5.0.3",
     "typescript-eslint": "^8.3.0"
   }
 }

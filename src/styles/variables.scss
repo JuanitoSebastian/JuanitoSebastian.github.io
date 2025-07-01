@@ -8,19 +8,15 @@ $breakpoint-lg: 960px;
 
 @mixin measurements {
   --main-width: 960px;
-
   --spacing-unit: 8px;
-
   --spacing-xxlg: calc(var(--spacing-unit) * 16);
   --spacing-xlg: calc(var(--spacing-unit) * 8);
   --spacing-lg: calc(var(--spacing-unit) * 4);
   --spacing-md: calc(var(--spacing-unit) * 2);
   --spacing-sm: var(--spacing-unit);
-
   --font-size-md: 18px;
   --font-size-sm: 17px;
   --font-size-xsm: 16px;
-
   --border-radius-xsm: 2px;
   --border-radius-md: 8px;
   --border-radius-lg: 16px;
