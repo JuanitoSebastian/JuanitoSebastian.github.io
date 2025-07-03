@@ -30,14 +30,15 @@ const HeadingTag = headingLevel;
     background-color: var(--backdrop-bg-color);
 
     .backdrop-content {
+      padding: 0 var(--spacing-md);
       grid-row: 1;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       max-width: var(--main-width);
-      width: 100%;
+      width: calc(100% - 2 * var(--spacing-md));
       margin: 0 auto;
-      padding: 0 var(--spacing-md);
+      padding: 0;
     }
 
     h2,
