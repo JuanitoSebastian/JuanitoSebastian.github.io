@@ -49,6 +49,20 @@ body {
     font-family: var(--neue-regrade);
   }
 
+  h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 0.9;
+  }
+
+  p {
+    margin: var(--spacing-sm) 0;
+  }
+
+  *::selection {
+    background-color: var(--blurry-circle-blue);
+  }
+
   :focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px var(--text-color);

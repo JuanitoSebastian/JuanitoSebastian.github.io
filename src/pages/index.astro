@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
 import AboutMe from '../components/home/AboutMe.astro';
 import ContentContainer from '../components/home/ContentContainer.astro';
+import Skills from '../components/home/Skills.astro';
+import Backdrop from '../components/Backdrop.astro';
 
 import juanitoImage from '../images/juanito_polaroid.webp';
 import junitoOgImage from '../images/juanito_og_image.webp';
@@ -31,8 +33,16 @@ const htmlProps = {
 <Html {...htmlProps}>
   <Layout>
     <Hero />
-    <ContentContainer>
+    <ContentContainer borderTop={true}>
       <AboutMe />
+    </ContentContainer>
+    <Backdrop
+      background="var(--backdrop-gradient)"
+      text="Some of my skills include..."
+      headingLevel="h2"
+    />
+    <ContentContainer>
+      <Skills />
     </ContentContainer>
   </Layout>
 </Html>

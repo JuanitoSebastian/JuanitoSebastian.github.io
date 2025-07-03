@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Icon from '../Icon.astro';
+
+const skills = await getCollection('skills');
+---
+
+<style lang="scss">
+  @import '../../styles/variables';
+
+  .skills {
+    max-width: var(--main-width);
+    padding: 0 var(--spacing-md) var(--spacing-lg);
+    margin: 0 auto;
+  }
+
+  .skills-header {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .skills-title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 0.9;
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--primary-text-color);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--spacing-md);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .skill-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .skill-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .skill-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary-text-color);
+    font-family: var(--merriweather);
+    font-style: italic;
+  }
+</style>
+
+<section class="skills">
+  <ul class="skills-list">
+    {
+      skills.map((skill) => (
+        <li class="skill-item">
+          <Icon url={skill.data.iconUrl} width={40} height={40} />
+          <p class="skill-title">{skill.data.title}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

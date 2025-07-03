@@ -9,6 +9,8 @@ $breakpoint-lg: 960px;
 @mixin measurements {
   --main-width: 960px;
   --spacing-unit: 8px;
+  --spacing-xxxxlg: calc(var(--spacing-unit) * 32);
+  --spacing-xxxlg: calc(var(--spacing-unit) * 24);
   --spacing-xxlg: calc(var(--spacing-unit) * 16);
   --spacing-xlg: calc(var(--spacing-unit) * 8);
   --spacing-lg: calc(var(--spacing-unit) * 4);

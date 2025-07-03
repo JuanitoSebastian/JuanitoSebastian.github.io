@@ -1,0 +1,42 @@
+[
+  {
+    "id": "react",
+    "title": "React",
+    "iconUrl": "/skill-icons/react.svg"
+  },
+  {
+    "id": "typescript",
+    "title": "TypeScript",
+    "iconUrl": "/skill-icons/ts.svg"
+  },
+  {
+    "id": "redux",
+    "title": "Redux",
+    "iconUrl": "/skill-icons/redux.svg"
+  },
+  {
+    "id": "storybook",
+    "title": "Storybook",
+    "iconUrl": "/skill-icons/storybook.svg"
+  },
+  {
+    "id": "sass",
+    "title": "Sass",
+    "iconUrl": "/skill-icons/sass.svg"
+  },
+  {
+    "id": "astro",
+    "title": "Astro",
+    "iconUrl": "/skill-icons/astro.svg"
+  },
+  {
+    "id": "nodejs",
+    "title": "Node.js",
+    "iconUrl": "/skill-icons/nodejs.svg"
+  },
+  {
+    "id": "swift",
+    "title": "Swift",
+    "iconUrl": "/skill-icons/swift.svg"
+  }
+]
