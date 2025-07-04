@@ -30,19 +30,27 @@ const htmlProps = {
 };
 ---
 
+<style lang="scss">
+  .skills-section {
+    width: 100%;
+  }
+</style>
+
 <Html {...htmlProps}>
   <Layout>
     <Hero />
     <ContentContainer borderTop={true}>
       <AboutMe />
     </ContentContainer>
-    <Backdrop
-      background="var(--backdrop-gradient)"
-      text="Some of my skills include..."
-      headingLevel="h2"
-    />
-    <ContentContainer>
-      <Skills />
-    </ContentContainer>
+    <div class="skills-section">
+      <Backdrop
+        background="var(--backdrop-gradient)"
+        text="So, how do I do this?"
+        headingLevel="h2"
+      />
+      <ContentContainer>
+        <Skills />
+      </ContentContainer>
+    </div>
   </Layout>
 </Html>

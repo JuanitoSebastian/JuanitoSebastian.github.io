@@ -10,19 +10,14 @@
     "iconUrl": "/skill-icons/ts.svg"
   },
   {
-    "id": "redux",
-    "title": "Redux",
-    "iconUrl": "/skill-icons/redux.svg"
+    "id": "nodejs",
+    "title": "Node.js",
+    "iconUrl": "/skill-icons/nodejs.svg"
   },
   {
-    "id": "storybook",
-    "title": "Storybook",
-    "iconUrl": "/skill-icons/storybook.svg"
-  },
-  {
-    "id": "sass",
-    "title": "Sass",
-    "iconUrl": "/skill-icons/sass.svg"
+    "id": "express",
+    "title": "Express",
+    "iconUrl": "/skill-icons/express.svg"
   },
   {
     "id": "astro",
@@ -30,9 +25,24 @@
     "iconUrl": "/skill-icons/astro.svg"
   },
   {
-    "id": "nodejs",
-    "title": "Node.js",
-    "iconUrl": "/skill-icons/nodejs.svg"
+    "id": "sass",
+    "title": "Sass",
+    "iconUrl": "/skill-icons/sass.svg"
+  },
+  {
+    "id": "redux",
+    "title": "Redux",
+    "iconUrl": "/skill-icons/redux.svg"
+  },
+  {
+    "id": "react-router",
+    "title": "React Router",
+    "iconUrl": "/skill-icons/react-router.svg"
+  },
+  {
+    "id": "storybook",
+    "title": "Storybook",
+    "iconUrl": "/skill-icons/storybook.svg"
   },
   {
     "id": "swift",
