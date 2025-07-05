@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
 import AboutMe from '../components/home/AboutMe.astro';
 import ContentContainer from '../components/home/ContentContainer.astro';
-import Skills from '../components/home/Skills.astro';
+import HowIWork from '../components/home/HowIWork.astro';
 import Backdrop from '../components/Backdrop.astro';
 
 import juanitoImage from '../images/juanito_polaroid.webp';
@@ -31,7 +31,7 @@ const htmlProps = {
 ---
 
 <style lang="scss">
-  .skills-section {
+  .how-i-work-section {
     width: 100%;
   }
 </style>
@@ -42,15 +42,20 @@ const htmlProps = {
     <ContentContainer borderTop={true}>
       <AboutMe />
     </ContentContainer>
-    <div class="skills-section">
+    <div class="how-i-work-section">
       <Backdrop
         background="var(--backdrop-gradient)"
-        text="So, how do I do this?"
+        text="So, how do I do things?"
         headingLevel="h2"
       />
       <ContentContainer>
-        <Skills />
+        <HowIWork />
       </ContentContainer>
     </div>
+    <Backdrop
+      background="var(--backdrop-gradient)"
+      text="Contact me"
+      headingLevel="h2"
+    />
   </Layout>
 </Html>

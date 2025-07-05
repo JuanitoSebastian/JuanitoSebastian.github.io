@@ -1,0 +1,58 @@
+---
+import { getCollection, render } from 'astro:content';
+const principles = await getCollection('principles');
+const sortedPrinciples = principles.sort((a, b) => a.data.index - b.data.index);
+---
+
+<style lang="scss">
+  @import '../../styles/variables';
+
+  .principles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xlg);
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+
+  .principle {
+  }
+
+  .principle-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 var(--spacing-sm);
+    color: var(--primary-text-color);
+    font-family: var(--merriweather);
+    font-style: italic;
+  }
+
+  .principle-content {
+    font-size: var(--font-size-sm);
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--secondary-text-color);
+  }
+</style>
+
+<div class="principles">
+  {
+    sortedPrinciples.map(async (principle) => {
+      const { Content } = await render(principle);
+      const { index, title } = principle.data;
+      return (
+        <article class="principle">
+          <h3 class="principle-title">
+            {index}. {title}
+          </h3>
+          <div class="principle-content">
+            <Content />
+          </div>
+        </article>
+      );
+    })
+  }
+</div>

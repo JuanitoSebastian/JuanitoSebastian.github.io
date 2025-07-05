@@ -1,0 +1,19 @@
+---
+import Principles from './Principles.astro';
+import SkillsList from './SkillsList.astro';
+---
+
+<style lang="scss">
+  @import '../../styles/variables';
+
+  .how-i-work {
+    max-width: var(--main-width);
+    padding: 0 var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-md) auto;
+  }
+</style>
+
+<section class="how-i-work">
+  <Principles />
+  <SkillsList />
+</section>

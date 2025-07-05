@@ -25,6 +25,15 @@ const workExperience = defineCollection({
     }),
 });
 
+const principles = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: './content/principles' }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      index: z.number(),
+    }),
+});
+
 const skills = defineCollection({
   loader: file('./content/skills.json'),
   schema: () =>
@@ -34,4 +43,4 @@ const skills = defineCollection({
     }),
 });
 
-export const collections = { blog, workExperience, skills };
+export const collections = { blog, workExperience, principles, skills };
