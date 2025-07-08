@@ -12,6 +12,7 @@
   --backdrop-gradient-green-1: #9fd19f;
   --backdrop-gradient-green-2: #6ebfa0;
   --backdrop-gradient-blue: #a1d0ed;
+  --backdrop-gradient-orange: #ffac64;
 }
 
 @mixin dark-colors {
@@ -26,6 +27,7 @@
   --backdrop-gradient-green-1: #4a6b4a;
   --backdrop-gradient-green-2: #3a5f4a;
   --backdrop-gradient-blue: #4a6b8a;
+  --backdrop-gradient-orange: #874409;
 }
 
 @mixin global-colors {
@@ -45,6 +47,23 @@
     radial-gradient(
       at 9% 71%,
       var(--backdrop-gradient-green-2) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 76% 19%,
+      var(--backdrop-gradient-blue) 0px,
+      transparent 50%
+    );
+  --contact-me-gradient: linear-gradient(
+      to right,
+      var(--bg-color) 0%,
+      var(--clear-color) calc(50% - var(--main-width) / 2),
+      var(--clear-color) calc(50% + var(--main-width) / 2),
+      var(--bg-color) 100%
+    ),
+    radial-gradient(
+      at 9% 71%,
+      var(--backdrop-gradient-orange) 0px,
       transparent 50%
     ),
     radial-gradient(

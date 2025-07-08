@@ -9,16 +9,8 @@ const sortedPrinciples = principles.sort((a, b) => a.data.index - b.data.index);
 
   .principles {
     display: grid;
-    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xlg);
-
-    @media (min-width: $breakpoint-lg) {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-  }
-
-  .principle {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .principle-title {
@@ -38,6 +30,7 @@ const sortedPrinciples = principles.sort((a, b) => a.data.index - b.data.index);
   }
 </style>
 
+<h3 class="visually-hidden">My principles for work</h3>
 <div class="principles">
   {
     sortedPrinciples.map(async (principle) => {
@@ -45,9 +38,9 @@ const sortedPrinciples = principles.sort((a, b) => a.data.index - b.data.index);
       const { index, title } = principle.data;
       return (
         <article class="principle">
-          <h3 class="principle-title">
+          <h4 class="principle-title">
             {index}. {title}
-          </h3>
+          </h4>
           <div class="principle-content">
             <Content />
           </div>

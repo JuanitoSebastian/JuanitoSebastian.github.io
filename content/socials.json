@@ -1,0 +1,26 @@
+[
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/juanito-sebastian/",
+    "icon": "/linkedin_icon.svg"
+  },
+  {
+    "id": "github",
+    "label": "GitHub",
+    "url": "https://github.com/JuanitoSebastian",
+    "icon": "/github_icon.svg"
+  },
+  {
+    "id": "bluesky",
+    "label": "Bluesky",
+    "url": "https://bsky.app/profile/juan.fi",
+    "icon": "/bsky_icon.svg"
+  },
+  {
+    "id": "instagram",
+    "label": "Instagram",
+    "url": "https://www.instagram.com/juanito.wav",
+    "icon": "/instagram_icon.svg"
+  }
+]

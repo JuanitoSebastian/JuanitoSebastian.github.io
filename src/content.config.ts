@@ -43,4 +43,20 @@ const skills = defineCollection({
     }),
 });
 
-export const collections = { blog, workExperience, principles, skills };
+const socials = defineCollection({
+  loader: file('./content/socials.json'),
+  schema: () =>
+    z.object({
+      label: z.string(),
+      url: z.string(),
+      icon: z.string(),
+    }),
+});
+
+export const collections = {
+  blog,
+  workExperience,
+  principles,
+  skills,
+  socials,
+};

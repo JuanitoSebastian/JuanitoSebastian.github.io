@@ -11,7 +11,6 @@ const skills = await getCollection('skills');
     display: flex;
     flex-flow: row wrap;
     gap: var(--spacing-lg);
-    list-style: none;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -25,18 +24,35 @@ const skills = await getCollection('skills');
   }
 
   .skill-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
   }
 
   .skill-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
     margin: 0;
     color: var(--primary-text-color);
     font-family: var(--merriweather);
     font-style: italic;
+  }
+
+  @media (min-width: #{$breakpoint-sm}) {
+    .skill-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (min-width: #{$breakpoint-lg}) {
+    .skill-title {
+      font-size: 1.5rem;
+    }
+
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+    }
   }
 </style>
 
@@ -44,7 +60,12 @@ const skills = await getCollection('skills');
   {
     skills.map((skill) => (
       <li class="skill-item">
-        <Icon url={skill.data.iconUrl} width={40} height={40} />
+        <Icon
+          url={skill.data.iconUrl}
+          class="skill-icon"
+          width={40}
+          height={40}
+        />
         <p class="skill-title">{skill.data.title}</p>
       </li>
     ))

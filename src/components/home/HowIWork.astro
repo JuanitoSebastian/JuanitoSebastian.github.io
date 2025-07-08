@@ -10,6 +10,17 @@ import SkillsList from './SkillsList.astro';
     max-width: var(--main-width);
     padding: 0 var(--spacing-md) var(--spacing-lg);
     margin: var(--spacing-md) auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+
+    @media (min-width: $breakpoint-sm) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 

@@ -1,17 +1,12 @@
 ---
 export interface Props {
   background: string;
-  text: string;
-  headingLevel: 'h2' | 'h3';
 }
 
-const { background, text, headingLevel } = Astro.props;
+const { background } = Astro.props;
 const cssVars = {
   background: background,
 };
-
-// Dynamically create the heading element
-const HeadingTag = headingLevel;
 ---
 
 <style lang="scss" define:vars={cssVars}>
@@ -30,7 +25,6 @@ const HeadingTag = headingLevel;
     background-color: var(--backdrop-bg-color);
 
     .backdrop-content {
-      padding: 0 var(--spacing-md);
       grid-row: 1;
       display: flex;
       align-items: center;
@@ -50,6 +44,6 @@ const HeadingTag = headingLevel;
 
 <div class="backdrop">
   <div class="backdrop-content">
-    <HeadingTag>{text}</HeadingTag>
+    <slot />
   </div>
 </div>

@@ -6,7 +6,7 @@ import AboutMe from '../components/home/AboutMe.astro';
 import ContentContainer from '../components/home/ContentContainer.astro';
 import HowIWork from '../components/home/HowIWork.astro';
 import Backdrop from '../components/Backdrop.astro';
-
+import ContactMe from '../components/home/ContactMe.astro';
 import juanitoImage from '../images/juanito_polaroid.webp';
 import junitoOgImage from '../images/juanito_og_image.webp';
 
@@ -34,6 +34,16 @@ const htmlProps = {
   .how-i-work-section {
     width: 100%;
   }
+
+  .how-i-work-section-title {
+    strong {
+      transform: scaleX(1.5);
+      display: inline-block;
+      transform-origin: center;
+      transform-box: fill-box;
+      margin: 0 calc(3rem / 2);
+    }
+  }
 </style>
 
 <Html {...htmlProps}>
@@ -43,19 +53,15 @@ const htmlProps = {
       <AboutMe />
     </ContentContainer>
     <div class="how-i-work-section">
-      <Backdrop
-        background="var(--backdrop-gradient)"
-        text="So, how do I do things?"
-        headingLevel="h2"
-      />
+      <Backdrop background="var(--backdrop-gradient)">
+        <h2 class="how-i-work-section-title">
+          So, <strong>how</strong> do I do things?
+        </h2>
+      </Backdrop>
       <ContentContainer>
         <HowIWork />
       </ContentContainer>
     </div>
-    <Backdrop
-      background="var(--backdrop-gradient)"
-      text="Contact me"
-      headingLevel="h2"
-    />
+    <ContactMe />
   </Layout>
 </Html>

@@ -1,0 +1,109 @@
+---
+import Icon from '../Icon.astro';
+import { getCollection } from 'astro:content';
+const socials = await getCollection('socials');
+---
+
+<style lang="scss">
+  .contact-me {
+    --height: calc(var(--spacing-xxxxlg) * 2);
+
+    width: 100%;
+    height: var(--height);
+    margin: 0 auto;
+    position: relative;
+    background-image: var(--contact-me-gradient);
+    background-color: var(--backdrop-bg-color);
+    display: flex;
+    align-items: center;
+
+    .contact-me-content {
+      padding: 0 var(--spacing-md);
+      max-width: var(--main-width);
+      width: calc(100% - 2 * var(--spacing-md));
+      margin: 0 auto;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      gap: var(--spacing-lg) var(--spacing-xlg);
+      align-items: center;
+    }
+
+    .contact-me-title {
+      margin: 0;
+    }
+
+    .socials-list {
+      flex: 1;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: var(--spacing-md);
+      color: var(--text-color);
+      font-family: var(--neue-regrade);
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 500;
+      background-color: color-mix(
+        in srgb,
+        var(--bg-color) 30%,
+        var(--clear-color)
+      );
+      border: 2px solid
+        color-mix(in srgb, var(--bg-color) 10%, var(--clear-color));
+      padding: var(--spacing-md);
+      box-shadow: inset 0 0 10px
+        color-mix(in srgb, var(--bg-color) 20%, var(--clear-color));
+      border-radius: var(--border-radius-md);
+      transition: box-shadow 0.1s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: inset 0 0 20px
+          color-mix(in srgb, var(--bg-color) 80%, var(--clear-color));
+      }
+    }
+
+    .ext-link-icon {
+      margin-left: auto;
+    }
+  }
+</style>
+
+<div class="contact-me">
+  <div class="contact-me-content">
+    <h2 class="contact-me-title">Come say hi!</h2>
+    <ul class="socials-list">
+      {
+        socials.map((social) => (
+          <li class="social-item">
+            <a
+              href={social.data.url}
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer">
+              <Icon url={social.data.icon} width={30} height={30} />
+              {social.data.label}
+              <Icon
+                class="ext-link-icon"
+                url="/ext-link.svg"
+                width={20}
+                height={20}
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

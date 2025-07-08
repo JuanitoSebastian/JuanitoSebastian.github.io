@@ -64,12 +64,22 @@ body {
   }
 
   :focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--text-color);
+    outline: 2px solid var(--text-color);
+    outline-offset: 4px;
   }
 
   strong {
     font-weight: 800;
+  }
+
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 
   @media (min-width: $breakpoint-sm) {

@@ -45,6 +45,11 @@
     "iconUrl": "/skill-icons/storybook.svg"
   },
   {
+    "id": "figma",
+    "title": "Figma",
+    "iconUrl": "/skill-icons/figma.svg"
+  },
+  {
     "id": "swift",
     "title": "Swift",
     "iconUrl": "/skill-icons/swift.svg"
