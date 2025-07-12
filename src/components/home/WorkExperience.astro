@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import WorkExperienceArticle from './WorkExperienceArticle.astro';
+
+const workExperience = await getCollection('workExperience');
+---
+
+<style lang="scss">
+  .work-experience {
+    max-width: var(--main-width);
+    padding: 0 var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-md) auto;
+  }
+</style>
+
+<section class="work-experience">
+  {
+    workExperience.map((work) => (
+      <WorkExperienceArticle workExperienceItem={work} />
+    ))
+  }
+</section>

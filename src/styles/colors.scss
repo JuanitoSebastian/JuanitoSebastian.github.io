@@ -32,7 +32,7 @@
 
 @mixin global-colors {
   --clear-color: transparent;
-  --backdrop-gradient: linear-gradient(
+  --backdrop-gradient-1: linear-gradient(
       to right,
       var(--bg-color) 0%,
       var(--clear-color) calc(50% - var(--main-width) / 2),
@@ -52,6 +52,28 @@
     radial-gradient(
       at 76% 19%,
       var(--backdrop-gradient-blue) 0px,
+      transparent 50%
+    );
+  --backdrop-gradient-2: linear-gradient(
+      to right,
+      var(--bg-color) 0%,
+      var(--clear-color) calc(50% - var(--main-width) / 2),
+      var(--clear-color) calc(50% + var(--main-width) / 2),
+      var(--bg-color) 100%
+    ),
+    radial-gradient(
+      at 51% 49%,
+      var(--backdrop-gradient-green-2) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 9% 71%,
+      var(--backdrop-gradient-blue) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 76% 19%,
+      var(--backdrop-gradient-green-1) 0px,
       transparent 50%
     );
   --contact-me-gradient: linear-gradient(

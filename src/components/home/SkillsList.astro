@@ -16,6 +16,10 @@ const skills = await getCollection('skills');
     list-style: none;
   }
 
+  .skill-list-title {
+    margin: 0 0 var(--spacing-md);
+  }
+
   .skill-item {
     padding: 0;
     display: flex;
@@ -56,18 +60,16 @@ const skills = await getCollection('skills');
   }
 </style>
 
-<ul class="skills-list">
-  {
-    skills.map((skill) => (
-      <li class="skill-item">
-        <Icon
-          url={skill.data.iconUrl}
-          class="skill-icon"
-          width={40}
-          height={40}
-        />
-        <p class="skill-title">{skill.data.title}</p>
-      </li>
-    ))
-  }
-</ul>
+<div class="skill-list-container">
+  <h3 class="skill-list-title">Some of the tech I've worked with</h3>
+  <ul class="skills-list">
+    {
+      skills.map((skill) => (
+        <li class="skill-item">
+          <Icon url={skill.data.iconUrl} class="skill-icon" />
+          <p class="skill-title">{skill.data.title}</p>
+        </li>
+      ))
+    }
+  </ul>
+</div>

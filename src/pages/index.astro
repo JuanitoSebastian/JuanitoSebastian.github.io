@@ -9,6 +9,7 @@ import Backdrop from '../components/Backdrop.astro';
 import ContactMe from '../components/home/ContactMe.astro';
 import juanitoImage from '../images/juanito_polaroid.webp';
 import junitoOgImage from '../images/juanito_og_image.webp';
+import WorkExperience from '../components/home/WorkExperience.astro';
 
 const htmlProps = {
   title: 'Juan Sebastian Covarrubias',
@@ -31,17 +32,23 @@ const htmlProps = {
 ---
 
 <style lang="scss">
-  .how-i-work-section {
+  .how-i-work-section,
+  .work-experience-section {
     width: 100%;
   }
 
-  .how-i-work-section-title {
-    strong {
-      transform: scaleX(1.5);
-      display: inline-block;
-      transform-origin: center;
-      transform-box: fill-box;
+  h2 strong {
+    transform: scaleX(1.5);
+    display: inline-block;
+    transform-origin: center;
+    transform-box: fill-box;
+
+    .how-i-work-section & {
       margin: 0 calc(3rem / 2);
+    }
+
+    .work-experience-section & {
+      margin: 0 2.3rem;
     }
   }
 </style>
@@ -53,7 +60,7 @@ const htmlProps = {
       <AboutMe />
     </ContentContainer>
     <div class="how-i-work-section">
-      <Backdrop background="var(--backdrop-gradient)">
+      <Backdrop background="var(--backdrop-gradient-1)">
         <h2 class="how-i-work-section-title">
           So, <strong>how</strong> do I do things?
         </h2>
@@ -62,6 +69,16 @@ const htmlProps = {
         <HowIWork />
       </ContentContainer>
     </div>
-    <ContactMe />
+    <div class="work-experience-section">
+      <Backdrop background="var(--backdrop-gradient-2)">
+        <h2 class="work-experience-section-title">
+          Not my first <strong>rodeo</strong>
+        </h2>
+      </Backdrop>
+      <ContentContainer>
+        <WorkExperience />
+      </ContentContainer>
+    </div>
   </Layout>
+  <ContactMe />
 </Html>

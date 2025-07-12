@@ -57,8 +57,20 @@ import TitleTags from './TitleTags.astro';
 
 <section class="hero" id="hero">
   <div class="hero-content">
-    <Image src={bgSrc} alt="" class="hero-image bg" />
-    <Image src={juanSrc} alt="" class="hero-image juan" />
+    <Image
+      src={bgSrc}
+      alt=""
+      class="hero-image bg"
+      width={960 * 2}
+      height={638 * 2}
+    />
+    <Image
+      src={juanSrc}
+      alt=""
+      class="hero-image juan"
+      width={960 * 2}
+      height={638 * 2}
+    />
     <BlurryCircle
       size="medium"
       color="var(--blurry-circle-blue)"

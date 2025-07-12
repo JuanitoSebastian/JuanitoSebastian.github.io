@@ -7,25 +7,42 @@ export interface Props {
   class?: string;
 }
 
+type CssVars = {
+  'icon-color': string;
+  'icon-url': string;
+  'icon-width'?: string;
+  'icon-height'?: string;
+};
+
 const {
   url,
-  width = 24,
-  height = 24,
+  width,
+  height,
   color = 'currentColor',
   class: className = '',
   ...rest
 } = Astro.props;
 
-// Normalize size values - if number, add px
-const normalizedWidth = typeof width === 'number' ? `${width}px` : width;
-const normalizedHeight = typeof height === 'number' ? `${height}px` : height;
-
-const cssVars = {
-  'icon-width': normalizedWidth,
-  'icon-height': normalizedHeight,
+let cssVars: CssVars = {
   'icon-color': color,
   'icon-url': `url(${url})`,
 };
+
+if (width) {
+  const normalizedWidth = typeof width === 'number' ? `${width}px` : width;
+  cssVars = {
+    ...cssVars,
+    'icon-width': normalizedWidth,
+  };
+}
+
+if (height) {
+  const normalizedHeight = typeof height === 'number' ? `${height}px` : height;
+  cssVars = {
+    ...cssVars,
+    'icon-height': normalizedHeight,
+  };
+}
 ---
 
 <style define:vars={cssVars}>

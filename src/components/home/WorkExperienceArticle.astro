@@ -1,0 +1,40 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+  workExperienceItem: CollectionEntry<'workExperience'>;
+}
+
+const { workExperienceItem } = Astro.props;
+const {
+  data: { index },
+} = workExperienceItem;
+const { Content } = await render(workExperienceItem);
+---
+
+<style lang="scss">
+  .work-experience-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .work-experience-article-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 var(--spacing-sm);
+    color: var(--primary-text-color);
+    font-family: var(--merriweather);
+    font-style: italic;
+  }
+</style>
+
+<details class="work-experience-article" open={index === 1}>
+  <summary>
+    <h3 class="work-experience-article-title">
+      {workExperienceItem.data.title}
+    </h3>
+  </summary>
+  <Content />
+</details>
