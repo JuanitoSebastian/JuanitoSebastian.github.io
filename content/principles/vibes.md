@@ -1,6 +1,6 @@
 ---
 title: 'Embrace the vibes'
-index: 1
+index: 2
 ---
 
-This is a dummy principle file for testing purposes. The principle of keeping things simple is fundamental to good design and development.
+Software development is the one field where we can responsibly use AI to its fullest. I work AI-first, continuously experimenting with emerging tools to boost productivity.
