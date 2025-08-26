@@ -7,7 +7,6 @@ import ContentContainer from '../components/home/ContentContainer.astro';
 import HowIWork from '../components/home/HowIWork.astro';
 import Backdrop from '../components/Backdrop.astro';
 import ContactMe from '../components/home/ContactMe.astro';
-import juanitoImage from '../images/juanito_polaroid.webp';
 import junitoOgImage from '../images/juanito_og_image.webp';
 import WorkExperience from '../components/home/WorkExperience.astro';
 
@@ -27,7 +26,6 @@ const htmlProps = {
     ],
     imageUrl: junitoOgImage.src,
   },
-  preload: [juanitoImage.src],
 };
 ---
 
@@ -72,7 +70,7 @@ const htmlProps = {
     <div class="work-experience-section">
       <Backdrop background="var(--backdrop-gradient-2)">
         <h2 class="work-experience-section-title">
-          Not my first <strong>rodeo</strong>
+          Hey, it's not my first <strong>rodeo</strong>...
         </h2>
       </Backdrop>
       <ContentContainer>
