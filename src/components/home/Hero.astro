@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import bgSrc from '../../images/hero/juan_bg.webp';
-import juanSrc from '../../images/hero/juan.webp';
+import juanImg from '../../images/hero/juan.webp';
 import BlurryCircle from './BlurryCircle.astro';
 import TitleTags from './TitleTags.astro';
 ---
@@ -32,20 +31,22 @@ import TitleTags from './TitleTags.astro';
     object-fit: cover;
     display: block;
     transform: translateX(clamp(-300px, calc((100vw - 960px) * 0.5), 0px));
-  }
-
-  .bg {
     position: relative;
     z-index: var(--z-index-hero-bg);
-    filter: var(--img-filter);
   }
 
-  .juan {
+  .hero-content-overlay {
     position: absolute;
     top: 0;
     left: 0;
+    width: calc(100% + clamp(0px, calc((960px - 100vw) * 0.7), 300px));
+    height: 100%;
+    transform: translateX(clamp(-300px, calc((100vw - 960px) * 0.5), 0px));
     z-index: var(--z-index-hero-juan);
-    pointer-events: none;
+    mask: url('imgs/juan_mask.webp') no-repeat center/cover;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-mask: url('imgs/juan_mask.webp') no-repeat center/cover;
+    background: var(--hero-bg-color);
   }
 
   @media (min-width: #{$breakpoint-lg}) {
@@ -58,33 +59,30 @@ import TitleTags from './TitleTags.astro';
 <section class="hero" id="hero">
   <div class="hero-content">
     <Image
-      src={bgSrc}
+      src={juanImg}
       alt=""
-      class="hero-image bg"
+      class="hero-image"
       width={960 * 2}
       height={638 * 2}
     />
-    <Image
-      src={juanSrc}
-      alt=""
-      class="hero-image juan"
-      width={960 * 2}
-      height={638 * 2}
-    />
-    <BlurryCircle
-      size="medium"
-      color="var(--blurry-circle-blue)"
-      bottom="10px"
-      left="-50px"
-      opacity={1}
-    />
-    <BlurryCircle
-      size="large"
-      color="var(--blurry-circle-green)"
-      bottom="50px"
-      right="-100px"
-      opacity={0.7}
-    />
+
+    <div class="hero-content-overlay">
+      <BlurryCircle
+        size="medium"
+        color="var(--blurry-circle-blue)"
+        bottom="10px"
+        left="-50px"
+        opacity={1}
+      />
+      <BlurryCircle
+        size="large"
+        color="var(--blurry-circle-green)"
+        bottom="50px"
+        right="-100px"
+        opacity={0.7}
+      />
+    </div>
+
     <TitleTags />
   </div>
 </section>

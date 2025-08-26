@@ -6,13 +6,13 @@
   --secondary-text-color: #666;
   --blurry-circle-blue: #dce4ed;
   --blurry-circle-green: #d5f1d5;
-  --img-filter: none;
   --mesh-filter: none;
   --backdrop-bg-color: #fbf8ea;
   --backdrop-gradient-green-1: #9fd19f;
   --backdrop-gradient-green-2: #6ebfa0;
   --backdrop-gradient-blue: #a1d0ed;
   --backdrop-gradient-orange: #ffac64;
+  --hero-bg-color: var(--clear-color);
 }
 
 @mixin dark-colors {
@@ -21,13 +21,13 @@
   --secondary-text-color: #ccc;
   --blurry-circle-blue: #465c89;
   --blurry-circle-green: #3e684e;
-  --img-filter: brightness(0.7);
   --mesh-filter: invert(1);
   --backdrop-bg-color: #131337;
   --backdrop-gradient-green-1: #4a6b4a;
   --backdrop-gradient-green-2: #3a5f4a;
   --backdrop-gradient-blue: #4a6b8a;
   --backdrop-gradient-orange: #874409;
+  --hero-bg-color: color-mix(in srgb, var(--clear-color), #000 50%);
 }
 
 @mixin global-colors {
