@@ -14,6 +14,8 @@ const { Content } = await render(workExperienceItem);
 ---
 
 <style lang="scss">
+  @import '../../styles/variables';
+
   .work-experience-article {
     display: flex;
     flex-direction: column;
@@ -24,15 +26,15 @@ const { Content } = await render(workExperienceItem);
   }
 
   .work-experience-article-summary {
-    list-style: none;
     position: relative;
+    list-style: none;
     cursor: pointer;
-    padding: var(--spacing-md) var(--spacing-lg);
+    width: calc(100% - 2 * var(--spacing-md));
+    padding: var(--spacing-md) var(--spacing-md);
   }
 
   .work-experience-article-content {
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
   }
 
   .work-experience-article-title {
@@ -44,7 +46,7 @@ const { Content } = await render(workExperienceItem);
   }
 
   .work-experience-article-company {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: var(--neue-regrade);
     font-weight: 600;
     margin: 0;
@@ -68,6 +70,17 @@ const { Content } = await render(workExperienceItem);
 
     .work-experience-article[open] & {
       transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  @media (min-width: #{$breakpoint-sm}) {
+    .work-experience-article-summary {
+      padding: var(--spacing-md) var(--spacing-lg);
+      width: calc(100% - 2 * var(--spacing-lg));
+    }
+
+    .work-experience-article-content {
+      padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-md);
     }
   }
 </style>
