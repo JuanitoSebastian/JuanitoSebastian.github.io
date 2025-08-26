@@ -31,6 +31,7 @@
 }
 
 @mixin global-colors {
+  --link-color: #4d98c6;
   --clear-color: transparent;
   --backdrop-gradient-1: linear-gradient(
       to right,

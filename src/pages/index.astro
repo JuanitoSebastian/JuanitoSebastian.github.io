@@ -7,7 +7,7 @@ import ContentContainer from '../components/home/ContentContainer.astro';
 import HowIWork from '../components/home/HowIWork.astro';
 import Backdrop from '../components/Backdrop.astro';
 import ContactMe from '../components/home/ContactMe.astro';
-import junitoOgImage from '../images/juanito_og_image.webp';
+import juanfiOgImage from '../images/juanfi-og-image.webp';
 import WorkExperience from '../components/home/WorkExperience.astro';
 
 const htmlProps = {
@@ -24,7 +24,7 @@ const htmlProps = {
       'front-end developer',
       'full-stack developer',
     ],
-    imageUrl: junitoOgImage.src,
+    imageUrl: juanfiOgImage.src,
   },
 };
 ---
@@ -36,17 +36,17 @@ const htmlProps = {
   }
 
   h2 strong {
-    transform: scaleX(1.5);
+    transform: scaleX(1.3);
     display: inline-block;
     transform-origin: center;
     transform-box: fill-box;
 
     .how-i-work-section & {
-      margin: 0 calc(3rem / 2);
+      margin: 0 1rem;
     }
 
     .work-experience-section & {
-      margin: 0 2.3rem;
+      margin: 0 1.8rem;
     }
   }
 </style>
@@ -70,7 +70,7 @@ const htmlProps = {
     <div class="work-experience-section">
       <Backdrop background="var(--backdrop-gradient-2)">
         <h2 class="work-experience-section-title">
-          Hey, it's not my first <strong>rodeo</strong>...
+          Here's <strong>where</strong> I've left my mark...
         </h2>
       </Backdrop>
       <ContentContainer>

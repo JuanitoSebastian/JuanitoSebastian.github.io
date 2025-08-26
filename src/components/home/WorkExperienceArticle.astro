@@ -20,15 +20,19 @@ const { Content } = await render(workExperienceItem);
     align-items: center;
     justify-content: center;
     margin: 0 0 var(--spacing-lg);
-    border-left: 2px solid var(--secondary-text-color);
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
+    border-left: 1px solid var(--secondary-text-color);
   }
 
   .work-experience-article-summary {
     list-style: none;
     position: relative;
     cursor: pointer;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .work-experience-article-content {
     width: 100%;
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-md);
   }
 
   .work-experience-article-title {
@@ -73,9 +77,11 @@ const { Content } = await render(workExperienceItem);
     <h3 class="work-experience-article-title">
       {title}
     </h3>
+    <Icon class="work-experience-article-summary-chevron" url="/chevron.svg" />
     <p class="work-experience-article-company">{company}</p>
     <p class="work-experience-article-time">{time}</p>
-    <Icon class="work-experience-article-summary-chevron" url="/chevron.svg" />
   </summary>
-  <Content />
+  <div class="work-experience-article-content">
+    <Content />
+  </div>
 </details>
