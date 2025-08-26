@@ -1,5 +1,6 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
+import Icon from '../Icon.astro';
 
 interface Props {
   workExperienceItem: CollectionEntry<'workExperience'>;
@@ -7,7 +8,7 @@ interface Props {
 
 const { workExperienceItem } = Astro.props;
 const {
-  data: { index },
+  data: { index, title, company, time },
 } = workExperienceItem;
 const { Content } = await render(workExperienceItem);
 ---
@@ -18,23 +19,62 @@ const { Content } = await render(workExperienceItem);
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 0 var(--spacing-lg);
+    border-left: 2px solid var(--secondary-text-color);
+    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-md);
+  }
+
+  .work-experience-article-summary {
+    list-style: none;
+    position: relative;
+    cursor: pointer;
   }
 
   .work-experience-article-title {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    margin: 0 0 var(--spacing-sm);
+    margin: 0;
     color: var(--primary-text-color);
-    font-family: var(--merriweather);
-    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .work-experience-article-company {
+    font-size: 1.5rem;
+    font-family: var(--neue-regrade);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .work-experience-article-time {
+    color: var(--secondary-text-color);
+    font-family: var(--neue-regrade);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .work-experience-article-summary-chevron {
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-text-color);
+
+    .work-experience-article[open] & {
+      transform: translateY(-50%) rotate(180deg);
+    }
   }
 </style>
 
 <details class="work-experience-article" open={index === 1}>
-  <summary>
+  <summary class="work-experience-article-summary">
     <h3 class="work-experience-article-title">
-      {workExperienceItem.data.title}
+      {title}
     </h3>
+    <p class="work-experience-article-company">{company}</p>
+    <p class="work-experience-article-time">{time}</p>
+    <Icon class="work-experience-article-summary-chevron" url="/chevron.svg" />
   </summary>
   <Content />
 </details>
