@@ -14,10 +14,16 @@ import { Content } from '../../mds/AboutMe.md';
   }
 
   .title {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 700;
     line-height: 0.9;
     margin: 0;
+  }
+
+  @media (min-width: #{$breakpoint-xsm}) {
+    .title {
+      font-size: 3.5rem;
+    }
   }
 
   @media (min-width: #{$breakpoint-sm}) {
