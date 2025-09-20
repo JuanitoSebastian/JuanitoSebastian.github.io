@@ -1,19 +1,6 @@
 import { glob, file } from 'astro/loaders';
 import { z, defineCollection } from 'astro:content';
 
-const blog = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.mdx', base: './content/blog' }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      date: z.date(),
-      description: z.string(),
-      mainImage: image(),
-      mainImageAlt: z.string(),
-      keywords: z.array(z.string()),
-    }),
-});
-
 const workExperience = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './content/work-experience' }),
   schema: () =>
@@ -54,7 +41,6 @@ const socials = defineCollection({
 });
 
 export const collections = {
-  blog,
   workExperience,
   principles,
   skills,
