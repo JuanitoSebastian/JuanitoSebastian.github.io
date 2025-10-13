@@ -14,7 +14,7 @@
     "stylelint": "stylelint \"**/*.{css,scss,astro}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss,astro}\" --fix",
     "prettier": "prettier --check '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
-    "prettify": "prettier --write '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
+    "prettier:fix": "prettier --write '**/*.{astro,md,mdx,js,jsx,ts,tsx,json}'",
     "astro:disable-toolbar": "astro preferences disable devToolbar"
   },
   "dependencies": {
