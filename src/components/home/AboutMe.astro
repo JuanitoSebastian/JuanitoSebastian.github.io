@@ -1,5 +1,9 @@
 ---
-import { Content } from '../../mds/AboutMe.md';
+import { getCollection, render } from 'astro:content';
+
+const aboutMeCollection = await getCollection('aboutMe');
+const aboutMeEntry = aboutMeCollection[0];
+const { Content } = await render(aboutMeEntry);
 ---
 
 <style lang="scss">
@@ -17,7 +21,11 @@ import { Content } from '../../mds/AboutMe.md';
     font-size: 3.2rem;
     font-weight: 700;
     line-height: 0.9;
-    margin: 0;
+    margin: var(--spacing-md) 0;
+  }
+
+  .about-me-content {
+    max-width: 680px;
   }
 
   @media (min-width: #{$breakpoint-xsm}) {
@@ -41,5 +49,7 @@ import { Content } from '../../mds/AboutMe.md';
       Covarrubias
     </h1>
   </section>
-  <Content />
+  <div class="about-me-content">
+    <Content />
+  </div>
 </article>

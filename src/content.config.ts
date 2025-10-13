@@ -40,9 +40,15 @@ const socials = defineCollection({
     }),
 });
 
+const aboutMe = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: './content/aboutMe' }),
+  schema: () => z.object({}),
+});
+
 export const collections = {
   workExperience,
   principles,
   skills,
   socials,
+  aboutMe,
 };
