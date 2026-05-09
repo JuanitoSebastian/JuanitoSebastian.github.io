@@ -1,13 +1,13 @@
 /* stylelint-disable color-no-hex */
 
 @mixin light-colors {
-  --bg-color: #fffdf9;
+  --bg-color: #f8f5ee;
   --text-color: #222;
   --secondary-text-color: #666;
   --blurry-circle-blue: #dce4ed;
   --blurry-circle-green: #d5f1d5;
   --mesh-filter: none;
-  --backdrop-bg-color: #fbf8ea;
+  --backdrop-bg-color: #f2eada;
   --backdrop-gradient-green-1: #9fd19f;
   --backdrop-gradient-green-2: #6ebfa0;
   --backdrop-gradient-blue: #a1d0ed;
@@ -16,7 +16,7 @@
 }
 
 @mixin dark-colors {
-  --bg-color: #141417;
+  --bg-color: #181320;
   --text-color: #fff;
   --secondary-text-color: #ccc;
   --blurry-circle-blue: #465c89;

@@ -4,19 +4,43 @@
     "skills": {
       "type": "object",
       "properties": {
-        "title": {
+        "id": {
           "type": "string"
         },
-        "iconUrl": {
+        "skillListTitle": {
           "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "iconUrl": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "iconUrl"
+            ],
+            "additionalProperties": false
+          }
         },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title",
-        "iconUrl"
+        "id",
+        "skillListTitle",
+        "skills"
       ],
       "additionalProperties": false
     }

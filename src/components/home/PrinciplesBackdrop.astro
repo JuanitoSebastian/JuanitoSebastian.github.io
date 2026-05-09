@@ -1,0 +1,62 @@
+---
+import SkillsList from './SkillsList.astro';
+---
+
+<style lang="scss">
+  @import '../../styles/variables';
+
+  .principles-backdrop {
+    padding: var(--spacing-xxxlg) 0 var(--spacing-xxxxlg);
+    width: 100%;
+    position: relative;
+    background-image: var(--backdrop-gradient-1);
+    background-color: var(--backdrop-bg-color);
+    margin: 0 0 calc(var(--spacing-xxlg) * -1) 0;
+
+    .backdrop-content {
+      grid-row: 1;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: var(--spacing-xxlg);
+      align-items: flex-start;
+      max-width: var(--main-width);
+      width: calc(100% - 2 * var(--spacing-md));
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .how-i-work-section-title {
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-text-color);
+  }
+
+  .how-i-work-section-title strong {
+    transform: scaleX(1.3);
+    display: inline-block;
+    transform-origin: center;
+    transform-box: fill-box;
+    margin: 0 1rem;
+  }
+
+  .principles-container {
+    display: grid;
+    gap: var(--spacing-xlg);
+    grid-template-columns: 1fr;
+  }
+</style>
+
+<div class="principles-backdrop">
+  <div class="backdrop-content">
+    <h2 class="how-i-work-section-title">
+      So, <strong>how</strong> do I do things?
+    </h2>
+    <div class="principles-container">
+      <SkillsList />
+    </div>
+  </div>
+</div>

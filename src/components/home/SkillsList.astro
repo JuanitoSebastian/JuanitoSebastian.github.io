@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Icon from '../Icon.astro';
-const skills = await getCollection('skills');
+const skillLists = await getCollection('skills');
 ---
 
 <style lang="scss">
@@ -18,10 +18,9 @@ const skills = await getCollection('skills');
 
   .skill-list-title {
     margin: 0 0 var(--spacing-md);
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
     font-style: oblique;
     color: var(--primary-text-color);
   }
@@ -66,16 +65,18 @@ const skills = await getCollection('skills');
   }
 </style>
 
-<div class="skill-list-container">
-  <h3 class="skill-list-title">Some of the tech I've worked with</h3>
-  <ul class="skills-list">
-    {
-      skills.map((skill) => (
-        <li class="skill-item">
-          <Icon url={skill.data.iconUrl} class="skill-icon" />
-          <p class="skill-title">{skill.data.title}</p>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+{
+  skillLists.map((skillList) => (
+    <div class="skill-list-container">
+      <h3 class="skill-list-title">{skillList.data.skillListTitle}</h3>
+      <ul class="skills-list">
+        {skillList.data.skills.map((skill) => (
+          <li class="skill-item">
+            <Icon url={skill.iconUrl} class="skill-icon" />
+            <p class="skill-title">{skill.title}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))
+}

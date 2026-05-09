@@ -25,8 +25,15 @@ const skills = defineCollection({
   loader: file('./content/skills.json'),
   schema: () =>
     z.object({
-      title: z.string(),
-      iconUrl: z.string(),
+      id: z.string(),
+      skillListTitle: z.string(),
+      skills: z.array(
+        z.object({
+          id: z.string(),
+          title: z.string(),
+          iconUrl: z.string(),
+        })
+      ),
     }),
 });
 

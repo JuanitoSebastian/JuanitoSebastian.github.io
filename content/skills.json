@@ -1,57 +1,105 @@
 [
   {
-    "id": "react",
-    "title": "React",
-    "iconUrl": "/skill-icons/react.svg"
+    "id": "front-end",
+    "skillListTitle": "Front-end",
+    "skills": [
+      {
+        "id": "react",
+        "title": "React",
+        "iconUrl": "/skill-icons/react.svg"
+      },
+      {
+        "id": "typescript",
+        "title": "TypeScript",
+        "iconUrl": "/skill-icons/ts.svg"
+      },
+      {
+        "id": "astro",
+        "title": "Astro",
+        "iconUrl": "/skill-icons/astro.svg"
+      },
+      {
+        "id": "sass",
+        "title": "Sass",
+        "iconUrl": "/skill-icons/sass.svg"
+      },
+      {
+        "id": "redux",
+        "title": "Redux",
+        "iconUrl": "/skill-icons/redux.svg"
+      },
+      {
+        "id": "react-router",
+        "title": "React Router",
+        "iconUrl": "/skill-icons/react-router.svg"
+      },
+      {
+        "id": "storybook",
+        "title": "Storybook",
+        "iconUrl": "/skill-icons/storybook.svg"
+      },
+      {
+        "id": "figma",
+        "title": "Figma",
+        "iconUrl": "/skill-icons/figma.svg"
+      },
+      {
+        "id": "swift",
+        "title": "Swift",
+        "iconUrl": "/skill-icons/swift.svg"
+      }
+    ]
   },
   {
-    "id": "typescript",
-    "title": "TypeScript",
-    "iconUrl": "/skill-icons/ts.svg"
+    "id": "back-end",
+    "skillListTitle": "Back-end",
+    "skills": [
+      {
+        "id": "fast-api",
+        "title": "Fast API",
+        "iconUrl": "/skill-icons/fast-api.svg"
+      },
+      {
+        "id": "nodejs",
+        "title": "Node.js",
+        "iconUrl": "/skill-icons/nodejs.svg"
+      },
+      {
+        "id": "express",
+        "title": "Express",
+        "iconUrl": "/skill-icons/express.svg"
+      },
+      {
+        "id": "python",
+        "title": "Python",
+        "iconUrl": "/skill-icons/python.svg"
+      }
+    ]
   },
   {
-    "id": "nodejs",
-    "title": "Node.js",
-    "iconUrl": "/skill-icons/nodejs.svg"
-  },
-  {
-    "id": "express",
-    "title": "Express",
-    "iconUrl": "/skill-icons/express.svg"
-  },
-  {
-    "id": "astro",
-    "title": "Astro",
-    "iconUrl": "/skill-icons/astro.svg"
-  },
-  {
-    "id": "sass",
-    "title": "Sass",
-    "iconUrl": "/skill-icons/sass.svg"
-  },
-  {
-    "id": "redux",
-    "title": "Redux",
-    "iconUrl": "/skill-icons/redux.svg"
-  },
-  {
-    "id": "react-router",
-    "title": "React Router",
-    "iconUrl": "/skill-icons/react-router.svg"
-  },
-  {
-    "id": "storybook",
-    "title": "Storybook",
-    "iconUrl": "/skill-icons/storybook.svg"
-  },
-  {
-    "id": "figma",
-    "title": "Figma",
-    "iconUrl": "/skill-icons/figma.svg"
-  },
-  {
-    "id": "swift",
-    "title": "Swift",
-    "iconUrl": "/skill-icons/swift.svg"
+    "id": "ai",
+    "skillListTitle": "AI",
+    "skills": [
+      {
+        "id": "langchain",
+        "title": "LangChain",
+        "iconUrl": "/skill-icons/langchain.svg"
+      },
+      {
+        "id": "langfuse",
+        "title": "Langfuse",
+        "iconUrl": "/skill-icons/langfuse.svg"
+      },
+      {
+        "id": "vertexai",
+        "title": "VertexAI",
+        "iconUrl": "/skill-icons/vertexai.svg"
+      },
+      {
+        "id": "openai",
+        "title": "OpenAI",
+        "iconUrl": "/skill-icons/openai.svg"
+      }
+    ]
   }
 ]
